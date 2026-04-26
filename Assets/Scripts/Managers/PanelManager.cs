@@ -23,6 +23,8 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private CanvasGroup m_fadeImageCanvasGroup;
 
     private PanelState m_panelState;
+    public PanelState GetPanelState { get => m_panelState; }
+    
     
     // --------------------------------------------
     //               INITIALIZATION

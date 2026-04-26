@@ -437,6 +437,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &1097294193 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7901589863753930279, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+  m_PrefabInstance: {fileID: 7304251508492286187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1551977867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4694956209670614385, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
+  m_PrefabInstance: {fileID: 7887985687102521448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de09d0d01f314ac409f87d918563ff19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1756715687
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +641,30 @@ PrefabInstance:
     - target: {fileID: 1275264784625833038, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620643320782937834, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620643320782937834, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620643320782937834, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1551977867}
+    - target: {fileID: 1620643320782937834, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSliderValueChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620643320782937834, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VideoManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620643320782937834, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1714457850859867425, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -815,6 +855,10 @@ PrefabInstance:
       propertyPath: m_videoSlider
       value: 
       objectReference: {fileID: 672064908}
+    - target: {fileID: 4694956209670614385, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
+      propertyPath: m_controlsCanvasGroup
+      value: 
+      objectReference: {fileID: 1097294193}
     - target: {fileID: 9000072453049203636, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
       propertyPath: m_Name
       value: VideoManager

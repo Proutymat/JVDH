@@ -9,19 +9,23 @@ public class VideoManager : MonoBehaviour
     private static VideoManager m_instance;
     public static VideoManager Instance => m_instance;
 
-    [SerializeField] private float m_autoHideDuration = 2f;
+    [Header("Parameters")]
+    [SerializeField] private float m_autoHideDuration;
 
     [Header("Set in Inspector")]
     [SerializeField] private RenderTexture m_renderTexture;
     [SerializeField] private VideoPlayer m_videoPlayer;
     [SerializeField] private VideoClip m_menuClip;
     [SerializeField] private VideoClip m_startClip;
+    [SerializeField] private CanvasGroup m_controlsCanvasGroup;
     [SerializeField] private Slider m_videoSlider;
     
     private bool m_isDragging;
     private bool m_isSeeking;
     private double m_targetSeekTime;
     private float m_autoHideTimer;
+    private Vector2 m_lastMousePosition;
+    private bool m_controlsVisible;
     
     
     // --------------------------------------------
@@ -43,6 +47,10 @@ public class VideoManager : MonoBehaviour
     public void Initialize()
     {
         PlayClip(m_menuClip, true);
+        m_autoHideTimer = 0;
+        m_controlsVisible = false;
+        m_isDragging = false;
+        m_isSeeking = false;
     }
     
     
@@ -95,6 +103,7 @@ public class VideoManager : MonoBehaviour
     public void StartGame()
     {
         PlayClip(m_startClip, false);
+        HideControls();
     }
 
     public void MainMenu()
@@ -105,6 +114,8 @@ public class VideoManager : MonoBehaviour
     public void OnSliderPointerDown()
     {
         m_isDragging = true;
+        ShowControls();
+        m_autoHideTimer = 0f;
     }
     
     public void OnSliderPointerUp()
@@ -118,6 +129,8 @@ public class VideoManager : MonoBehaviour
         
         m_targetSeekTime = targetTime;
         m_videoPlayer.time = targetTime;
+        
+        m_autoHideTimer = 0f;
     }
     
     public void OnSliderValueChanged(float value)
@@ -127,6 +140,53 @@ public class VideoManager : MonoBehaviour
         m_videoPlayer.time = value * m_videoPlayer.length;
     }
 
+    private void ShowControls()
+    {
+        if (m_controlsVisible) return;
+
+        m_controlsVisible = true;
+        m_controlsCanvasGroup.alpha = 1f;
+        m_controlsCanvasGroup.blocksRaycasts = true;
+        m_controlsCanvasGroup.interactable = true;
+        
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void HideControls()
+    {
+        if (!m_controlsVisible) return;
+
+        m_controlsVisible = false;
+        m_controlsCanvasGroup.alpha = 0f;
+        m_controlsCanvasGroup.blocksRaycasts = false;
+        m_controlsCanvasGroup.interactable = false;
+        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+    
+    private void HandleAutoHide()
+    {
+        Vector2 currentMousePos = Mouse.current.position.ReadValue();
+
+        if (currentMousePos != m_lastMousePosition)
+        {
+            m_lastMousePosition = currentMousePos;
+            m_autoHideTimer = 0f;
+            ShowControls();
+        }
+
+        if (m_isDragging) return;
+
+        m_autoHideTimer += Time.deltaTime;
+
+        if (m_autoHideTimer >= m_autoHideDuration)
+        {
+            HideControls();
+        }
+    }
+    
     private void HandleKeyboardInputs()
     {
         // Spacebar
@@ -147,10 +207,13 @@ public class VideoManager : MonoBehaviour
     {
         if (m_videoPlayer.clip == null) return;
 
-        HandleKeyboardInputs();
+        if (PanelManager.Instance.GetPanelState == PanelManager.PanelState.Game) HandleKeyboardInputs();
+        
+        HandleAutoHide();
         
         if (m_isDragging) return;
 
+        // Do not update the slider if it's being dragged
         if (m_isSeeking)
         {
             if (Mathf.Abs((float)(m_videoPlayer.time - m_targetSeekTime)) < 0.1f)
@@ -160,6 +223,7 @@ public class VideoManager : MonoBehaviour
             return;
         }
 
+        // Update slider
         if (m_videoPlayer.length > 0)
         {
             m_videoSlider.value = (float)(m_videoPlayer.time / m_videoPlayer.length);
