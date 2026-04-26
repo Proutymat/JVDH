@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dc482cb58593e499fb3266aa367a69, type: 3}
   m_Name: HoveredButtonColor
   m_EditorClassIdentifier: 
-  m_color: {r: 0.9647059, g: 0, b: 0, a: 1}
+  m_color: {r: 0.9882353, g: 0.95686275, b: 0.015686275, a: 1}

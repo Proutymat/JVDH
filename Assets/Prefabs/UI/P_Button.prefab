@@ -195,7 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d4a888917c38a48aaa0bb744b00f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_hoverAnimDuration: 0.2
   m_normalColor: {fileID: 11400000, guid: c648f7cbbc12a0841b13f382b03315ba, type: 2}
   m_hoveredColor: {fileID: 11400000, guid: 3a86599453d1a734d9832bb810e64c56, type: 2}
   m_text: {fileID: 1813894808087897411}
-  m_buttonObject: {fileID: 1823566534579494108}
+  m_buttonRect: {fileID: 6644526562172968339}
+  m_hoverBackgroundRect: {fileID: 0}

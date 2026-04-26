@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using DG.Tweening;
 
 public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -12,19 +12,24 @@ public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         Hovered,
         Clicked
     }
+
+    [Header("Parameters")] 
+    [SerializeField] private float m_hoverAnimDuration;
     
     [Header("Set in inspector")]
     [SerializeField] private ColorVariable m_normalColor;
     [SerializeField] private ColorVariable m_hoveredColor;
     [SerializeField] private TMP_Text m_text;
-    [SerializeField] private GameObject m_buttonObject;
+    [SerializeField] private RectTransform  m_buttonRect;
+    [SerializeField] private RectTransform m_hoverBackgroundRect;
 
     private ButtonState m_state;
 
 
-    private void Start()
+    private void Awake()
     {
-        SetState(ButtonState.Normal);
+        m_text.color = m_normalColor.Color;
+        m_hoverBackgroundRect.transform.DOScaleX(0f, 0f);
     }
 
     private void SetState(ButtonState state)
@@ -34,16 +39,26 @@ public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (state == ButtonState.Normal)
         {
             m_text.color = m_normalColor.Color;
+            m_hoverBackgroundRect.transform.DOScaleX(0f, m_hoverAnimDuration);
         }
         else if (state == ButtonState.Hovered)
         {
             m_text.color = m_hoveredColor.Color;
+            AlignBackground();
+            m_hoverBackgroundRect.transform.DOScaleX(1f, m_hoverAnimDuration);
         }
+    }
+    
+    private void AlignBackground()
+    {
+        Vector3 pos = m_hoverBackgroundRect.position;
+        pos.y = m_buttonRect.position.y;
+        m_hoverBackgroundRect.position = pos;
+        m_hoverBackgroundRect.pivot = new Vector2(0f, 0.5f);
     }
     
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("COUCOU");
         SetState(ButtonState.Hovered);
     }
 
