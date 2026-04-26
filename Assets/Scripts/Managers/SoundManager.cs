@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     
     [Header("Set in Inspector")]
     [SerializeField] private AudioSource m_musicSource;
+    [SerializeField] private AudioSource m_clicSource;
     [SerializeField] private AudioClip m_menuMusic;
     
     
@@ -37,12 +38,17 @@ public class SoundManager : MonoBehaviour
     //                  FUNCTIONS
     // --------------------------------------------
     
-    public void PlayMenuMusic()
+    public void PlayClicSound()
     {
-        PlayMusic(m_menuMusic);
+        m_clicSource.Play();
     }
     
-    private void PlayMusic(AudioClip clip)
+    public void PlayMenuMusic()
+    {
+        PlayMusic(m_menuMusic, true);
+    }
+    
+    private void PlayMusic(AudioClip clip, bool loop)
     {
         if (clip == null) return;
 
@@ -56,7 +62,7 @@ public class SoundManager : MonoBehaviour
         m_musicSource.DOFade(0f, GameManager.Instance.FadeDuration).OnComplete(() =>
         {
             m_musicSource.clip = clip;
-            m_musicSource.loop = true;
+            m_musicSource.loop = loop;
             m_musicSource.Play();
             
             m_musicSource.DOFade(1f, GameManager.Instance.FadeDuration);

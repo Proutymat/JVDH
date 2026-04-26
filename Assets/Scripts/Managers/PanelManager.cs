@@ -46,7 +46,6 @@ public class PanelManager : MonoBehaviour
         m_gamePanel.SetActive(false);
         m_pausePanel.SetActive(false);
         m_fadeImageCanvasGroup.alpha = 1;
-        m_fadeImageCanvasGroup.DOFade(0f, 3f);
     }
     
     
@@ -59,6 +58,8 @@ public class PanelManager : MonoBehaviour
         Sequence anim = DOTween.Sequence();
         
         anim.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration)); // Fade in
+        
+        anim.AppendInterval(m_fadeBlackDuration);
         
         // Switch panel
         anim.AppendCallback(() =>
@@ -77,8 +78,6 @@ public class PanelManager : MonoBehaviour
             }
         });
         
-        anim.AppendInterval(m_fadeBlackDuration);
-        anim.Append(m_fadeImageCanvasGroup.DOFade(0f, GameManager.Instance.FadeDuration)); // Fade out
         anim.OnComplete(() =>
         {
             if (state == PanelState.Game)
@@ -86,5 +85,10 @@ public class PanelManager : MonoBehaviour
                 VideoManager.Instance.StartGame();
             }
         });
+    }
+
+    public void ShowPanel()
+    {
+        m_fadeImageCanvasGroup.alpha = 0;
     }
 }

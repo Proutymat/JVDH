@@ -1,4 +1,7 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class VideoManager : MonoBehaviour
@@ -6,11 +9,19 @@ public class VideoManager : MonoBehaviour
     private static VideoManager m_instance;
     public static VideoManager Instance => m_instance;
 
-    [Header("Set in Inspector")] [SerializeField]
-    private RenderTexture m_renderTexture;
+    [SerializeField] private float m_autoHideDuration = 2f;
+
+    [Header("Set in Inspector")]
+    [SerializeField] private RenderTexture m_renderTexture;
     [SerializeField] private VideoPlayer m_videoPlayer;
     [SerializeField] private VideoClip m_menuClip;
     [SerializeField] private VideoClip m_startClip;
+    [SerializeField] private Slider m_videoSlider;
+    
+    private bool m_isDragging;
+    private bool m_isSeeking;
+    private double m_targetSeekTime;
+    private float m_autoHideTimer;
     
     
     // --------------------------------------------
@@ -46,7 +57,15 @@ public class VideoManager : MonoBehaviour
         m_videoPlayer.Stop();
         m_videoPlayer.clip = clip;
         m_videoPlayer.isLooping = loop;
-        m_videoPlayer.Play();
+        m_videoPlayer.Prepare();
+        m_videoPlayer.prepareCompleted += OnPrepared;
+    }
+    
+    private void OnPrepared(VideoPlayer vp)
+    {
+        vp.prepareCompleted -= OnPrepared;
+        vp.Play();
+        PanelManager.Instance.ShowPanel();
     }
 
     public void Stop()
@@ -81,5 +100,69 @@ public class VideoManager : MonoBehaviour
     public void MainMenu()
     {
         PlayClip(m_menuClip, true);
+    }
+    
+    public void OnSliderPointerDown()
+    {
+        m_isDragging = true;
+    }
+    
+    public void OnSliderPointerUp()
+    {
+        if (m_videoPlayer.clip == null) return;
+
+        double targetTime = m_videoSlider.value * m_videoPlayer.length;
+
+        m_isDragging = false;
+        m_isSeeking = true;
+        
+        m_targetSeekTime = targetTime;
+        m_videoPlayer.time = targetTime;
+    }
+    
+    public void OnSliderValueChanged(float value)
+    {
+        if (!m_isDragging) return;
+
+        m_videoPlayer.time = value * m_videoPlayer.length;
+    }
+
+    private void HandleKeyboardInputs()
+    {
+        // Spacebar
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            if (m_videoPlayer.isPaused)
+            {
+                Play();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (m_videoPlayer.clip == null) return;
+
+        HandleKeyboardInputs();
+        
+        if (m_isDragging) return;
+
+        if (m_isSeeking)
+        {
+            if (Mathf.Abs((float)(m_videoPlayer.time - m_targetSeekTime)) < 0.1f)
+            {
+                m_isSeeking = false;
+            }
+            return;
+        }
+
+        if (m_videoPlayer.length > 0)
+        {
+            m_videoSlider.value = (float)(m_videoPlayer.time / m_videoPlayer.length);
+        }
     }
 }

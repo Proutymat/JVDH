@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         }
 
         m_instance = this;
+        VideoManager.Instance.Initialize();
     }
 
     private void Start()
@@ -33,9 +34,9 @@ public class GameManager : MonoBehaviour
     
     public void Initialize()
     {
+        VideoManager.Instance.Initialize();
         PanelManager.Instance.Initialize();
         SoundManager.Instance.Initialize();
-        VideoManager.Instance.Initialize();
     }
     
     
