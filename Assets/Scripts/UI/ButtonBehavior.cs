@@ -17,11 +17,13 @@ public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField] private float m_hoverAnimDuration;
     
     [Header("Set in inspector")]
+    [SerializeField] private AudioSource m_audioSource;
     [SerializeField] private ColorVariable m_normalColor;
     [SerializeField] private ColorVariable m_hoveredColor;
     [SerializeField] private TMP_Text m_text;
     [SerializeField] private RectTransform  m_buttonRect;
     [SerializeField] private RectTransform m_hoverBackgroundRect;
+    
 
     private ButtonState m_state;
 
@@ -60,6 +62,7 @@ public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerEnter(PointerEventData eventData)
     {
         SetState(ButtonState.Hovered);
+        m_audioSource.Play();
     }
 
     public void OnPointerExit(PointerEventData eventData)

@@ -6,9 +6,6 @@ public class SoundManager : MonoBehaviour
     private static SoundManager m_instance;
     public static SoundManager Instance => m_instance;
     
-    [Header("Parameters")]
-    [SerializeField] private float m_fadeDuration = 0.5f;
-    
     [Header("Set in Inspector")]
     [SerializeField] private AudioSource m_musicSource;
     [SerializeField] private AudioClip m_menuMusic;
@@ -56,13 +53,13 @@ public class SoundManager : MonoBehaviour
         // Fade out then fade in
         m_musicSource.DOKill();
 
-        m_musicSource.DOFade(0f, m_fadeDuration).OnComplete(() =>
+        m_musicSource.DOFade(0f, GameManager.Instance.FadeDuration).OnComplete(() =>
         {
             m_musicSource.clip = clip;
             m_musicSource.loop = true;
             m_musicSource.Play();
             
-            m_musicSource.DOFade(1f, m_fadeDuration);
+            m_musicSource.DOFade(1f, GameManager.Instance.FadeDuration);
         });
     }
     
@@ -70,7 +67,7 @@ public class SoundManager : MonoBehaviour
     {
         m_musicSource.DOKill();
 
-        m_musicSource.DOFade(0f, m_fadeDuration).OnComplete(() =>
+        m_musicSource.DOFade(0f, GameManager.Instance.FadeDuration).OnComplete(() =>
         {
             m_musicSource.Stop();
             m_musicSource.clip = null;

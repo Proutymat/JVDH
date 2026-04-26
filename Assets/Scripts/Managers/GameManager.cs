@@ -5,6 +5,10 @@ public class GameManager : MonoBehaviour
     private static GameManager m_instance;
     public static GameManager Instance => m_instance;
     
+    [Header("Parameters")]
+    [SerializeField] private float m_fadeDuration = 0.5f;
+
+    public float FadeDuration { get => m_fadeDuration; }
     
     // --------------------------------------------
     //               INITIALIZATION
@@ -31,6 +35,7 @@ public class GameManager : MonoBehaviour
     {
         PanelManager.Instance.Initialize();
         SoundManager.Instance.Initialize();
+        VideoManager.Instance.Initialize();
     }
     
     
@@ -48,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         PanelManager.Instance.SetPanel(PanelManager.PanelState.Main);
         SoundManager.Instance.PlayMenuMusic();
+        VideoManager.Instance.MainMenu();
     }
     
 }

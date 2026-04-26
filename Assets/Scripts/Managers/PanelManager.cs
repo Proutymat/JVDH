@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class PanelManager : MonoBehaviour
@@ -11,10 +12,15 @@ public class PanelManager : MonoBehaviour
     
     private static PanelManager m_instance;
     public static PanelManager Instance => m_instance;
+
+    [Header("Parameters")] [SerializeField]
+    private float m_fadeBlackDuration = 1f;
     
+    [Header("Set in Inspector")]
     [SerializeField] private GameObject m_mainPanel;
     [SerializeField] private GameObject m_gamePanel;
     [SerializeField] private GameObject m_pausePanel;
+    [SerializeField] private CanvasGroup m_fadeImageCanvasGroup;
 
     private PanelState m_panelState;
     
@@ -36,7 +42,11 @@ public class PanelManager : MonoBehaviour
 
     public void Initialize()
     {
-        SetPanel(PanelState.Main);
+        m_mainPanel.SetActive(true);
+        m_gamePanel.SetActive(false);
+        m_pausePanel.SetActive(false);
+        m_fadeImageCanvasGroup.alpha = 1;
+        m_fadeImageCanvasGroup.DOFade(0f, 3f);
     }
     
     
@@ -46,10 +56,35 @@ public class PanelManager : MonoBehaviour
 
     public void SetPanel(PanelState state)
     {
-        m_mainPanel.SetActive(state == PanelState.Main);
-        m_gamePanel.SetActive(state == PanelState.Game);
-        m_pausePanel.SetActive(state == PanelState.Pause);
+        Sequence anim = DOTween.Sequence();
         
-        m_panelState = state;
+        anim.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration)); // Fade in
+        
+        // Switch panel
+        anim.AppendCallback(() =>
+        {
+            VideoManager.Instance.Stop();
+            
+            m_mainPanel.SetActive(state == PanelState.Main);
+            m_gamePanel.SetActive(state == PanelState.Game);
+            m_pausePanel.SetActive(state == PanelState.Pause);
+
+            m_panelState = state;
+
+            if (state == PanelState.Main)
+            {
+                VideoManager.Instance.MainMenu();
+            }
+        });
+        
+        anim.AppendInterval(m_fadeBlackDuration);
+        anim.Append(m_fadeImageCanvasGroup.DOFade(0f, GameManager.Instance.FadeDuration)); // Fade out
+        anim.OnComplete(() =>
+        {
+            if (state == PanelState.Game)
+            {
+                VideoManager.Instance.StartGame();
+            }
+        });
     }
 }
