@@ -60,7 +60,7 @@ public class VideoManager : MonoBehaviour
 
     private void PlayClip(VideoClip clip, bool loop)
     {
-        if (clip == null || clip != m_videoPlayer.clip) return;
+        if (clip == null) return;
 
         m_videoPlayer.Stop();
         m_videoPlayer.clip = clip;
@@ -73,7 +73,7 @@ public class VideoManager : MonoBehaviour
     {
         vp.prepareCompleted -= OnPrepared;
         vp.Play();
-        PanelManager.Instance.ShowPanel();
+        PanelManager.Instance.HideBlackScreen();
     }
 
     public void Stop()

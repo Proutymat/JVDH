@@ -164,7 +164,6 @@ MonoBehaviour:
   m_pausePanel: {fileID: 3243205550311076796}
   m_fadeImageCanvasGroup: {fileID: 4020690174687300212}
   m_creditsContainer: {fileID: 2437734706102643603}
-  m_creditsPosition: -4800
   m_creditsSpeed: 60
 --- !u!1 &3243205550311076796
 GameObject:
@@ -818,6 +817,10 @@ PrefabInstance:
     - target: {fileID: 1333085510124938185, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333085510124938185, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -5418
       objectReference: {fileID: 0}
     - target: {fileID: 1657372084782905500, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
       propertyPath: m_AnchorMax.y

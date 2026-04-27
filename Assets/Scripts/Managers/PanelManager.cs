@@ -30,7 +30,6 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private GameObject m_pausePanel;
     [SerializeField] private CanvasGroup m_fadeImageCanvasGroup;
     [SerializeField] private RectTransform m_creditsContainer;
-    [SerializeField] private float m_creditsPosition;
     [SerializeField] private float m_creditsSpeed;
 
 
@@ -69,7 +68,7 @@ public class PanelManager : MonoBehaviour
     //                  FUNCTIONS
     // --------------------------------------------
 
-    public void ShowPanel()
+    public void HideBlackScreen()
     {
         m_fadeImageCanvasGroup.alpha = 0;
     }
