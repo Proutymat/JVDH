@@ -155,10 +155,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fadeBlackDuration: 1.5
+  m_canvas: {fileID: 567055882503385976}
   m_mainPanel: {fileID: 4774187534019227372}
   m_optionsPanel: {fileID: 8428184499113544387}
   m_bonusPanel: {fileID: 2156288994481293086}
-  m_creditsPanel: {fileID: 7568881648365785013}
+  m_creditsPanel: {fileID: 6057654410296288780}
   m_gamePanel: {fileID: 832990472146461010}
   m_pausePanel: {fileID: 3243205550311076796}
   m_fadeImageCanvasGroup: {fileID: 4020690174687300212}
@@ -2073,9 +2074,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1333085510124938185, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
   m_PrefabInstance: {fileID: 3698723005003991130}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7568881648365785013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6511801781432141807, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
+--- !u!225 &6057654410296288780 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7441525958011383382, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
   m_PrefabInstance: {fileID: 3698723005003991130}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5742232555301497042

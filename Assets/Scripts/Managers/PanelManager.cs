@@ -21,10 +21,11 @@ public class PanelManager : MonoBehaviour
     private float m_fadeBlackDuration = 1f;
     
     [Header("Set in Inspector")]
+    [SerializeField] private Canvas m_canvas;
     [SerializeField] private GameObject m_mainPanel;
     [SerializeField] private GameObject m_optionsPanel;
     [SerializeField] private GameObject m_bonusPanel;
-    [SerializeField] private GameObject m_creditsPanel;
+    [SerializeField] private CanvasGroup m_creditsPanel;
     [SerializeField] private GameObject m_gamePanel;
     [SerializeField] private GameObject m_pausePanel;
     [SerializeField] private CanvasGroup m_fadeImageCanvasGroup;
@@ -58,7 +59,6 @@ public class PanelManager : MonoBehaviour
         m_mainPanel.SetActive(true);
         m_optionsPanel.SetActive(false);
         m_bonusPanel.SetActive(false);
-        m_creditsPanel.SetActive(false);
         m_gamePanel.SetActive(false);
         m_pausePanel.SetActive(false);
         m_fadeImageCanvasGroup.alpha = 1;
@@ -92,9 +92,10 @@ public class PanelManager : MonoBehaviour
                 m_mainPanel.SetActive(state == PanelState.Main);
                 m_optionsPanel.SetActive(state == PanelState.Options);
                 m_bonusPanel.SetActive(state == PanelState.Bonus);
-                m_creditsPanel.SetActive(state == PanelState.Credits);
+                m_creditsPanel.alpha = state == PanelState.Credits ? 1 : 0;
                 m_gamePanel.SetActive(state == PanelState.Game);
                 m_pausePanel.SetActive(state == PanelState.Pause);
+                
                 
                 if (state == PanelState.Main)
                 {
@@ -115,7 +116,7 @@ public class PanelManager : MonoBehaviour
             m_mainPanel.SetActive(state == PanelState.Main);
             m_optionsPanel.SetActive(state == PanelState.Options);
             m_bonusPanel.SetActive(state == PanelState.Bonus);
-            m_creditsPanel.SetActive(state == PanelState.Credits);
+            m_creditsPanel.alpha = state == PanelState.Credits ? 1 : 0;
             m_gamePanel.SetActive(state == PanelState.Game);
             m_pausePanel.SetActive(state == PanelState.Pause);
         }
@@ -142,11 +143,21 @@ public class PanelManager : MonoBehaviour
     public void ShowCreditsMenu()
     {
         SetPanel(PanelState.Credits, false);
+        
         /*
         // Set credits position
         Vector3 newPos = m_creditsContainer.transform.position;
         newPos.y = m_creditsPosition;
         m_creditsContainer.transform.position = newPos;*/
+        
+        float canvasHalfHeight = ((RectTransform)m_canvas.transform).rect.height * 0.5f;
+        float containerHalfHeight = m_creditsContainer.rect.height * 0.5f;
+
+        // Centre du container positionné juste sous le bord bas du canvas
+        m_creditsContainer.anchoredPosition = new Vector2(
+            m_creditsContainer.anchoredPosition.x,
+            -canvasHalfHeight - containerHalfHeight
+        );
     }
 
     private float GetCreditsHalfHeight()
@@ -159,12 +170,12 @@ public class PanelManager : MonoBehaviour
         // Credits roll
         if (m_panelState == PanelState.Credits)
         {
-            float speed = Mouse.current.leftButton.isPressed ? m_creditsSpeed * 10 : m_creditsSpeed;
+            float speed = Mouse.current.leftButton.isPressed ? m_creditsSpeed * 30 : m_creditsSpeed;
             m_creditsContainer.transform.position += Time.deltaTime * speed * Vector3.up;
             
             // Back to main menu if ended
             float topEdge = m_creditsContainer.transform.position.y - GetCreditsHalfHeight();
-            if (topEdge > Screen.height + 100)
+            if (topEdge > Screen.height + 50)
             {
                 GameManager.Instance.LoadMainMenu();
             }

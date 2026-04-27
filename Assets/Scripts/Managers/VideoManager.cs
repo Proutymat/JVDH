@@ -34,7 +34,7 @@ public class VideoManager : MonoBehaviour
     
     private void Awake()
     {
-        if (m_instance != null || m_instance != this)
+        if (m_instance != null && m_instance != this)
         {
             Debug.LogWarning("Multiple VideoManager instances in scene!");
             Destroy(gameObject);
@@ -60,7 +60,7 @@ public class VideoManager : MonoBehaviour
 
     private void PlayClip(VideoClip clip, bool loop)
     {
-        if (clip == null && clip != m_videoPlayer.clip) return;
+        if (clip == null || clip != m_videoPlayer.clip) return;
 
         m_videoPlayer.Stop();
         m_videoPlayer.clip = clip;
