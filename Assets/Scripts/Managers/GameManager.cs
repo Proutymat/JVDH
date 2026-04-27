@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
         }
 
         m_instance = this;
-        VideoManager.Instance.Initialize();
     }
 
     private void Start()
@@ -46,15 +45,31 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        PanelManager.Instance.SetPanel(PanelManager.PanelState.Game);
+        PanelManager.Instance.SetPanel(PanelManager.PanelState.Game, true);
         SoundManager.Instance.StopMusic();
     }
 
-    public void GoToMainMenu()
+    public void LoadMainMenu()
     {
-        PanelManager.Instance.SetPanel(PanelManager.PanelState.Main);
+        PanelManager.Instance.ShowMainMenu();
+        VideoManager.Instance.StartMainMenuClip();
         SoundManager.Instance.PlayMenuMusic();
-        VideoManager.Instance.MainMenu();
+    }
+
+    public void LoadOptionsMenu()
+    {
+        
+    }
+
+    public void LoadBonusMenu()
+    {
+        
+    }
+
+    public void LoadCreditsMenu()
+    {
+        PanelManager.Instance.ShowCreditsMenu();
+        SoundManager.Instance.PlayCreditMusic();
     }
     
 }

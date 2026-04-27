@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource m_musicSource;
     [SerializeField] private AudioSource m_clicSource;
     [SerializeField] private AudioClip m_menuMusic;
+    [SerializeField] private AudioClip m_creditMusic;
     
     
     // --------------------------------------------
@@ -46,6 +47,11 @@ public class SoundManager : MonoBehaviour
     public void PlayMenuMusic()
     {
         PlayMusic(m_menuMusic, true);
+    }
+
+    public void PlayCreditMusic()
+    {
+        PlayMusic(m_creditMusic, false);
     }
     
     private void PlayMusic(AudioClip clip, bool loop)

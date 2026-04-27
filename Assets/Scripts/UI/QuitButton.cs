@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class QuitButton : MonoBehaviour
 {
-    public void QuitApplication()
+    public void ClickButton()
     {
         SoundManager.Instance.PlayClicSound();
         

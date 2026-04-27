@@ -34,7 +34,7 @@ public class VideoManager : MonoBehaviour
     
     private void Awake()
     {
-        if (m_instance != null && m_instance != this)
+        if (m_instance != null || m_instance != this)
         {
             Debug.LogWarning("Multiple VideoManager instances in scene!");
             Destroy(gameObject);
@@ -60,7 +60,7 @@ public class VideoManager : MonoBehaviour
 
     private void PlayClip(VideoClip clip, bool loop)
     {
-        if (clip == null) return;
+        if (clip == null && clip != m_videoPlayer.clip) return;
 
         m_videoPlayer.Stop();
         m_videoPlayer.clip = clip;
@@ -106,7 +106,7 @@ public class VideoManager : MonoBehaviour
         HideControls();
     }
 
-    public void MainMenu()
+    public void StartMainMenuClip()
     {
         PlayClip(m_menuClip, true);
     }
@@ -206,9 +206,9 @@ public class VideoManager : MonoBehaviour
     private void Update()
     {
         if (m_videoPlayer.clip == null) return;
+        if (PanelManager.Instance.GetPanelState != PanelManager.PanelState.Game) return;
 
-        if (PanelManager.Instance.GetPanelState == PanelManager.PanelState.Game) HandleKeyboardInputs();
-        
+        HandleKeyboardInputs();
         HandleAutoHide();
         
         if (m_isDragging) return;

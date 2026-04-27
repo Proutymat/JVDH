@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayButton : MonoBehaviour
 {
-    public void StartGame()
+    public void ClickButton()
     {
-        GameManager.Instance.StartGame();
         SoundManager.Instance.PlayClicSound();
+        GameManager.Instance.StartGame();
     }
 }

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_musicSource: {fileID: 8664834086971971812}
   m_clicSource: {fileID: 97900609446660439}
   m_menuMusic: {fileID: 8300000, guid: fe83dad2eae8c4548a165b0b849508ab, type: 3}
+  m_creditMusic: {fileID: 8300000, guid: 87257eaa316ccab40b762d8ccf4ae11d, type: 3}
 --- !u!82 &8664834086971971812
 AudioSource:
   m_ObjectHideFlags: 0
