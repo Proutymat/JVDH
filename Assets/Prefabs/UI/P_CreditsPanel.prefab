@@ -356,8 +356,8 @@ MonoBehaviour:
   m_text: "Image\r\nMachinerie & lumi\xE8re\r\nSon\r\nR\xE9gie\r\nCatering\n\r\nConsommables
     et accessoires\n\nAssurances\r\nComptabilit\xE9"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -557,7 +557,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 2512.7}
+  m_SizeDelta: {x: 0, y: 2777.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7192886325372367032
 CanvasRenderer:
@@ -596,8 +596,8 @@ MonoBehaviour:
     & v\xE9g\xE9tarien)\n\nR\xE9alisation making-of\nAssistant\n\nMontage\n\n\nEffets
     Sp\xE9ciaux\n\nMixage son\n\nSuper assistant post-prod\n\nUn film produit par\n\nProducteurs\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -753,8 +753,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: FOURNISSEURS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -898,8 +898,8 @@ MonoBehaviour:
     BUSNEL\r\n\r\nNos pr\xE9cieuses familles...\r\nEt tout particuli\xE8rement Sarah,
     Paul, Samantha, Mah\xE9 et \xC9l\xE9a"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1037,8 +1037,8 @@ MonoBehaviour:
   m_text: "Sony & Gopro\r\nACC&LED\r\nDinosaurs sarl\r\nNestor Location\r\nLA CANTINE
     MOBILE\n(bio, local, v\xE9g\xE9tarien et hyper bon)\r\nNestor\r\nCartonland\r\nRubini\r\nEcia"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1194,8 +1194,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: En collaboration avec Studio Bagel et Canal +
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1512,7 +1512,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 2512.7}
+  m_SizeDelta: {x: 0, y: 2777.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6506999614406269002
 CanvasRenderer:
@@ -1553,8 +1553,8 @@ MonoBehaviour:
     DUFLO-TALIS\n\nBenoit BLANC\nMatthias GIRBIG\n\nBaptiste James ROYER\n\nMatthias
     GIRBIG\n\nLouis SINNAEVE\n\nOUPS Prod\n\nBenoit BLANC\nMatthias GIRBIG"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1984,8 +1984,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Benoit BLANC et Matthias GIRBIG
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2124,8 +2124,8 @@ MonoBehaviour:
 
     Fear & Ego'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3118,8 +3118,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xC9crit et r\xE9alis\xE9 par"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3257,8 +3257,8 @@ MonoBehaviour:
   m_text: "Jeu bas\xE9 sur la vid\xE9o\n\"LA VID\xC9O DONT VOUS \xCATES LE H\xC9RON\"
     par INERNET"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3531,8 +3531,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MUSIQUES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4364,8 +4364,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Benoit et Matthias sont habill\xE9s gracieusement par"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4504,8 +4504,8 @@ MonoBehaviour:
     Emmanuel BROUX, maire de Bouchevilliers.\nMathieu BAUER, Lazare BOGHOSSIAN, Sylvain
     CARTIGNY, Maxime EFCHAVOUR et la compagnie l'instant donn\xE9."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4641,8 +4641,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Avec le soutien du\nCentre national du cin\xE9ma et de l\u2019image anim\xE9e"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4884,7 +4884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -5242.9004}
+  m_AnchoredPosition: {x: 960, y: -5508.031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7659285712955841006
@@ -5131,8 +5131,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: AVEC
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5268,8 +5268,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Benoit et Matthias remercient chaleureusement
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5405,8 +5405,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "OUPS Prod est adh\xE9rent de la charte Ecoprod"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5511,7 +5511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -6012.0005}
+  m_AnchoredPosition: {x: 960, y: -6319.631}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2659534554448215752
@@ -5590,7 +5590,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 835}
+  m_SizeDelta: {x: 0, y: 920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3179401577566367903
 CanvasRenderer:
@@ -5662,8 +5662,8 @@ MonoBehaviour:
 
     Fear and Ego (instrumental)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5820,8 +5820,8 @@ MonoBehaviour:
   m_text: "Tous les cr\xE9dits cr\xE9atifs li\xE9s \xE0 l'oeuvre source reviennent
     \xE0 leurs auteurs respectifs."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5957,8 +5957,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OUPS Prod souhaite remercier
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6417,8 +6417,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OUPS PROD
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6792,7 +6792,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5377}
+  m_AnchoredPosition: {x: 0, y: -5767.87}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6568521189631390930
@@ -6870,7 +6870,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1166.1}
+  m_SizeDelta: {x: 0, y: 1331}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1410213158457218760
 CanvasRenderer:
@@ -7120,8 +7120,8 @@ MonoBehaviour:
     chalm-clement Eucalyptus Thomas Suiveng Oliver Hearn somalucard tom-badet85 shabakam
     lejoj Guillaume Berard ssstuart Outclazz Denis Huvelle fred2sky"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7260,8 +7260,8 @@ MonoBehaviour:
 
     Julien Shelter'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7659,7 +7659,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 99.7}
+  m_SizeDelta: {x: 0, y: 105.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3554841147556926656
 CanvasRenderer:
@@ -7704,8 +7704,8 @@ MonoBehaviour:
     Maxime Matthieu Cordon Thierry Henry Regis Moulure V\xE9ronique Foulkan Nicole
     Ganier Charl\xE9lie BESNARD - Hadrien Trouilleux -Le Sardinator (Thomas Besnard)"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8115,8 +8115,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Mat\xE9o AVVENTURIERO et Baptiste RUBERTE"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8296,7 +8296,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 835}
+  m_SizeDelta: {x: 0, y: 920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1258431751327625371
 CanvasRenderer:
@@ -8367,8 +8367,8 @@ MonoBehaviour:
 
     Julien Shelter'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8606,7 +8606,7 @@ GameObject:
   - component: {fileID: 6663163290468717389}
   - component: {fileID: 6044811706134850817}
   m_Layer: 0
-  m_Name: "OUPS Prod est adh\xE9rent de la charte Ecoprod (1)"
+  m_Name: OUPS Prod - 2023
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8661,8 +8661,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OUPS Prod - 2023
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8935,8 +8935,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "D\xE9veloppement par"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9072,8 +9072,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MUSIQUES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9178,7 +9178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -2568.35}
+  m_AnchoredPosition: {x: 960, y: -2700.915}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1367619052161898275
@@ -9288,8 +9288,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Produit de fa\xE7on \xE9coresponsable par\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9426,8 +9426,8 @@ MonoBehaviour:
   m_text: "Remerciements infinis \xE0 nos incroyables\ncontributrices et contributeurs
     ULULE et OKPAL sans qui ce film n'aurait pas exist\xE9"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9508,7 +9508,7 @@ GameObject:
   - component: {fileID: 6134605889918881375}
   - component: {fileID: 7447147170080637782}
   m_Layer: 0
-  m_Name: "OUPS Prod est adh\xE9rent de la charte Ecoprod (2)"
+  m_Name: "Num\xE9ro de visa exceptionnel : 2023002630 ISAN 0000-0005-C427"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9563,8 +9563,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Num\xE9ro de visa exceptionnel : 2023002630\nISAN 0000-0005-C427"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
