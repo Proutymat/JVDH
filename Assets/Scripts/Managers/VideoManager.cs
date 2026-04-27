@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -19,6 +20,7 @@ public class VideoManager : MonoBehaviour
     [SerializeField] private VideoClip m_startClip;
     [SerializeField] private CanvasGroup m_controlsCanvasGroup;
     [SerializeField] private Slider m_videoSlider;
+    [SerializeField] private TMP_Text m_subtitleText;
     
     private bool m_isDragging;
     private bool m_isSeeking;
@@ -26,6 +28,8 @@ public class VideoManager : MonoBehaviour
     private float m_autoHideTimer;
     private Vector2 m_lastMousePosition;
     private bool m_controlsVisible;
+
+    public VideoPlayer GetVideoPlayer { get => m_videoPlayer; }
     
     
     // --------------------------------------------
@@ -62,6 +66,8 @@ public class VideoManager : MonoBehaviour
     {
         if (clip == null) return;
 
+        SubtitleManager.Instance.SetSRTFile();
+        
         m_videoPlayer.Stop();
         m_videoPlayer.clip = clip;
         m_videoPlayer.isLooping = loop;
@@ -151,6 +157,8 @@ public class VideoManager : MonoBehaviour
         
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        m_subtitleText.alignment = TextAlignmentOptions.Top;
     }
 
     private void HideControls()
@@ -164,6 +172,8 @@ public class VideoManager : MonoBehaviour
         
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
+        
+        m_subtitleText.alignment = TextAlignmentOptions.Bottom;
     }
     
     private void HandleAutoHide()
