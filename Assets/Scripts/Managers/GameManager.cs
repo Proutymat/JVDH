@@ -49,16 +49,16 @@ public class GameManager : MonoBehaviour
         SoundManager.Instance.StopMusic();
     }
 
-    public void LoadMainMenu()
+    public void LoadMainMenu(bool loadBackVideo)
     {
         PanelManager.Instance.ShowMainMenu();
-        VideoManager.Instance.StartMainMenuClip();
         SoundManager.Instance.PlayMenuMusic();
+        if (loadBackVideo) VideoManager.Instance.StartMainMenuClip();
     }
 
     public void LoadOptionsMenu()
     {
-        
+        PanelManager.Instance.ShowOptionsMenu();
     }
 
     public void LoadBonusMenu()

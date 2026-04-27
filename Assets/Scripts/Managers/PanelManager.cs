@@ -176,7 +176,7 @@ public class PanelManager : MonoBehaviour
             float topEdge = m_creditsContainer.transform.position.y - GetCreditsHalfHeight();
             if (topEdge > Screen.height + 50)
             {
-                GameManager.Instance.LoadMainMenu();
+                GameManager.Instance.LoadMainMenu(false);
             }
         }
     }
