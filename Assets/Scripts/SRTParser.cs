@@ -91,7 +91,7 @@ public static class SRTParser
             });
         }
 
-        Debug.Log($"[SRTParser] {subtitles.Count} sous-titres valides chargés.");
+            Debug.Log($"[SRTParser] {subtitles.Count} sous-titres valides chargés.");
 
         return subtitles;
     }
