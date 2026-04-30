@@ -1,0 +1,294 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: CreditsTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 69b00f0ab92725e429a0276fceb7c804, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 49669472256
+    m_Localized: Developped by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 162659827712
+    m_Localized: "Mat\xE9o AVVENTURIERO and Baptiste RUBERTE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 229860966400
+    m_Localized: "Game based on the video\n\"LA VID\xC9O DONT VOUS \xCATES LE H\xC9RON\"
+      by INERNET"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 311037526016
+    m_Localized: MUSICS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387545825280
+    m_Localized: All creative credits for the source work are attributed to their
+      respective authors.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 526121435136
+    m_Localized: Written and directed by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 591426748416
+    m_Localized: Benoit BLANC and Matthias GIRBIG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 693910372352
+    m_Localized: Produced in an environmentally responsible manner by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 876870107136
+    m_Localized: WITH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 950001991680
+    m_Localized: 'The Heron
+
+      Matthias Girbig
+
+      Benoit Blanc
+
+      Death
+
+      The
+      Hunter
+
+      Donald
+
+      The Aunt
+
+      Cyprien
+
+      The Climate Skeptics
+
+
+      Francis
+      Bacon
+
+      Patrick
+
+      The Assistant Director.
+
+      The Voice-over
+
+
+      Director
+      of Photography
+
+      Assistant
+
+
+      First Assistant Director
+
+      Intern
+
+
+      Sound
+      Operators
+
+
+      Assistant
+
+
+      Production Managers
+
+
+
+      Set Designer
+      and Props Master
+
+
+      Stagiaire
+
+
+      Creator of the Heron
+
+
+      Costume
+      Designer
+
+      Assistant
+
+      Intern
+
+
+      General Manager
+
+      Intern
+
+
+      Catering
+
+      (Organic,
+      local & vegetarian)
+
+
+      Behind-the-Scenes
+
+      Assistant
+
+
+      Editing
+
+
+
+      Special
+      Effects
+
+
+      Sound mixing
+
+
+      Super assistant post-prod
+
+
+      A film
+      produced by
+
+
+      Producers
+
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2531531423744
+    m_Localized: "You\nMatthias GIRBIG\nBenoit BLANC\nMarie LANCHAS\nCl\xE9ment POTTIER\nDominique
+      THOMAS\nMarie DESGRANGES\nCyprien IOV\nPhilippe JOUAN, Fabrice BISSON,\nAnne
+      DUSSUTOUR, Manu CONSTANT\nDominique LANGLAIS\nJulien SCHMIDT\nH\xE9l\xE9na
+      COTINIER\nFr\xE9d\xE9ric RUIZ\n\nMatthieu BUIRETTE\nLouis SINNAEVE\n\nH\xE9l\xE9na
+      COTINIER\nLaura THEVOZ\n\nBastien LEFORT\nLouise LAGABBE (session 1)\nMatt\xE9o
+      DE MATTIA\n\nJulie MANOUKIAN\nAgathe BACHELLIER (session 1)\n\nMaud VIDAL\nOlivia
+      PICCOLO (session 1)\nSamuel TELLIER\n\nC\xE9cilia DELESTRE\n\nNolwenn CAUDAN\nLouis
+      CAUDAN\nAlexiane DE MELLO\n\nCl\xE9ment POTTIER\nCl\xE9ment DUVAL\n\nLA CANTINE
+      MOBILE\nB\xE9reng\xE8re TESS\xC9\n\nClara LIBERMAN\nThomas DUFLO-TALIS\n\nBenoit
+      BLANC\nMatthias GIRBIG\n\nBaptiste James ROYER\n\nMatthias GIRBIG\n\nLouis
+      SINNAEVE\n\nOUPS Prod\n\nBenoit BLANC\nMatthias GIRBIG"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2665040314368
+    m_Localized: "With the support of the\n\"Centre national du cin\xE9ma et de l\u2019image
+      anim\xE9e\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2973531373568
+    m_Localized: In collaboration with Studio Bagel and Canal +
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3059070009344
+    m_Localized: Benoit and Matthias are graciously dressed by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3225516769280
+    m_Localized: SUPPLIERS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3347659096064
+    m_Localized: 'Image
+
+      Grip & Lighting
+
+      Sound
+
+      Management
+
+      Catering
+
+
+      Consumables
+      & Accessories
+
+
+      Insurance
+
+      Accounting'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3504270213120
+    m_Localized: 'Sony & Gopro
+
+      ACC&LED
+
+      Dinosaurs sarl
+
+      Nestor
+      Location
+
+      LA CANTINE MOBILE
+
+      (organic, local, vegetarian and tasty)
+
+      Nestor
+
+      Cartonland
+
+      Rubini
+
+      Ecia'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3651687415808
+    m_Localized: MUSICS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3687259308032
+    m_Localized: OUPS Prod would like to thank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3815785365504
+    m_Localized: "Parc du Bocasse\nQuiz Room Paris Od\xE9on\n\nLyes BOUDECHICHE\nVictoria
+      LANGEARD\nGabriel HARDION\nGuillemette BERARD\nGabrielle BENCHETRIT\nMonsieur
+      Emmanuel BROUX, mayor of Bouchevilliers.\nMathieu BAUER, Lazare BOGHOSSIAN,
+      Sylvain CARTIGNY, Maxime EFCHAVOUR and the company instant donn\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4128864993280
+    m_Localized: Benoit and Matthias warmly thank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4323526836224
+    m_Localized: "The entire film crew for their commitment, generosity, patience,
+      and creativity.\nOur wonderful YouTube community, as loyal as an oyster leek.\nLaurent,
+      Benoit, and the Topito team for their warm welcome and their Post-its.\nCyprien
+      Iov for his generosity and loyalty, as well as Aur\xE9lie Dunand and Valentine
+      from P\xE9riple Prod.\nThe Ernoult family for their incomparable hospitality.\nCharlotte
+      Honinckk and Julien Girbig.\nPhilippe from Le Cigare \xE0 Moustache.\nThe irreplaceable
+      Max Blanc.\nBenjamin Busnel.\n\nOur precious families...\nAnd especially Sarah,
+      Paul, Samantha, Mah\xE9, and \xC9l\xE9a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4598459269120
+    m_Localized: 'Infinite thanks to our incredible
+
+      ULULE and OKPAL contributors,
+      without whom this film would not have existed'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4748246253568
+    m_Localized: OUPS Prod is a signatory of the Ecoprod charter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5054682103808
+    m_Localized: 'Exceptional visa number: 2023002630
+
+      ISAN 0000-0005-C427'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

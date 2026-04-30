@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     
     public void Initialize()
     {
+        SettingsManager.Instance.Initialize();
         VideoManager.Instance.Initialize();
         PanelManager.Instance.Initialize();
         SoundManager.Instance.Initialize();

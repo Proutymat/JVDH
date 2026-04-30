@@ -42,7 +42,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1823566534579494108, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
       propertyPath: m_Name
-      value: Back Variant
+      value: P_BackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229530066483483569, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 738466463744
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229530066483483569, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:d6e10c2e681a3294f8779da79cca5e1f
       objectReference: {fileID: 0}
     - target: {fileID: 6644526562172968339, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
       propertyPath: m_Pivot.x

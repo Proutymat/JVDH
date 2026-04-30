@@ -299,6 +299,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 2229530066483483569, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 111623536640
+      objectReference: {fileID: 0}
     - target: {fileID: 2318753167645004630, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
       propertyPath: m_hoveredBackground
       value: 
@@ -465,6 +469,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Credits
       objectReference: {fileID: 0}
+    - target: {fileID: 2229530066483483569, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 301478707200
+      objectReference: {fileID: 0}
     - target: {fileID: 2318753167645004630, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
       propertyPath: m_hoveredBackground
       value: 
@@ -627,6 +635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quit
       objectReference: {fileID: 0}
+    - target: {fileID: 2229530066483483569, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 371557138432
+      objectReference: {fileID: 0}
     - target: {fileID: 2318753167645004630, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
       propertyPath: m_hoveredBackground
       value: 
@@ -788,6 +800,10 @@ PrefabInstance:
     - target: {fileID: 1823566534579494108, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
       propertyPath: m_Name
       value: Options
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229530066483483569, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 181190262784
       objectReference: {fileID: 0}
     - target: {fileID: 2318753167645004630, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
       propertyPath: m_hoveredBackground
@@ -954,6 +970,10 @@ PrefabInstance:
     - target: {fileID: 1823566534579494108, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
       propertyPath: m_Name
       value: Bonus
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229530066483483569, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 259049127936
       objectReference: {fileID: 0}
     - target: {fileID: 2318753167645004630, guid: 6a303a81c32353845811c3a68b762c68, type: 3}
       propertyPath: m_hoveredBackground

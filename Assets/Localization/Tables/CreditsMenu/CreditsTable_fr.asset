@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: CreditsTable_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 69b00f0ab92725e429a0276fceb7c804, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 49669472256
+    m_Localized: "D\xE9veloppement par"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 162659827712
+    m_Localized: "Mat\xE9o AVVENTURIERO et Baptiste RUBERTE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 229860966400
+    m_Localized: "Jeu bas\xE9 sur la vid\xE9o\n\"LA VID\xC9O DONT VOUS \xCATES LE
+      H\xC9RON\" par INERNET"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 311037526016
+    m_Localized: MUSIQUES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387545825280
+    m_Localized: "Tous les cr\xE9dits cr\xE9atifs li\xE9s \xE0 l'oeuvre source reviennent
+      \xE0 leurs auteurs respectifs."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 526121435136
+    m_Localized: "\xC9crit et r\xE9alis\xE9 par"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 591426748416
+    m_Localized: Benoit BLANC et Matthias GIRBIG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 693910372352
+    m_Localized: "Produit de fa\xE7on \xE9coresponsable par"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 876870107136
+    m_Localized: AVEC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 950001991680
+    m_Localized: "Le H\xE9ron\nMatthias Girbig\nBenoit Blanc\nLa Mort\nLe chasseur\nDonald\nLa
+      Tata\nCyprien\nLes Climatosceptiques\n\nFrancis Bacon\nPatrick\nL'Assistante
+      r\xE9al.\nLa voix off\n\nDirecteur de la photographie\nAssistant\n\nPremi\xE8re
+      assistante mise en sc\xE8ne\nStagiaire\n\nChef.fe.s op\xE9rateur.rice.s son\n\nAssistant\n\nDirectrices
+      de production\n\n\nCheffe d\xE9coratrice et accessoiriste\n\nStagiaire\n\nCr\xE9atrice
+      du H\xE9ron\n\nCostumi\xE8re\nAssistant\nStagiaire\n\nR\xE9gisseur g\xE9n\xE9ral\nStagiaire\n\nRestauration\n(Bio,
+      local & v\xE9g\xE9tarien)\n\nR\xE9alisation making-of\nAssistant\n\nMontage\n\n\nEffets
+      Sp\xE9ciaux\n\nMixage son\n\nSuper assistant post-prod\n\nUn film produit par\n\nProducteurs\n\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2531531423744
+    m_Localized: "Vous\nMatthias GIRBIG\nBenoit BLANC\nMarie LANCHAS\nCl\xE9ment
+      POTTIER\nDominique THOMAS\nMarie DESGRANGES\nCyprien IOV\nPhilippe JOUAN, Fabrice
+      BISSON,\nAnne DUSSUTOUR, Manu CONSTANT\nDominique LANGLAIS\nJulien SCHMIDT\nH\xE9l\xE9na
+      COTINIER\nFr\xE9d\xE9ric RUIZ\n\nMatthieu BUIRETTE\nLouis SINNAEVE\n\nH\xE9l\xE9na
+      COTINIER\nLaura THEVOZ\n\nBastien LEFORT\nLouise LAGABBE (session 1)\nMatt\xE9o
+      DE MATTIA\n\nJulie MANOUKIAN\nAgathe BACHELLIER (session 1)\n\nMaud VIDAL\nOlivia
+      PICCOLO (session 1)\nSamuel TELLIER\n\nC\xE9cilia DELESTRE\n\nNolwenn CAUDAN\nLouis
+      CAUDAN\nAlexiane DE MELLO\n\nCl\xE9ment POTTIER\nCl\xE9ment DUVAL\n\nLA CANTINE
+      MOBILE\nB\xE9reng\xE8re TESS\xC9\n\nClara LIBERMAN\nThomas DUFLO-TALIS\n\nBenoit
+      BLANC\nMatthias GIRBIG\n\nBaptiste James ROYER\n\nMatthias GIRBIG\n\nLouis
+      SINNAEVE\n\nOUPS Prod\n\nBenoit BLANC\nMatthias GIRBIG"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2665040314368
+    m_Localized: "Avec le soutien du\nCentre national du cin\xE9ma et de l\u2019image
+      anim\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2973531373568
+    m_Localized: En collaboration avec Studio Bagel et Canal +
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3059070009344
+    m_Localized: "Benoit et Matthias sont habill\xE9s gracieusement par"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3225516769280
+    m_Localized: FOURNISSEURS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3347659096064
+    m_Localized: "Image\nMachinerie & lumi\xE8re\nSon\nR\xE9gie\nCatering\n\nConsommables
+      et accessoires\n\nAssurances\nComptabilit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3504270213120
+    m_Localized: "Sony & Gopro\nACC&LED\nDinosaurs sarl\nNestor Location\nLA CANTINE
+      MOBILE\n(bio, local, v\xE9g\xE9tarien et hyper bon)\nNestor\nCartonland\nRubini\nEcia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3651687415808
+    m_Localized: MUSIQUES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3687259308032
+    m_Localized: OUPS Prod souhaite remercier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3815785365504
+    m_Localized: "Parc du Bocasse\nQuiz Room Paris Od\xE9on\n\nLyes BOUDECHICHE\nVictoria
+      LANGEARD\nGabriel HARDION\nGuillemette BERARD\nGabrielle BENCHETRIT\nMonsieur
+      Emmanuel BROUX, maire de Bouchevilliers.\nMathieu BAUER, Lazare BOGHOSSIAN,
+      Sylvain CARTIGNY, Maxime EFCHAVOUR et la compagnie l'instant donn\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4128864993280
+    m_Localized: Benoit et Matthias remercient chaleureusement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4323526836224
+    m_Localized: "L'ensemble de l'\xE9quipe du film pour leur engagement, leur g\xE9n\xE9rosit\xE9,
+      leur patience et leur cr\xE9ativit\xE9.\nNotre formidable communaut\xE9 YouTube
+      aussi fid\xE8le qu'un poireau \xE0 huitre.\nLaurent, Benoit et l'\xE9quipe
+      Topito pour leur accueil et leurs posts-it.\nCyrien lov pour sa g\xE9n\xE9rosit\xE9
+      et sa fid\xE9lit\xE9 ainsi qu'Aur\xE9lie Dunand et Valentine de P\xE9riple
+      Prod.\nLa famille ERNOULT pour leur accueil incomparable.\nCharlotte HONINCKK
+      et Julien GIRBIG\nPhilippe du Cigare \xE0 Moustache.\nL'inn\xE9rable Max BLANC\nBenjamin
+      BUSNEL\n\nNos pr\xE9cieuses familles...\nEt tout particuli\xE8rement Sarah,
+      Paul, Samantha, Mah\xE9 et \xC9l\xE9a"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4598459269120
+    m_Localized: "Remerciements infinis \xE0 nos incroyables\ncontributrices et contributeurs
+      ULULE et OKPAL sans qui ce film n'aurait pas exist\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4748246253568
+    m_Localized: "OUPS Prod est adh\xE9rent de la charte Ecoprod"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5054682103808
+    m_Localized: "Num\xE9ro de visa exceptionnel : 2023002630\nISAN 0000-0005-C427"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

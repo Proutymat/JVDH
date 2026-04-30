@@ -23,7 +23,7 @@ public class PanelManager : MonoBehaviour
     [Header("Set in Inspector")]
     [SerializeField] private Canvas m_canvas;
     [SerializeField] private GameObject m_mainPanel;
-    [SerializeField] private GameObject m_optionsPanel;
+    [SerializeField] private GameObject m_settingsPanel;
     [SerializeField] private GameObject m_bonusPanel;
     [SerializeField] private CanvasGroup m_creditsPanel;
     [SerializeField] private GameObject m_gamePanel;
@@ -56,7 +56,8 @@ public class PanelManager : MonoBehaviour
     public void Initialize()
     {
         m_mainPanel.SetActive(true);
-        m_optionsPanel.SetActive(false);
+        m_settingsPanel.SetActive(false);
+        m_creditsPanel.alpha = 0;
         m_bonusPanel.SetActive(false);
         m_gamePanel.SetActive(false);
         m_pausePanel.SetActive(false);
@@ -89,7 +90,7 @@ public class PanelManager : MonoBehaviour
                 VideoManager.Instance.Stop();
 
                 m_mainPanel.SetActive(state == PanelState.Main);
-                m_optionsPanel.SetActive(state == PanelState.Options);
+                m_settingsPanel.SetActive(state == PanelState.Options);
                 m_bonusPanel.SetActive(state == PanelState.Bonus);
                 m_creditsPanel.alpha = state == PanelState.Credits ? 1 : 0;
                 m_gamePanel.SetActive(state == PanelState.Game);
@@ -113,7 +114,7 @@ public class PanelManager : MonoBehaviour
         else
         {
             m_mainPanel.SetActive(state == PanelState.Main);
-            m_optionsPanel.SetActive(state == PanelState.Options);
+            m_settingsPanel.SetActive(state == PanelState.Options);
             m_bonusPanel.SetActive(state == PanelState.Bonus);
             m_creditsPanel.alpha = state == PanelState.Credits ? 1 : 0;
             m_gamePanel.SetActive(state == PanelState.Game);
@@ -141,14 +142,6 @@ public class PanelManager : MonoBehaviour
 
     public void ShowCreditsMenu()
     {
-        SetPanel(PanelState.Credits, false);
-        
-        /*
-        // Set credits position
-        Vector3 newPos = m_creditsContainer.transform.position;
-        newPos.y = m_creditsPosition;
-        m_creditsContainer.transform.position = newPos;*/
-        
         float canvasHalfHeight = ((RectTransform)m_canvas.transform).rect.height * 0.5f;
         float containerHalfHeight = m_creditsContainer.rect.height * 0.5f;
 
@@ -157,6 +150,8 @@ public class PanelManager : MonoBehaviour
             m_creditsContainer.anchoredPosition.x,
             -canvasHalfHeight - containerHalfHeight
         );
+        
+        SetPanel(PanelState.Credits, false);
     }
 
     private float GetCreditsHalfHeight()
