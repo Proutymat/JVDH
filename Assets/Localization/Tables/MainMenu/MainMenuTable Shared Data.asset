@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: prefab_button
     m_Metadata:
       m_Items: []
+  - m_Id: 119389802725376
+    m_Key: resume_button
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

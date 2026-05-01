@@ -1,12 +1,26 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GameState
+    {
+        MainMenu,
+        Game,
+        Paused
+    }
+    
+    
     private static GameManager m_instance;
     public static GameManager Instance => m_instance;
     
     [Header("Parameters")]
     [SerializeField] private float m_fadeDuration = 0.5f;
+
+    private bool m_isPaused;
+    private GameState m_gameState;
+
+    public GameState GetGameState { get => m_gameState; }
 
     public float FadeDuration { get => m_fadeDuration; }
     
@@ -18,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         if (m_instance != null && m_instance != this)
         {
-            Debug.LogWarning("Multiple GameManager instances in scene!");
+            Debug.LogWarning("Multiple GameManager insta²nces in scene!");
             Destroy(gameObject);
             return;
         }
@@ -37,6 +51,9 @@ public class GameManager : MonoBehaviour
         VideoManager.Instance.Initialize();
         PanelManager.Instance.Initialize();
         SoundManager.Instance.Initialize();
+        
+        m_isPaused = false;
+        m_gameState = GameState.MainMenu;
     }
     
     
@@ -48,6 +65,8 @@ public class GameManager : MonoBehaviour
     {
         PanelManager.Instance.SetPanel(PanelManager.PanelState.Game, true);
         SoundManager.Instance.StopMusic();
+        m_gameState = GameState.Game;
+        
     }
 
     public void LoadMainMenu(bool loadBackVideo)
@@ -55,6 +74,7 @@ public class GameManager : MonoBehaviour
         PanelManager.Instance.ShowMainMenu();
         SoundManager.Instance.PlayMenuMusic();
         if (loadBackVideo) VideoManager.Instance.StartMainMenuClip();
+        m_gameState = GameState.MainMenu;
     }
 
     public void LoadOptionsMenu()
@@ -71,6 +91,32 @@ public class GameManager : MonoBehaviour
     {
         PanelManager.Instance.ShowCreditsMenu();
         SoundManager.Instance.PlayCreditMusic();
+    }
+
+    private void PauseGame()
+    {
+        m_isPaused = !m_isPaused;
+        PanelManager.Instance.TogglePauseMenu(m_isPaused);
+
+        if (m_isPaused)
+        {
+            VideoManager.Instance.Pause();
+            m_gameState = GameState.Paused;
+        }
+        else
+        {
+            VideoManager.Instance.Play();
+            m_gameState = GameState.Game;
+        }
+    }
+
+    private void Update()
+    {
+        // Pause menu
+        if ((m_gameState == GameState.Game || m_gameState == GameState.Paused) && Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            PauseGame();
+        }
     }
     
 }

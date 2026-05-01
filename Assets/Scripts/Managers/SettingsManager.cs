@@ -17,17 +17,22 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private TMP_Text m_subtitlesText;
     [SerializeField] private TMP_Text m_languageText;
     [SerializeField] private TMP_Text m_windowedModeText;
+    [SerializeField] private TMP_Text m_videoPlayerControlsText;
+    [SerializeField] private VideoPlayerControls m_videoPlayerControlsScript;
     
     [SerializeField] private LocalizedString  m_enabledTextKey;
     [SerializeField] private LocalizedString  m_disabledTextKey;
     [SerializeField] private LocalizedString  m_subtitlesTextKey;
     [SerializeField] private LocalizedString  m_windowedModeTextKey;
+    [SerializeField] private LocalizedString  m_videoPlayerControlsTextKey;
     
     private float m_globalVolume;
+    private bool m_videoPlayerControls;
     private bool m_subtitles;
     private int m_localID;
     private bool m_windowedMode;
 
+    public bool VideoPlayerControls { get => m_videoPlayerControls; }
     
     // --------------------------------------------
     //               INITIALIZATION
@@ -48,17 +53,32 @@ public class SettingsManager : MonoBehaviour
     public void Initialize()
     {
         m_globalVolume =  m_globalVolumeSlider.value;
+        m_videoPlayerControls = false;
         m_subtitles = false;
         m_localID = 0;
         m_windowedMode = true;
         SetWindowedModeButtonsText();
         SetSubtitlesButtonsText();
+        SetVPCButtonsText();
     }
 
     private void SetSubtitlesButtonsText()
     {
         m_subtitlesText.text = m_subtitlesTextKey.GetLocalizedString();
         m_subtitlesText.text += m_subtitles ? m_enabledTextKey.GetLocalizedString() : m_disabledTextKey.GetLocalizedString();
+    }
+
+    private void SetVPCButtonsText()
+    {
+        m_videoPlayerControlsText.text = m_videoPlayerControlsTextKey.GetLocalizedString();
+        m_videoPlayerControlsText.text += m_videoPlayerControls ? m_enabledTextKey.GetLocalizedString() : m_disabledTextKey.GetLocalizedString();
+    }
+
+    public void VideoPlayerControlsButton()
+    {
+        m_videoPlayerControls = !m_videoPlayerControls;
+        SetVPCButtonsText();
+        //m_videoPlayerControlsScript.EnableControls(m_videoPlayerControls);
     }
 
     public void SubtitlesButton()
@@ -86,5 +106,6 @@ public class SettingsManager : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[m_localID];
         SetWindowedModeButtonsText();
         SetSubtitlesButtonsText();
+        SetVPCButtonsText();
     }
 }

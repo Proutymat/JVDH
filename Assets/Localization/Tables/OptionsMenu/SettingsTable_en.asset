@@ -46,6 +46,10 @@ MonoBehaviour:
     m_Localized: BACK
     m_Metadata:
       m_Items: []
+  - m_Id: 155572645658624
+    m_Localized: 'Video player controls : '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9181574504746926360}
   - component: {fileID: 4694956209670614385}
+  - component: {fileID: 8520574492385206548}
   - component: {fileID: 8928349392774480292}
   m_Layer: 0
   m_Name: P_VideoManager
@@ -45,13 +46,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de09d0d01f314ac409f87d918563ff19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_autoHideDuration: 3
   m_renderTexture: {fileID: 8400000, guid: 19615c0e8d1e1024da271a50992f2e28, type: 2}
   m_videoPlayer: {fileID: 8928349392774480292}
   m_menuClip: {fileID: 32900000, guid: 93eb068b4b92eb447b35371e858406a4, type: 3}
   m_startClip: {fileID: 32900000, guid: f80396a2ae283844aad8c144c3d1c710, type: 3}
+--- !u!114 &8520574492385206548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000072453049203636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ba476f7b7d3b94fbabde052c392aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_autoHideDuration: 3
+  m_videoPlayer: {fileID: 8928349392774480292}
   m_controlsCanvasGroup: {fileID: 0}
   m_videoSlider: {fileID: 0}
+  m_subtitleText: {fileID: 0}
 --- !u!328 &8928349392774480292
 VideoPlayer:
   m_ObjectHideFlags: 0

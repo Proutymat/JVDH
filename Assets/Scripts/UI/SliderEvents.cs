@@ -3,13 +3,15 @@ using UnityEngine.EventSystems;
 
 public class SliderEvents : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    [SerializeField] private VideoPlayerControls m_videoPlayerControls;
+    
     public void OnPointerDown(PointerEventData eventData)
     {
-        VideoManager.Instance.OnSliderPointerDown();
+        m_videoPlayerControls.OnSliderPointerDown();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        VideoManager.Instance.OnSliderPointerUp();
+        m_videoPlayerControls.OnSliderPointerUp();
     }
 }

@@ -27,7 +27,8 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private GameObject m_bonusPanel;
     [SerializeField] private CanvasGroup m_creditsPanel;
     [SerializeField] private GameObject m_gamePanel;
-    [SerializeField] private GameObject m_pausePanel;
+    [SerializeField] private CanvasGroup m_pausePanel;
+    [SerializeField] private VideoPlayerControls m_videoPlayerControls;
     [SerializeField] private CanvasGroup m_fadeImageCanvasGroup;
     [SerializeField] private RectTransform m_creditsContainer;
     [SerializeField] private float m_creditsSpeed;
@@ -60,7 +61,8 @@ public class PanelManager : MonoBehaviour
         m_creditsPanel.alpha = 0;
         m_bonusPanel.SetActive(false);
         m_gamePanel.SetActive(false);
-        m_pausePanel.SetActive(false);
+        m_pausePanel.alpha = 0;
+        m_pausePanel.blocksRaycasts = false;
         m_fadeImageCanvasGroup.alpha = 1;
     }
     
@@ -74,6 +76,8 @@ public class PanelManager : MonoBehaviour
         m_fadeImageCanvasGroup.alpha = 0;
     }
     
+    
+    // I SWEAR ITS THE WORST FUNCTION I EVER MADE, ITS NONSENSE BOLLOCKS
     public void SetPanel(PanelState state, bool doFade)
     {
         if (doFade)
@@ -94,7 +98,6 @@ public class PanelManager : MonoBehaviour
                 m_bonusPanel.SetActive(state == PanelState.Bonus);
                 m_creditsPanel.alpha = state == PanelState.Credits ? 1 : 0;
                 m_gamePanel.SetActive(state == PanelState.Game);
-                m_pausePanel.SetActive(state == PanelState.Pause);
                 
                 
                 if (state == PanelState.Main)
@@ -118,10 +121,20 @@ public class PanelManager : MonoBehaviour
             m_bonusPanel.SetActive(state == PanelState.Bonus);
             m_creditsPanel.alpha = state == PanelState.Credits ? 1 : 0;
             m_gamePanel.SetActive(state == PanelState.Game);
-            m_pausePanel.SetActive(state == PanelState.Pause);
         }
         
         m_panelState = state;
+    }
+
+    public void TogglePauseMenu(bool pause)
+    {
+        m_pausePanel.alpha = pause ? 1 : 0;
+        m_pausePanel.blocksRaycasts = pause;
+
+        if (pause)
+        {
+            m_videoPlayerControls.ShowControls(false);
+        }
     }
     
     public void ShowMainMenu()
