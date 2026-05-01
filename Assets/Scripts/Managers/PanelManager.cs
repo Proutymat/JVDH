@@ -99,7 +99,7 @@ public class PanelManager : MonoBehaviour
                 
                 if (state == PanelState.Main)
                 {
-                    VideoManager.Instance.StartMainMenuClip();
+                    VideoManager.Instance.PlayMainMenuClip();
                 }
             });
 
@@ -107,7 +107,8 @@ public class PanelManager : MonoBehaviour
             {
                 if (state == PanelState.Game)
                 {
-                    VideoManager.Instance.StartGame();
+                    VideoManager.Instance.HideControls();
+                    VideoTreePlayer.instance.StartVideoTree();
                 }
             });
         }

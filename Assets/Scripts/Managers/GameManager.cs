@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         Initialize();
     }
     
-    public void Initialize()
+    private void Initialize()
     {
         SettingsManager.Instance.Initialize();
         VideoManager.Instance.Initialize();
@@ -54,8 +54,9 @@ public class GameManager : MonoBehaviour
     {
         PanelManager.Instance.ShowMainMenu();
         SoundManager.Instance.PlayMenuMusic();
-        if (loadBackVideo) VideoManager.Instance.StartMainMenuClip();
+        if (loadBackVideo) VideoManager.Instance.PlayMainMenuClip();
     }
+    
 
     public void LoadOptionsMenu()
     {

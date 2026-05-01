@@ -17,7 +17,6 @@ public class VideoManager : MonoBehaviour
     [SerializeField] private RenderTexture m_renderTexture;
     [SerializeField] private VideoPlayer m_videoPlayer;
     [SerializeField] private VideoClip m_menuClip;
-    [SerializeField] private VideoClip m_startClip;
     [SerializeField] private CanvasGroup m_controlsCanvasGroup;
     [SerializeField] private Slider m_videoSlider;
     [SerializeField] private TMP_Text m_subtitleText;
@@ -31,11 +30,9 @@ public class VideoManager : MonoBehaviour
 
     public VideoPlayer GetVideoPlayer { get => m_videoPlayer; }
     
-    
-    // --------------------------------------------
-    //               INITIALIZATION
-    // --------------------------------------------
-    
+    /*
+     * Init singleton
+     */
     private void Awake()
     {
         if (m_instance != null && m_instance != this)
@@ -57,12 +54,42 @@ public class VideoManager : MonoBehaviour
         m_isSeeking = false;
     }
     
+    private void Update()
+    {
+        if (m_videoPlayer.clip == null) return;
+        if (PanelManager.Instance.GetPanelState != PanelManager.PanelState.Game) return;
+
+        HandleKeyboardInputs();
+        HandleAutoHide();
+        
+        if (m_isDragging) return;
+
+        // Do not update the slider if it's being dragged
+        if (m_isSeeking)
+        {
+            if (Mathf.Abs((float)(m_videoPlayer.time - m_targetSeekTime)) < 0.1f)
+            {
+                m_isSeeking = false;
+            }
+            return;
+        }
+
+        // Update slider
+        if (m_videoPlayer.length > 0)
+        {
+            m_videoSlider.value = (float)(m_videoPlayer.time / m_videoPlayer.length);
+        }
+    }
+    
     
     // --------------------------------------------
-    //                  FUNCTIONS
+    //                  CORE FUNCTIONS
     // --------------------------------------------
 
-    private void PlayClip(VideoClip clip, bool loop)
+    /*
+     * Used to play a clip video with possibility to loop
+     */
+    public void PlayClip(VideoClip clip, bool loop = false)
     {
         if (clip == null) return;
 
@@ -75,13 +102,9 @@ public class VideoManager : MonoBehaviour
         m_videoPlayer.prepareCompleted += OnPrepared;
     }
     
-    private void OnPrepared(VideoPlayer vp)
-    {
-        vp.prepareCompleted -= OnPrepared;
-        vp.Play();
-        PanelManager.Instance.HideBlackScreen();
-    }
-
+    /*
+     * Stop Video 
+     */
     public void Stop()
     {
         m_videoPlayer.Stop();
@@ -96,27 +119,54 @@ public class VideoManager : MonoBehaviour
         }
     }
     
-    public void Pause()
+    /*
+     * Pause Video
+     */
+    public void Pause() => m_videoPlayer.Pause();
+    
+    /*
+     * Unpause Video
+     */
+    public void UnPause() => m_videoPlayer.Play();
+    
+    /*
+     * Hide Video controls
+     */
+    public void HideControls()
     {
-        m_videoPlayer.Pause();
+        if (!m_controlsVisible) return;
+
+        m_controlsVisible = false;
+        m_controlsCanvasGroup.alpha = 0f;
+        m_controlsCanvasGroup.blocksRaycasts = false;
+        m_controlsCanvasGroup.interactable = false;
+        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        
+        m_subtitleText.alignment = TextAlignmentOptions.Bottom;
     }
     
-    public void Play()
+    // --------------------------------------------
+    //                  FUNCTIONS HELPERS
+    // --------------------------------------------
+    
+    /*
+     * Buffer to load videos
+     */
+    private void OnPrepared(VideoPlayer vp)
     {
-        m_videoPlayer.Play();
+        vp.prepareCompleted -= OnPrepared;
+        vp.Play();
+        PanelManager.Instance.HideBlackScreen();
     }
 
-    public void StartGame()
-    {
-        PlayClip(m_startClip, false);
-        HideControls();
-    }
-
-    public void StartMainMenuClip()
+    public void PlayMainMenuClip()
     {
         PlayClip(m_menuClip, true);
     }
     
+    #region Video PLayer Editor
     public void OnSliderPointerDown()
     {
         m_isDragging = true;
@@ -139,7 +189,7 @@ public class VideoManager : MonoBehaviour
         m_autoHideTimer = 0f;
     }
     
-    public void OnSliderValueChanged(float value)
+    private void OnSliderValueChanged(float value)
     {
         if (!m_isDragging) return;
 
@@ -159,21 +209,6 @@ public class VideoManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
 
         m_subtitleText.alignment = TextAlignmentOptions.Top;
-    }
-
-    private void HideControls()
-    {
-        if (!m_controlsVisible) return;
-
-        m_controlsVisible = false;
-        m_controlsCanvasGroup.alpha = 0f;
-        m_controlsCanvasGroup.blocksRaycasts = false;
-        m_controlsCanvasGroup.interactable = false;
-        
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
-        
-        m_subtitleText.alignment = TextAlignmentOptions.Bottom;
     }
     
     private void HandleAutoHide()
@@ -204,7 +239,7 @@ public class VideoManager : MonoBehaviour
         {
             if (m_videoPlayer.isPaused)
             {
-                Play();
+                UnPause();
             }
             else
             {
@@ -212,31 +247,5 @@ public class VideoManager : MonoBehaviour
             }
         }
     }
-
-    private void Update()
-    {
-        if (m_videoPlayer.clip == null) return;
-        if (PanelManager.Instance.GetPanelState != PanelManager.PanelState.Game) return;
-
-        HandleKeyboardInputs();
-        HandleAutoHide();
-        
-        if (m_isDragging) return;
-
-        // Do not update the slider if it's being dragged
-        if (m_isSeeking)
-        {
-            if (Mathf.Abs((float)(m_videoPlayer.time - m_targetSeekTime)) < 0.1f)
-            {
-                m_isSeeking = false;
-            }
-            return;
-        }
-
-        // Update slider
-        if (m_videoPlayer.length > 0)
-        {
-            m_videoSlider.value = (float)(m_videoPlayer.time / m_videoPlayer.length);
-        }
-    }
+    #endregion
 }
