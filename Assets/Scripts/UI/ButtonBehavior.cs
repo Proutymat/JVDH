@@ -6,13 +6,6 @@ using DG.Tweening;
 
 public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public enum ButtonState
-    {
-        Normal,
-        Hovered,
-        Clicked
-    }
-
     [Header("Parameters")] 
     [SerializeField] private float m_hoverAnimDuration;
     
@@ -66,6 +59,11 @@ public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
 
     public void OnPointerExit(PointerEventData eventData)
+    {
+        SetState(ButtonState.Normal);
+    }
+
+    public void ButtonClick()
     {
         SetState(ButtonState.Normal);
     }

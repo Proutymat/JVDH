@@ -445,10 +445,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 577678096302607498, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5.0000305
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 609007943491981916, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2844601831110488363, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844601831110488363, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
@@ -482,10 +486,6 @@ PrefabInstance:
     - target: {fileID: 2925846092230999598, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3051206461339341700, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
-      propertyPath: m_Spacing
-      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3067514679540742961, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -544,6 +544,10 @@ PrefabInstance:
       value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 6181967417266422747, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181967417266422747, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -567,6 +571,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6357469678865299059, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
+      propertyPath: m_Name
+      value: SoundVolumeLayout
+      objectReference: {fileID: 0}
     - target: {fileID: 6551190646152868138, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
       propertyPath: m_Name
       value: SettingsPanel
@@ -578,10 +586,6 @@ PrefabInstance:
     - target: {fileID: 6572736667994997855, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7192961618165917503, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
-      propertyPath: m_ChildControlWidth
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7254450620559435055, guid: b0a6eb854f3475547a938c2c32bb9bc6, type: 3}
       propertyPath: m_AnchorMax.y
