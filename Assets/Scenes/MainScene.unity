@@ -2301,6 +2301,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6349107111128356292, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_videoPlayerControls
+      value: 
+      objectReference: {fileID: 7887985687102521449}
     - target: {fileID: 6360242454947009331, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

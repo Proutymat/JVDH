@@ -40,10 +40,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8766971262776830548}
+  - component: {fileID: 6349107111128356292}
   - component: {fileID: 567055882503385976}
   - component: {fileID: 3576083258260720876}
   - component: {fileID: 3766555491471046784}
-  - component: {fileID: 6349107111128356292}
   m_Layer: 5
   m_Name: P_PanelsManager
   m_TagString: Untagged
@@ -79,6 +79,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &6349107111128356292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599775759550447641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0463113e57da5cd478a64563763a6bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fadeBlackDuration: 1.5
+  m_canvas: {fileID: 567055882503385976}
+  m_mainPanel: {fileID: 4774187534019227372}
+  m_settingsPanel: {fileID: 8428184499113544387}
+  m_bonusPanel: {fileID: 2156288994481293086}
+  m_creditsPanel: {fileID: 6057654410296288780}
+  m_gamePanel: {fileID: 832990472146461010}
+  m_pausePanel: {fileID: 1167674464029112261}
+  m_videoPlayerControls: {fileID: 0}
+  m_fadeImageCanvasGroup: {fileID: 4020690174687300212}
+  m_creditsContainer: {fileID: 2437734706102643603}
+  m_creditsSpeed: 60
 --- !u!223 &567055882503385976
 Canvas:
   m_ObjectHideFlags: 0
@@ -142,30 +166,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6349107111128356292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2599775759550447641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0463113e57da5cd478a64563763a6bc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_fadeBlackDuration: 1.5
-  m_canvas: {fileID: 567055882503385976}
-  m_mainPanel: {fileID: 4774187534019227372}
-  m_settingsPanel: {fileID: 8428184499113544387}
-  m_bonusPanel: {fileID: 2156288994481293086}
-  m_creditsPanel: {fileID: 6057654410296288780}
-  m_gamePanel: {fileID: 832990472146461010}
-  m_pausePanel: {fileID: 1167674464029112261}
-  m_videoPlayerControls: {fileID: 0}
-  m_fadeImageCanvasGroup: {fileID: 4020690174687300212}
-  m_creditsContainer: {fileID: 2437734706102643603}
-  m_creditsSpeed: 60
 --- !u!1 &3210492877836379869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,7 +1397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 902546785152394642, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -417.2
+      value: -374.2
       objectReference: {fileID: 0}
     - target: {fileID: 1010412176134709341, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2013,7 +2013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4735378563249017453, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -6319.631
+      value: -2512.5999
       objectReference: {fileID: 0}
     - target: {fileID: 4901281088235144244, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2097,7 +2097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5110331092819167085, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2700.915
+      value: -1226
       objectReference: {fileID: 0}
     - target: {fileID: 5295607770943002089, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2525,7 +2525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8587365452978458423, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -5508.031
+      value: -2402.5999
       objectReference: {fileID: 0}
     - target: {fileID: 8655798181844590714, guid: a36572ec880c4a7478feaf74c59fabf3, type: 3}
       propertyPath: m_AnchorMax.y
