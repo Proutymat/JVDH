@@ -1,8 +1,4 @@
-using System;
-using TMPro;
-using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
+    using UnityEngine;
 using UnityEngine.Video;
 
 public class VideoManager : MonoBehaviour

@@ -110,7 +110,7 @@ public class PanelManager : MonoBehaviour
             {
                 if (state == PanelState.Game)
                 {
-                    VideoManager.Instance.HideControls();
+                    m_videoPlayerControls.ShowControls(false);
                     VideoTreePlayer.instance.StartVideoTree();
                 }
             });

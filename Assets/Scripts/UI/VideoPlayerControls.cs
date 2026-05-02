@@ -138,7 +138,7 @@ public class VideoPlayerControls : MonoBehaviour
         {
             if (m_videoPlayer.isPlaying)
             {
-                VideoManager.Instance.Play();
+                VideoManager.Instance.UnPause();
             }
             else
             {

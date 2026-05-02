@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            VideoManager.Instance.Play();
+            VideoManager.Instance.UnPause();
             m_gameState = GameState.Game;
         }
     }
