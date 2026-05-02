@@ -14,7 +14,6 @@ public class VideoManager : MonoBehaviour
     [SerializeField] private RenderTexture m_renderTexture;
     [SerializeField] private VideoPlayer m_videoPlayer;
     [SerializeField] private VideoClip m_menuClip;
-    [SerializeField] private VideoClip m_startClip;
     
 
     public VideoPlayer GetVideoPlayer { get => m_videoPlayer; }
@@ -43,10 +42,13 @@ public class VideoManager : MonoBehaviour
     
     
     // --------------------------------------------
-    //                  FUNCTIONS
+    //                CORE FUNCTIONS
     // --------------------------------------------
 
-    private void PlayClip(VideoClip clip, bool loop)
+    /*
+     * Used to play a clip video with possibility to loop
+     */
+    public void PlayClip(VideoClip clip, bool loop = false)
     {
         if (clip == null) return;
 
@@ -59,13 +61,9 @@ public class VideoManager : MonoBehaviour
         m_videoPlayer.prepareCompleted += OnPrepared;
     }
     
-    private void OnPrepared(VideoPlayer vp)
-    {
-        vp.prepareCompleted -= OnPrepared;
-        vp.Play();
-        PanelManager.Instance.HideBlackScreen();
-    }
-
+    /*
+     * Stop Video 
+     */
     public void Stop()
     {
         m_videoPlayer.Stop();
@@ -80,22 +78,31 @@ public class VideoManager : MonoBehaviour
         }
     }
     
-    public void Pause()
-    {
-        m_videoPlayer.Pause();
-    }
+    /*
+     * Pause Video
+     */
+    public void Pause() => m_videoPlayer.Pause();
     
-    public void Play()
+    /*
+     * Unpause Video
+     */
+    public void UnPause() => m_videoPlayer.Play();
+    
+    // --------------------------------------------
+    //              FUNCTIONS HELPERS
+    // --------------------------------------------
+    
+    /*
+     * Buffer to load videos
+     */
+    private void OnPrepared(VideoPlayer vp)
     {
-        m_videoPlayer.Play();
+        vp.prepareCompleted -= OnPrepared;
+        vp.Play();
+        PanelManager.Instance.HideBlackScreen();
     }
 
-    public void StartGame()
-    {
-        PlayClip(m_startClip, false);
-    }
-
-    public void StartMainMenuClip()
+    public void PlayMainMenuClip()
     {
         PlayClip(m_menuClip, true);
     }
