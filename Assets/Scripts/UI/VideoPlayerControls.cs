@@ -10,6 +10,7 @@ public class VideoPlayerControls : MonoBehaviour
     
     [Header("Parameters")]
     [SerializeField] private float m_autoHideDuration;
+    [SerializeField] private float m_arrowSeekStep;
     
     [Header("Set in Inspector")]
     [SerializeField] private VideoPlayer m_videoPlayer;
@@ -144,6 +145,34 @@ public class VideoPlayerControls : MonoBehaviour
             {
                 VideoManager.Instance.Pause();
             }
+        }
+        
+        // Left arrow
+        if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
+        {
+            double newTime = m_videoPlayer.time - m_arrowSeekStep;
+            newTime = Mathf.Max(0f, (float)newTime);
+
+            m_isSeekingSlider = true;
+            m_targetSeekTime = newTime;
+            m_videoPlayer.time = newTime;
+
+            m_autoHideTimer = 0f;
+            ShowControls(true);
+        }
+
+        // Right arrow
+        if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
+        {
+            double newTime = m_videoPlayer.time + m_arrowSeekStep;
+            newTime = Mathf.Min((float)m_videoPlayer.length, (float)newTime);
+
+            m_isSeekingSlider = true;
+            m_targetSeekTime = newTime;
+            m_videoPlayer.time = newTime;
+
+            m_autoHideTimer = 0f;
+            ShowControls(true);
         }
     }
 

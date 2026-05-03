@@ -437,6 +437,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &878998982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9000072453049203636, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
+  m_PrefabInstance: {fileID: 7887985687102521448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!225 &1097294193 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 7901589863753930279, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
@@ -3122,6 +3127,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4694956209670614385, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
+      propertyPath: m_DEBUGCLIP
+      value: 
+      objectReference: {fileID: 32900000, guid: f80396a2ae283844aad8c144c3d1c710, type: 3}
+    - target: {fileID: 4694956209670614385, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
       propertyPath: m_videoSlider
       value: 
       objectReference: {fileID: 672064908}
@@ -3192,19 +3201,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9000072453049203636, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 7887985687102521453}
   m_SourcePrefab: {fileID: 100100000, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
 --- !u!114 &7887985687102521449 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8520574492385206548, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
   m_PrefabInstance: {fileID: 7887985687102521448}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 878998982}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88ba476f7b7d3b94fbabde052c392aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7887985687102521453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878998982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3d1264362fad44596a3ee6912d98b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startVideoNode: {fileID: 11400000, guid: 2971f0a626f33b743813b9e8c1bfc184, type: 2}
 --- !u!1001 &8343540667669532798
 PrefabInstance:
   m_ObjectHideFlags: 0

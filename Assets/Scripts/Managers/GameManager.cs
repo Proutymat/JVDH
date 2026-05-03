@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour
         PanelManager.Instance.SetPanel(PanelManager.PanelState.Game, true);
         SoundManager.Instance.StopMusic();
         m_gameState = GameState.Game;
-        
     }
 
     public void LoadMainMenu(bool loadBackVideo)

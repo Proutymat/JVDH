@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9ba2a213708cb4fb14ed4b490c1f45, type: 3}
   m_Name: SO_Video1
   m_EditorClassIdentifier: 
-  videoClip: {fileID: 0}
+  videoClip: {fileID: 32900000, guid: f80396a2ae283844aad8c144c3d1c710, type: 3}
   description: 
   choices: []
   isEndNode: 0
