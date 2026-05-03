@@ -39,7 +39,7 @@ public class VideoPlayerControls : MonoBehaviour
     private void Start()
     {
         m_autoHideTimer = 0;
-        m_enableControls = false;
+        m_enableControls = true;
         m_isDraggingSlider = false;
         m_isSeekingSlider = false;
         

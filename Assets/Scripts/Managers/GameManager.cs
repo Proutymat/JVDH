@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         if (m_instance != null && m_instance != this)
         {
-            Debug.LogWarning("Multiple GameManager insta²nces in scene!");
+            Debug.LogWarning("Multiple GameManager instances in scene!");
             Destroy(gameObject);
             return;
         }
@@ -68,11 +68,9 @@ public class GameManager : MonoBehaviour
         m_gameState = GameState.Game;
     }
 
-    public void LoadMainMenu(bool loadBackVideo)
+    public void LoadMainMenu(bool loadBackVideo, bool doFade)
     {
-        PanelManager.Instance.ShowMainMenu();
-        SoundManager.Instance.PlayMenuMusic();
-        if (loadBackVideo) VideoManager.Instance.PlayMainMenuClip();
+        PanelManager.Instance.SetPanel(PanelManager.PanelState.Main, doFade);
         m_gameState = GameState.MainMenu;
     }
 
@@ -92,10 +90,10 @@ public class GameManager : MonoBehaviour
         SoundManager.Instance.PlayCreditMusic();
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         m_isPaused = !m_isPaused;
-        PanelManager.Instance.TogglePauseMenu(m_isPaused);
+        PanelManager.Instance.ShowPauseMenu(m_isPaused);
 
         if (m_isPaused)
         {

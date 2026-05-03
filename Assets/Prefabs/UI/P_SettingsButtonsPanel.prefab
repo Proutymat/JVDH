@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 3838774539593906032}
   - component: {fileID: 771640970904510236}
   m_Layer: 5
-  m_Name: P_SettingsButtons
+  m_Name: P_SettingsButtonsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
