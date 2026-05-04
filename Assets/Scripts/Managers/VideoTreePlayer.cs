@@ -4,7 +4,9 @@ using UnityEngine.Video;
 public class VideoTreePlayer : MonoBehaviour
 {
     public static VideoTreePlayer instance;
+    
     [SerializeField] private VideoNodeSO startVideoNode;
+    [SerializeField] private ButtonChoice[] buttonsGO;
     
     private VideoNodeSO _currentNode;
 
@@ -15,12 +17,18 @@ public class VideoTreePlayer : MonoBehaviour
     private void PlayNode(VideoNodeSO node)
     {
         _currentNode = node;
-        VideoManager.Instance.PlayClip(node.videoClip);
+        VideoManager.Instance.PlayVideoNode(node);
     }
 
-    public void OnChoiceSelected(int index)
+    public void AppearChoiceButton()
     {
-        var next = _currentNode.choices[index]?.nextNode;
-        if (next != null) PlayNode(next);
+        for (var i = 0; i < _currentNode.choices.Count; i++)
+            buttonsGO[i].InitButton(_currentNode.choices[i]);
+    }
+
+    public void OnChoiceSelected(ButtonChoice buttonChoice)
+    {
+        if (buttonChoice && buttonChoice.videoNode) 
+            PlayNode(buttonChoice.videoNode);
     }
 }

@@ -13,6 +13,11 @@ public class VideoManager : MonoBehaviour
     
 
     public VideoPlayer GetVideoPlayer { get => m_videoPlayer; }
+
+    private bool bWaitingButtonChoice = false;
+    private bool bPause = false;
+    private float _currentTime = 0.0f;
+    private float _buttonChoiceTime = 0.0f;
     
     
     // --------------------------------------------
@@ -34,6 +39,28 @@ public class VideoManager : MonoBehaviour
     public void Initialize()
     {
         PlayClip(m_menuClip, true);
+    }
+
+    private void Update()
+    {
+        if (!bWaitingButtonChoice || bPause) return;
+        
+        _currentTime += Time.deltaTime;
+        if (_currentTime < _buttonChoiceTime) return;
+        
+        bWaitingButtonChoice = false;
+        VideoTreePlayer.instance.AppearChoiceButton();
+    }
+
+    public void PlayVideoNode(VideoNodeSO node)
+    {
+        if (!node) return;
+        
+        _currentTime         = 0.0f;
+        _buttonChoiceTime    = node.timeButtonChoice;
+        bWaitingButtonChoice = true;
+        
+        PlayClip(node.videoClip);
     }
     
     
@@ -77,12 +104,20 @@ public class VideoManager : MonoBehaviour
     /*
      * Pause Video
      */
-    public void Pause() => m_videoPlayer.Pause();
+    public void Pause()
+    {
+        bPause = true;
+        m_videoPlayer.Pause();
+    }
     
     /*
      * Unpause Video
      */
-    public void UnPause() => m_videoPlayer.Play();
+    public void UnPause()
+    {
+        bPause = false;
+        m_videoPlayer.Play();
+    }
     
     // --------------------------------------------
     //              FUNCTIONS HELPERS

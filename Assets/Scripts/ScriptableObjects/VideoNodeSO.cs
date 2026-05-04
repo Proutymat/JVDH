@@ -12,6 +12,7 @@ public class VideoNodeSO : ScriptableObject
 
     [Header("Choices")]
     public List<ChoiceSO> choices = new List<ChoiceSO>();
+    public float timeButtonChoice;
 
     [Header("Settings")]
     public bool isEndNode = false;
