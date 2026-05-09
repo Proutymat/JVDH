@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: resume_button
     m_Metadata:
       m_Items: []
+  - m_Id: 1373068342067200
+    m_Key: startup_question
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

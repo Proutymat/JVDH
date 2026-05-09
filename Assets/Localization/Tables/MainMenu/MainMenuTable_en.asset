@@ -46,6 +46,10 @@ MonoBehaviour:
     m_Localized: RESUME
     m_Metadata:
       m_Items: []
+  - m_Id: 1373068342067200
+    m_Localized: Do you want to resume your game where you left off?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

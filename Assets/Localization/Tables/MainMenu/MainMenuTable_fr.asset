@@ -46,6 +46,11 @@ MonoBehaviour:
     m_Localized: REPRENDRE
     m_Metadata:
       m_Items: []
+  - m_Id: 1373068342067200
+    m_Localized: "Voulez-vous reprendre votre partie l\xE0 o\xF9 vous l\u2019avez
+      laiss\xE9e ?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
