@@ -5,6 +5,6 @@ public class BackMainMenuButton : MonoBehaviour
     public void ClickButton()
     {
         SoundManager.Instance.PlayClicSound();
-        GameManager.Instance.LoadMainMenu(true, true);
+        GameManager.Instance.LoadMainMenu(true, FadeStyle.FadeInAndOut);
     }
 }

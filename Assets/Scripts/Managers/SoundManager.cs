@@ -29,9 +29,9 @@ public class SoundManager : MonoBehaviour
         m_instance = this;
     }
 
-    public void Initialize()
+    public void Start()
     {
-        PlayMenuMusic();
+        // Something yet to come
     }
     
     

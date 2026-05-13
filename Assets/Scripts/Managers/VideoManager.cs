@@ -36,7 +36,7 @@ public class VideoManager : MonoBehaviour
         m_instance = this;
     }
 
-    public void Initialize()
+    public void Start()
     {
         PlayClip(m_menuClip, true);
     }
@@ -129,8 +129,6 @@ public class VideoManager : MonoBehaviour
     private void OnPrepared(VideoPlayer vp)
     {
         vp.prepareCompleted -= OnPrepared;
-        vp.Play();
-        PanelManager.Instance.HideBlackScreen();
     }
 
     public void PlayMainMenuClip()

@@ -1,32 +1,24 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PanelManager : MonoBehaviour
 {
-    public enum PanelState
-    {
-        Main,
-        Options,
-        Bonus,
-        Credits,
-        Pause,
-        Game
-    }
-    
     private static PanelManager m_instance;
     public static PanelManager Instance => m_instance;
 
-    [Header("Parameters")] [SerializeField]
-    private float m_fadeBlackDuration = 1f;
+    [Header("Parameters")]
+    [SerializeField] private float m_fadeBlackDuration = 1f;
     
     [Header("Set in Inspector")]
     [SerializeField] private Canvas m_canvas;
-    [SerializeField] private GameObject m_mainPanel;
-    [SerializeField] private GameObject m_settingsPanel;
-    [SerializeField] private GameObject m_bonusPanel;
+    [SerializeField] private CanvasGroup m_mainPanel;
+    [SerializeField] private CanvasGroup m_settingsPanel;
+    [SerializeField] private CanvasGroup m_bonusPanel;
     [SerializeField] private CanvasGroup m_creditsPanel;
-    [SerializeField] private GameObject m_gamePanel;
+    [SerializeField] private CanvasGroup m_startupPanel;
+    [SerializeField] private CanvasGroup m_gamePanel;
     [SerializeField] private CanvasGroup m_pausePanel;
     [SerializeField] private VideoPlayerControls m_videoPlayerControls;
     [SerializeField] private CanvasGroup m_fadeImageCanvasGroup;
@@ -35,6 +27,7 @@ public class PanelManager : MonoBehaviour
 
 
     private PanelState m_panelState;
+    
     public PanelState GetPanelState { get => m_panelState; }
     
     
@@ -53,19 +46,11 @@ public class PanelManager : MonoBehaviour
 
         m_instance = this;
     }
-
-    public void Initialize()
-    {
-        m_mainPanel.SetActive(true);
-        m_settingsPanel.SetActive(false);
-        m_creditsPanel.alpha = 0;
-        m_bonusPanel.SetActive(false);
-        m_gamePanel.SetActive(false);
-        m_pausePanel.alpha = 0;
-        m_pausePanel.blocksRaycasts = false;
-        m_fadeImageCanvasGroup.alpha = 1;
-    }
     
+    public void Start()
+    {
+        m_panelState = PanelState.Main;
+    }
     
     // --------------------------------------------
     //                  FUNCTIONS
@@ -76,59 +61,70 @@ public class PanelManager : MonoBehaviour
         m_fadeImageCanvasGroup.alpha = 0;
     }
 
-    private void SetPanelsStates(PanelState state)
+    private static void ShowCanvasGroup(bool show, CanvasGroup canvasGroup)
     {
-        m_mainPanel.SetActive(state == PanelState.Main);
-        m_settingsPanel.SetActive(state == PanelState.Options);
-        m_bonusPanel.SetActive(state == PanelState.Bonus);
-        m_creditsPanel.alpha = state == PanelState.Credits ? 1 : 0;
-        m_gamePanel.SetActive(state == PanelState.Game);
-        ShowPauseMenu(state ==  PanelState.Pause);
+        canvasGroup.alpha = show ? 1 : 0;
+        canvasGroup.blocksRaycasts = show;
+        canvasGroup.interactable = show;
+    }
+
+    private void SetPanelsState(PanelState state)
+    {
+        ShowCanvasGroup(state == PanelState.Main, m_mainPanel);
+        ShowCanvasGroup(state == PanelState.Options, m_settingsPanel);
+        ShowCanvasGroup(state == PanelState.Bonus, m_bonusPanel);
+        ShowCanvasGroup(state == PanelState.Credits, m_creditsPanel);
+        ShowCanvasGroup(state == PanelState.Startup, m_startupPanel);
+        ShowCanvasGroup(state == PanelState.Game, m_gamePanel);
+        ShowCanvasGroup(state == PanelState.Pause, m_pausePanel);
     }
     
-    // I SWEAR ITS THE WORST FUNCTION I EVER MADE, ITS NONSENSE BOLLOCKS
-    public void SetPanel(PanelState state, bool doFade)
+    public void SetPanel(PanelState state, FadeStyle fadeStyle = FadeStyle.None, TweenCallback onMidFade = null, TweenCallback onFadeFinished = null)
     {
-        if (doFade)
-        {
-            Sequence anim = DOTween.Sequence();
-
-            anim.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration)); // Fade in
-
-            anim.AppendInterval(m_fadeBlackDuration);
-
-            // Switch panel
-            anim.AppendCallback(() =>
-            {
-                VideoManager.Instance.Stop();
-                
-                SetPanelsStates(state);
-                
-                if (state == PanelState.Main)
-                {
-                    VideoManager.Instance.PlayMainMenuClip();
-                }
-            });
-
-            anim.OnComplete(() =>
-            {
-                if (state == PanelState.Game)
-                {
-                    m_videoPlayerControls.ShowControls(false);
-                    VideoTreePlayer.instance.StartVideoTree();
-                }
-                else if (state == PanelState.Main)
-                {
-                    SoundManager.Instance.PlayMenuMusic();
-                }
-            });
-        }
-        else
-        {
-            SetPanelsStates(state);
-        }
+        Sequence seq = DOTween.Sequence();
         
-        m_panelState = state;
+        switch (fadeStyle)
+        {
+            case FadeStyle.None:
+                SetPanelsState(state);
+                seq.AppendCallback(() => onMidFade?.Invoke());
+                seq.OnComplete(() => onFadeFinished?.Invoke());
+                break;
+            case FadeStyle.Wait:
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 1f);
+                seq.AppendCallback(() => SetPanelsState(state));
+                seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendCallback(() => onMidFade?.Invoke());
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 0f);
+                seq.OnComplete(() => onFadeFinished?.Invoke());
+                break;
+            case FadeStyle.FadeIn:
+                seq.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration));
+                seq.AppendCallback(() => SetPanelsState(state));
+                seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendCallback(() => onMidFade?.Invoke());
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 0f);
+                seq.OnComplete(() => onFadeFinished?.Invoke());
+                break;
+            case FadeStyle.FadeOut:
+                seq = DOTween.Sequence();
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 1f);
+                seq.AppendCallback(() => SetPanelsState(state));
+                seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendCallback(() => onMidFade?.Invoke());
+                seq.Append(m_fadeImageCanvasGroup.DOFade(0f, GameManager.Instance.FadeDuration));
+                seq.OnComplete(() => onFadeFinished?.Invoke());
+                break;
+            case FadeStyle.FadeInAndOut:
+                seq = DOTween.Sequence();
+                seq.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration));
+                seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendCallback(() => SetPanelsState(state));
+                seq.AppendCallback(() => onMidFade?.Invoke());
+                seq.Append(m_fadeImageCanvasGroup.DOFade(0f, GameManager.Instance.FadeDuration));
+                seq.OnComplete(() => onFadeFinished?.Invoke());
+                break;
+        }
     }
 
     public void ShowPauseMenu(bool show)
@@ -140,18 +136,18 @@ public class PanelManager : MonoBehaviour
     
     public void ShowMainMenu()
     {
-        SetPanel(PanelState.Main, false);
+        SetPanel(PanelState.Main);
         SoundManager.Instance.PlayMenuMusic();
     }
 
     public void ShowOptionsMenu()
     {
-        SetPanel(PanelState.Options, false);
+        SetPanel(PanelState.Options);
     }
 
     public void ShowBonusMenu()
     {
-        SetPanel(PanelState.Bonus, false);
+        SetPanel(PanelState.Bonus);
     }
 
     public void ShowCreditsMenu()
@@ -165,7 +161,7 @@ public class PanelManager : MonoBehaviour
             -canvasHalfHeight - containerHalfHeight
         );
         
-        SetPanel(PanelState.Credits, false);
+        SetPanel(PanelState.Credits);
     }
 
     private float GetCreditsHalfHeight()
@@ -185,7 +181,7 @@ public class PanelManager : MonoBehaviour
             float topEdge = m_creditsContainer.transform.position.y - GetCreditsHalfHeight();
             if (topEdge > Screen.height + 50)
             {
-                GameManager.Instance.LoadMainMenu(false, false);
+                GameManager.Instance.LoadMainMenu(false, FadeStyle.None);
             }
         }
     }

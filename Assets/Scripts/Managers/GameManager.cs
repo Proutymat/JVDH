@@ -42,15 +42,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Initialize();
-    }
-    
-    private void Initialize()
-    {
         SettingsManager.Instance.Initialize();
-        VideoManager.Instance.Initialize();
-        PanelManager.Instance.Initialize();
-        SoundManager.Instance.Initialize();
+        
+        PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.Wait, VideoManager.Instance.PlayMainMenuClip, StartMainMenuEvents);
         
         m_isPaused = false;
         m_gameState = GameState.MainMenu;
@@ -61,16 +55,23 @@ public class GameManager : MonoBehaviour
     //                  FUNCTIONS
     // --------------------------------------------
 
+    private void StartMainMenuEvents()
+    {
+        SoundManager.Instance.PlayMenuMusic();
+        VideoManager.Instance.UnPause();
+    }
+    
     public void StartGame()
     {
-        PanelManager.Instance.SetPanel(PanelManager.PanelState.Game, true);
+        PanelManager.Instance.SetPanel(PanelState.Game, FadeStyle.FadeIn, VideoTreePlayer.instance.StartVideoTree, VideoManager.Instance.UnPause);
         SoundManager.Instance.StopMusic();
         m_gameState = GameState.Game;
     }
 
-    public void LoadMainMenu(bool loadBackVideo, bool doFade)
+    public void LoadMainMenu(bool loadBackVideo, FadeStyle fadeStyle)
     {
-        PanelManager.Instance.SetPanel(PanelManager.PanelState.Main, doFade);
+        VideoManager.Instance.PlayMainMenuClip();
+        PanelManager.Instance.SetPanel(PanelState.Main, fadeStyle, VideoManager.Instance.PlayMainMenuClip, StartMainMenuEvents);
         m_gameState = GameState.MainMenu;
     }
 
@@ -94,6 +95,7 @@ public class GameManager : MonoBehaviour
     {
         m_isPaused = !m_isPaused;
         PanelManager.Instance.ShowPauseMenu(m_isPaused);
+        
 
         if (m_isPaused)
         {
