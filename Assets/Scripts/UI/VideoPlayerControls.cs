@@ -200,7 +200,7 @@ public class VideoPlayerControls : MonoBehaviour
     private void Update()
     {
         // Update video controls only in play mode (will not be shown otherwise)
-        if (GameManager.Instance.GetGameState != GameManager.GameState.Game) return;
+        if (GameManager.Instance.GetGameState != GameState.Game) return;
         
         UpdateAutoHide();
 

@@ -56,11 +56,6 @@ public class PanelManager : MonoBehaviour
     //                  FUNCTIONS
     // --------------------------------------------
 
-    public void HideBlackScreen()
-    {
-        m_fadeImageCanvasGroup.alpha = 0;
-    }
-
     private static void ShowCanvasGroup(bool show, CanvasGroup canvasGroup)
     {
         canvasGroup.alpha = show ? 1 : 0;
@@ -134,12 +129,6 @@ public class PanelManager : MonoBehaviour
         m_pausePanel.alpha = show ? 1 : 0;
         m_pausePanel.blocksRaycasts = show;
         m_videoPlayerControls.ShowControls(false);
-    }
-    
-    public void ShowMainMenu()
-    {
-        SetPanel(PanelState.Main);
-        SoundManager.Instance.PlayMenuMusic();
     }
 
     public void ShowOptionsMenu()

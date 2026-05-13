@@ -3,14 +3,6 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameState
-    {
-        MainMenu,
-        Game,
-        Paused
-    }
-    
-    
     private static GameManager m_instance;
     public static GameManager Instance => m_instance;
     
@@ -61,10 +53,10 @@ public class GameManager : MonoBehaviour
         VideoManager.Instance.UnPause();
     }
     
+    
     public void StartGame()
     {
         PanelManager.Instance.SetPanel(PanelState.Game, FadeStyle.FadeIn, VideoTreePlayer.instance.StartVideoTree, VideoManager.Instance.UnPause);
-        SoundManager.Instance.StopMusic();
         m_gameState = GameState.Game;
     }
 
