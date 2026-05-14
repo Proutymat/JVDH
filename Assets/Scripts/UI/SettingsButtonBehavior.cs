@@ -34,7 +34,7 @@ public class SettingsButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPoin
 
     public void ButtonClick()
     {
-        SetState(ButtonState.Normal);
+        // Clic sound
     }
 
 }
