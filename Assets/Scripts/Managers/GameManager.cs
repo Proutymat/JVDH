@@ -33,9 +33,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start()
-    {
-        SettingsManager.Instance.Initialize();
-        
+    { 
         PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.Wait, VideoManager.Instance.PlayMainMenuClip, StartMainMenuEvents);
         
         m_isPaused = false;
@@ -86,18 +84,18 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         m_isPaused = !m_isPaused;
-        PanelManager.Instance.ShowPauseMenu(m_isPaused);
-        
 
         if (m_isPaused)
         {
             VideoManager.Instance.Pause();
             m_gameState = GameState.Paused;
+            PanelManager.Instance.SetPanel(PanelState.Pause);
         }
         else
         {
             VideoManager.Instance.UnPause();
             m_gameState = GameState.Game;
+            PanelManager.Instance.SetPanel(PanelState.Game);
         }
     }
 

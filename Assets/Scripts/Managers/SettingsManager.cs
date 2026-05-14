@@ -50,7 +50,7 @@ public class SettingsManager : MonoBehaviour
         m_instance = this;
     }
 
-    public void Initialize()
+    public void Start()
     {
         m_globalVolume =  m_globalVolumeSlider.value;
         m_videoPlayerControls = false;
@@ -78,7 +78,7 @@ public class SettingsManager : MonoBehaviour
     {
         m_videoPlayerControls = !m_videoPlayerControls;
         SetVPCButtonsText();
-        //m_videoPlayerControlsScript.EnableControls(m_videoPlayerControls);
+        m_videoPlayerControlsScript.EnableControls = m_videoPlayerControls;
     }
 
     public void SubtitlesButton()

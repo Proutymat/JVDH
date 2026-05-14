@@ -124,13 +124,6 @@ public class PanelManager : MonoBehaviour
         }
     }
 
-    public void ShowPauseMenu(bool show)
-    {
-        m_pausePanel.alpha = show ? 1 : 0;
-        m_pausePanel.blocksRaycasts = show;
-        m_videoPlayerControls.ShowControls(false);
-    }
-
     public void ShowOptionsMenu()
     {
         SetPanel(PanelState.Options);
