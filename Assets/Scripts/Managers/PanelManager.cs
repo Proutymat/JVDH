@@ -76,8 +76,10 @@ public class PanelManager : MonoBehaviour
         m_panelState = state;
     }
     
-    public void SetPanel(PanelState state, FadeStyle fadeStyle = FadeStyle.None, TweenCallback onMidFade = null, TweenCallback onFadeFinished = null)
+    public void SetPanel(PanelState state, FadeStyle fadeStyle = FadeStyle.None, TweenCallback onMidFade = null, TweenCallback onMidFade2 = null, TweenCallback onFadeFinished = null)
     {
+        
+        
         Sequence seq = DOTween.Sequence();
         
         switch (fadeStyle)
@@ -85,40 +87,53 @@ public class PanelManager : MonoBehaviour
             case FadeStyle.None:
                 SetPanelsState(state);
                 seq.AppendCallback(() => onMidFade?.Invoke());
+                seq.AppendCallback(() => onMidFade2?.Invoke());
                 seq.OnComplete(() => onFadeFinished?.Invoke());
                 break;
             case FadeStyle.Wait:
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = true);
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 1f);
                 seq.AppendCallback(() => SetPanelsState(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
                 seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendCallback(() => onMidFade2?.Invoke());
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 0f);
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = false);
                 seq.OnComplete(() => onFadeFinished?.Invoke());
                 break;
             case FadeStyle.FadeIn:
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = true);
                 seq.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration));
                 seq.AppendCallback(() => SetPanelsState(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
                 seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendCallback(() => onMidFade2?.Invoke());
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 0f);
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = false);
                 seq.OnComplete(() => onFadeFinished?.Invoke());
                 break;
             case FadeStyle.FadeOut:
                 seq = DOTween.Sequence();
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = true);
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 1f);
                 seq.AppendCallback(() => SetPanelsState(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
                 seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendCallback(() => onMidFade2?.Invoke());
                 seq.Append(m_fadeImageCanvasGroup.DOFade(0f, GameManager.Instance.FadeDuration));
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = false);
                 seq.OnComplete(() => onFadeFinished?.Invoke());
                 break;
             case FadeStyle.FadeInAndOut:
                 seq = DOTween.Sequence();
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = true);
                 seq.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration));
                 seq.AppendCallback(() => SetPanelsState(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
                 seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendCallback(() => onMidFade2?.Invoke());
                 seq.Append(m_fadeImageCanvasGroup.DOFade(0f, GameManager.Instance.FadeDuration));
+                seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = false);
                 seq.OnComplete(() => onFadeFinished?.Invoke());
                 break;
         }
@@ -165,7 +180,8 @@ public class PanelManager : MonoBehaviour
             float topEdge = m_creditsContainer.transform.position.y - GetCreditsHalfHeight();
             if (topEdge > Screen.height + 50)
             {
-                GameManager.Instance.LoadMainMenu(false, FadeStyle.None);
+                GameManager.Instance.LoadMainMenu();
+                SoundManager.Instance.PlayMenuMusic(true);
             }
         }
     }

@@ -32,9 +32,15 @@ public class GameManager : MonoBehaviour
         m_instance = this;
     }
 
+    private void StartMainMenuEvents()
+    {
+        SoundManager.Instance.PlayMenuMusic(false);
+        VideoManager.Instance.UnPause();
+    }
+    
     private void Start()
-    { 
-        PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.Wait, VideoManager.Instance.PlayMainMenuClip, StartMainMenuEvents);
+    {
+        PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.Wait, VideoManager.Instance.PlayMainMenuClip, null, StartMainMenuEvents);
         
         m_isPaused = false;
         m_gameState = GameState.MainMenu;
@@ -44,24 +50,32 @@ public class GameManager : MonoBehaviour
     // --------------------------------------------
     //                  FUNCTIONS
     // --------------------------------------------
-
-    private void StartMainMenuEvents()
-    {
-        SoundManager.Instance.PlayMenuMusic();
-        VideoManager.Instance.UnPause();
-    }
     
     
     public void StartGame()
     {
-        PanelManager.Instance.SetPanel(PanelState.Game, FadeStyle.FadeIn, VideoTreePlayer.instance.StartVideoTree, VideoManager.Instance.UnPause);
+        PanelManager.Instance.SetPanel(PanelState.Game, FadeStyle.FadeIn, VideoTreePlayer.instance.StartVideoTree, null, VideoManager.Instance.UnPause);
         m_gameState = GameState.Game;
     }
 
-    public void LoadMainMenu(bool loadBackVideo, FadeStyle fadeStyle)
+    private void BackToMainMenuEvents()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        SoundManager.Instance.PlayMenuMusic(true);
+        VideoManager.Instance.UnPause();
+    }
+
+    public void BackToMainMenu()
     {
         VideoManager.Instance.PlayMainMenuClip();
-        PanelManager.Instance.SetPanel(PanelState.Main, fadeStyle, VideoManager.Instance.PlayMainMenuClip, StartMainMenuEvents);
+        PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.FadeInAndOut, null, BackToMainMenuEvents);
+        m_gameState = GameState.MainMenu;
+    }
+    
+    public void LoadMainMenu()
+    {
+        PanelManager.Instance.SetPanel(PanelState.Main);
         m_gameState = GameState.MainMenu;
     }
 

@@ -81,7 +81,6 @@ public class VideoManager : MonoBehaviour
         m_videoPlayer.clip = clip;
         m_videoPlayer.isLooping = loop;
         m_videoPlayer.Prepare();
-        m_videoPlayer.prepareCompleted += OnPrepared;
     }
     
     /*
@@ -122,14 +121,6 @@ public class VideoManager : MonoBehaviour
     // --------------------------------------------
     //              FUNCTIONS HELPERS
     // --------------------------------------------
-    
-    /*
-     * Buffer to load videos
-     */
-    private void OnPrepared(VideoPlayer vp)
-    {
-        vp.prepareCompleted -= OnPrepared;
-    }
 
     public void PlayMainMenuClip()
     {
