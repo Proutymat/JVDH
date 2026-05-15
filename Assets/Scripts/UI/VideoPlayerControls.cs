@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,11 +9,11 @@ using UnityEngine.Video;
 public class VideoPlayerControls : MonoBehaviour
 {
     
-    [Header("Parameters")]
+    [Title("Parameters")]
     [SerializeField] private float m_autoHideDuration;
     [SerializeField] private float m_arrowSeekStep;
     
-    [Header("Set in Inspector")]
+    [Title("Set in Inspector")]
     [SerializeField] private VideoPlayer m_videoPlayer;
     [SerializeField] private CanvasGroup m_controlsCanvasGroup;
     [SerializeField] private Slider m_videoSlider;

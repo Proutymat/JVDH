@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,10 +9,10 @@ public class PanelManager : MonoBehaviour
     private static PanelManager m_instance;
     public static PanelManager Instance => m_instance;
 
-    [Header("Parameters")]
+    [Title("Parameters")]
     [SerializeField] private float m_fadeBlackDuration = 1f;
     
-    [Header("Set in Inspector")]
+    [Title("Set in Inspector")]
     [SerializeField] private Canvas m_canvas;
     [SerializeField] private CanvasGroup m_mainPanel;
     [SerializeField] private CanvasGroup m_settingsPanel;

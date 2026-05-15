@@ -1,9 +1,10 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    [Header("Set in Inspector")]
+    [Title("Set in Inspector")]
     [SerializeField] private CanvasGroup m_mainPausePanel;
     [SerializeField] private CanvasGroup m_settingsPausePanel;
 

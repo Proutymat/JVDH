@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -6,7 +7,7 @@ public class VideoManager : MonoBehaviour
     private static VideoManager m_instance;
     public static VideoManager Instance => m_instance;
 
-    [Header("Set in Inspector")]
+    [Title("Set in Inspector")]
     [SerializeField] private RenderTexture m_renderTexture;
     [SerializeField] private VideoPlayer m_videoPlayer;
     [SerializeField] private VideoClip m_menuClip;

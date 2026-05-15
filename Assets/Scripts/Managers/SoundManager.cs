@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -6,7 +7,7 @@ public class SoundManager : MonoBehaviour
     private static SoundManager m_instance;
     public static SoundManager Instance => m_instance;
     
-    [Header("Set in Inspector")]
+    [Title("Set in Inspector")]
     [SerializeField] private AudioSource m_musicSource;
     [SerializeField] private AudioSource m_clicSource;
     [SerializeField] private AudioClip m_menuMusic;

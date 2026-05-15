@@ -3,13 +3,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [Header("Parameters")] 
+    [Title("Parameters")] 
     [SerializeField] private float m_hoverAnimDuration;
     
-    [Header("Set in inspector")]
+    [Title("Set in inspector")]
     [SerializeField] private AudioSource m_audioSource;
     [SerializeField] private ColorVariable m_normalColor;
     [SerializeField] private ColorVariable m_hoveredColor;

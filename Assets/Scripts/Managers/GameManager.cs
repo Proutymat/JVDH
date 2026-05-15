@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,7 +7,7 @@ public class GameManager : MonoBehaviour
     private static GameManager m_instance;
     public static GameManager Instance => m_instance;
     
-    [Header("Parameters")]
+    [Title("Parameters")]
     [SerializeField] private float m_fadeDuration = 0.5f;
 
     private bool m_isPaused;

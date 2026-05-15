@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,7 +6,7 @@ using UnityEngine.EventSystems;
 public class SettingsButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     
-    [Header("Set in inspector")]
+    [Title("Set in inspector")]
     [SerializeField] private FontStyles baseStyle;
     [SerializeField] private TMP_Text m_text;
     
