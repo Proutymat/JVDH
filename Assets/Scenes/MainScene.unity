@@ -1260,26 +1260,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2596292455851897347, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2596292455851897347, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2596292455851897347, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2596292455851897347, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2596292455851897347, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2599775759550447641, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
       propertyPath: m_Name
       value: PanelManager
