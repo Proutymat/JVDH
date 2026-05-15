@@ -25,7 +25,6 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private TMP_Text m_languageTextInGame;
     [SerializeField] private TMP_Text m_windowedModeTextInGame;
     [SerializeField] private TMP_Text m_videoPlayerControlsTextInGame;
-    [SerializeField] private VideoPlayerControls m_videoPlayerControlsScriptInGame;
     [Title("Localization keys", horizontalLine: false)]
     [SerializeField] private LocalizedString  m_enabledTextKey;
     [SerializeField] private LocalizedString  m_disabledTextKey;

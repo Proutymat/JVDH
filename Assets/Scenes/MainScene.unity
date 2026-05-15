@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &205109850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4320134210767015018, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+  m_PrefabInstance: {fileID: 7304251508492286187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +388,17 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!114 &664083064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6878115133617015863, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+  m_PrefabInstance: {fileID: 7304251508492286187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &672064908 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1620643320782937834, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
@@ -442,11 +464,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9000072453049203636, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
   m_PrefabInstance: {fileID: 7887985687102521448}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &952400534 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4699743577097755160, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+  m_PrefabInstance: {fileID: 7304251508492286187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!225 &1097294193 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 7901589863753930279, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
   m_PrefabInstance: {fileID: 7304251508492286187}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1232010331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2605427185539696668, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+  m_PrefabInstance: {fileID: 7304251508492286187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1535560705 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 752252648357002014, guid: 98a0dd3f326766a4fb7e0550740b4acc, type: 3}
@@ -583,6 +627,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2111279456 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1789009800185944545, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+  m_PrefabInstance: {fileID: 7304251508492286187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6443519693887406759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2425,9 +2480,29 @@ PrefabInstance:
       value: VideoPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 6462460033151335243, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_languageTextInGame
+      value: 
+      objectReference: {fileID: 664083064}
+    - target: {fileID: 6462460033151335243, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_subtitlesTextInGame
+      value: 
+      objectReference: {fileID: 2111279456}
+    - target: {fileID: 6462460033151335243, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_windowedModeTextInGame
+      value: 
+      objectReference: {fileID: 1232010331}
+    - target: {fileID: 6462460033151335243, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_globalVolumeSliderInGame
+      value: 
+      objectReference: {fileID: 952400534}
+    - target: {fileID: 6462460033151335243, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
       propertyPath: m_videoPlayerControlsScript
       value: 
       objectReference: {fileID: 7887985687102521449}
+    - target: {fileID: 6462460033151335243, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+      propertyPath: m_videoPlayerControlsTextInGame
+      value: 
+      objectReference: {fileID: 205109850}
     - target: {fileID: 6608102798166728182, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
