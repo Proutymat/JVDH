@@ -50,6 +50,15 @@ MonoBehaviour:
     m_Localized: "Contr\xF4le du lecteur vid\xE9o : "
     m_Metadata:
       m_Items: []
+  - m_Id: 5436312751788032
+    m_Localized: "Supprimer les donn\xE9es de jeu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5442071375990784
+    m_Localized: "\xCAtes-vous s\xFBr de vouloir supprimer les donn\xE9es du jeu
+      ? (vous perdrez toute la progression des succ\xE8s ainsi que les bonus)"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

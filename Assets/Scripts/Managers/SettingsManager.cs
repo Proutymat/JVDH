@@ -129,4 +129,14 @@ public class SettingsManager : MonoBehaviour
         SetSubtitlesButtonsText();
         SetVPCButtonsText();
     }
+
+    public void DeleteDatasButton()
+    {
+        PanelManager.Instance.SetPanel(PanelState.Confirm, FadeStyle.FadeInAndOut);
+    }
+
+    public void ConfirmDeleteDatasButton()
+    {
+        
+    }
 }

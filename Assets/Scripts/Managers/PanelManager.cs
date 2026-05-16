@@ -16,6 +16,7 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private Canvas m_canvas;
     [SerializeField] private CanvasGroup m_mainPanel;
     [SerializeField] private CanvasGroup m_settingsPanel;
+    [SerializeField] private CanvasGroup m_confirmPanel;
     [SerializeField] private CanvasGroup m_bonusPanel;
     [SerializeField] private CanvasGroup m_creditsPanel;
     [SerializeField] private CanvasGroup m_startupPanel;
@@ -68,6 +69,7 @@ public class PanelManager : MonoBehaviour
     {
         ShowCanvasGroup(state == PanelState.Main, m_mainPanel);
         ShowCanvasGroup(state == PanelState.Options, m_settingsPanel);
+        ShowCanvasGroup(state == PanelState.Confirm, m_confirmPanel);
         ShowCanvasGroup(state == PanelState.Bonus, m_bonusPanel);
         ShowCanvasGroup(state == PanelState.Credits, m_creditsPanel);
         ShowCanvasGroup(state == PanelState.Startup, m_startupPanel);

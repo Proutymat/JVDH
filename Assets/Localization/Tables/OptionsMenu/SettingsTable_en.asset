@@ -50,6 +50,15 @@ MonoBehaviour:
     m_Localized: 'Video player controls : '
     m_Metadata:
       m_Items: []
+  - m_Id: 5436312751788032
+    m_Localized: Delete game data
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5442071375990784
+    m_Localized: Are you sure you want to delete your game data? (You will lose all
+      achievement progress and bonuses)
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
