@@ -68,7 +68,7 @@ public class PanelManager : MonoBehaviour
     private void SetPanelsState(PanelState state)
     {
         ShowCanvasGroup(state == PanelState.Main, m_mainPanel);
-        ShowCanvasGroup(state == PanelState.Options, m_settingsPanel);
+        ShowCanvasGroup(state == PanelState.Settings, m_settingsPanel);
         ShowCanvasGroup(state == PanelState.Confirm, m_confirmPanel);
         ShowCanvasGroup(state == PanelState.Bonus, m_bonusPanel);
         ShowCanvasGroup(state == PanelState.Credits, m_creditsPanel);
@@ -144,7 +144,7 @@ public class PanelManager : MonoBehaviour
 
     public void ShowOptionsMenu()
     {
-        SetPanel(PanelState.Options);
+        SetPanel(PanelState.Settings);
     }
 
     public void ShowBonusMenu()

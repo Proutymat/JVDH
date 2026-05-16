@@ -1,7 +1,7 @@
 public enum PanelState
 {
     Main,
-    Options,
+    Settings,
     Confirm,
     Bonus,
     Credits,
