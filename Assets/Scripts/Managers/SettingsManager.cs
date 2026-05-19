@@ -59,7 +59,7 @@ public class SettingsManager : MonoBehaviour
     public void Start()
     {
         m_globalVolume =  m_globalVolumeSlider.value;
-        m_videoPlayerControls = false;
+        m_videoPlayerControls = true;
         m_subtitles = false;
         m_localID = 0;
         m_windowedMode = true;

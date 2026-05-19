@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9181574504746926360}
   - component: {fileID: 4694956209670614385}
   - component: {fileID: 8520574492385206548}
+  - component: {fileID: 817123177709458168}
   - component: {fileID: 8928349392774480292}
   m_Layer: 0
   m_Name: P_VideoManager
@@ -67,6 +68,21 @@ MonoBehaviour:
   m_controlsCanvasGroup: {fileID: 0}
   m_videoSlider: {fileID: 0}
   m_subtitleText: {fileID: 0}
+--- !u!114 &817123177709458168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000072453049203636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f992048d7a9e5ba4da15e4b27cd437a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fadeDuration: 1
+  m_videoPlayer: {fileID: 8928349392774480292}
+  m_videoMaterial: {fileID: 2100000, guid: af293c6ef853e9d47894a9c04665bed6, type: 2}
 --- !u!328 &8928349392774480292
 VideoPlayer:
   m_ObjectHideFlags: 0
