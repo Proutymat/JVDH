@@ -132,7 +132,7 @@ public class SettingsManager : MonoBehaviour
 
     public void DeleteDatasButton()
     {
-        PanelManager.Instance.SetPanel(PanelState.Confirm, FadeStyle.FadeInAndOut);
+        PanelManager.Instance.SetPanel(PanelState.Confirm, FadeStyle.FadeInAndOut, null, null, null, 0);
     }
 
     public void ConfirmDeleteDatasButton()

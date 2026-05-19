@@ -79,12 +79,14 @@ public class PanelManager : MonoBehaviour
         m_panelState = state;
     }
     
-    public void SetPanel(PanelState state, FadeStyle fadeStyle = FadeStyle.None, TweenCallback onMidFade = null, TweenCallback onMidFade2 = null, TweenCallback onFadeFinished = null)
+    public void SetPanel(PanelState state, FadeStyle fadeStyle = FadeStyle.None, TweenCallback onMidFade = null, TweenCallback onMidFade2 = null, TweenCallback onFadeFinished = null, float overrideFadeBlackDuration = -1)
     {
+        float fadeBlackDuration = overrideFadeBlackDuration < 0 ? m_fadeBlackDuration : overrideFadeBlackDuration;
         
+        Debug.Log("Fade Black Duration: " + fadeBlackDuration);
         
         Sequence seq = DOTween.Sequence();
-        
+
         switch (fadeStyle)
         {
             case FadeStyle.None:
@@ -98,7 +100,7 @@ public class PanelManager : MonoBehaviour
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 1f);
                 seq.AppendCallback(() => SetPanelsState(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
-                seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendInterval(fadeBlackDuration);
                 seq.AppendCallback(() => onMidFade2?.Invoke());
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 0f);
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = false);
@@ -109,7 +111,7 @@ public class PanelManager : MonoBehaviour
                 seq.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration));
                 seq.AppendCallback(() => SetPanelsState(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
-                seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendInterval(fadeBlackDuration);
                 seq.AppendCallback(() => onMidFade2?.Invoke());
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 0f);
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = false);
@@ -121,19 +123,20 @@ public class PanelManager : MonoBehaviour
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 1f);
                 seq.AppendCallback(() => SetPanelsState(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
-                seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendInterval(fadeBlackDuration);
                 seq.AppendCallback(() => onMidFade2?.Invoke());
                 seq.Append(m_fadeImageCanvasGroup.DOFade(0f, GameManager.Instance.FadeDuration));
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = false);
                 seq.OnComplete(() => onFadeFinished?.Invoke());
                 break;
             case FadeStyle.FadeInAndOut:
+                Debug.Log("FadeInAndOut");
                 seq = DOTween.Sequence();
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = true);
                 seq.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration));
                 seq.AppendCallback(() => SetPanelsState(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
-                seq.AppendInterval(m_fadeBlackDuration);
+                seq.AppendInterval(fadeBlackDuration);
                 seq.AppendCallback(() => onMidFade2?.Invoke());
                 seq.Append(m_fadeImageCanvasGroup.DOFade(0f, GameManager.Instance.FadeDuration));
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = false);
