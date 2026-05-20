@@ -56,7 +56,7 @@ public class SoundManager : MonoBehaviour
         PlayMusic(m_creditMusic, false, true);
     }
     
-    private void PlayMusic(AudioClip clip, bool loop, bool doFade)
+    public void PlayMusic(AudioClip clip, bool loop, bool doFade)
     {
         if (clip == null) return;
 
