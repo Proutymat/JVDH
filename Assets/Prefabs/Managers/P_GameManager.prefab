@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a614d9b69aa3b34fb1fa873a29465d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_fadeDuration: 0.5
+  m_videoEndBehavior: {fileID: 0}
+  _pauseAction: {fileID: 0}

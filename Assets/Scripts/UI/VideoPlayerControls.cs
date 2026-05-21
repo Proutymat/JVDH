@@ -18,6 +18,9 @@ public class VideoPlayerControls : MonoBehaviour
     [SerializeField] private CanvasGroup m_controlsCanvasGroup;
     [SerializeField] private Slider m_videoSlider;
     [SerializeField] private TMP_Text m_subtitleText;
+    [SerializeField] private InputActionReference m_previousAction;
+    [SerializeField] private InputActionReference m_nextAction;
+    [SerializeField] private InputActionReference m_pauseVideoAction;
     
     private bool m_isDraggingSlider;
     private bool m_isSeekingSlider;
@@ -136,7 +139,7 @@ public class VideoPlayerControls : MonoBehaviour
     private void HandleKeyboardInputs()
     {
         // Space-bar (pause)
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (m_pauseVideoAction.action.WasPerformedThisFrame())
         {
             if (m_videoPlayer.isPlaying)
             {
@@ -149,7 +152,7 @@ public class VideoPlayerControls : MonoBehaviour
         }
         
         // Left arrow
-        if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
+        if (m_previousAction.action.WasPerformedThisFrame())
         {
             double newTime = m_videoPlayer.time - m_arrowSeekStep;
             newTime = Mathf.Max(0f, (float)newTime);
@@ -163,7 +166,7 @@ public class VideoPlayerControls : MonoBehaviour
         }
 
         // Right arrow
-        if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
+        if (m_nextAction.action.WasPerformedThisFrame())
         {
             double newTime = m_videoPlayer.time + m_arrowSeekStep;
             newTime = Mathf.Min((float)m_videoPlayer.length, (float)newTime);

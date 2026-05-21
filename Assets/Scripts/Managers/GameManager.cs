@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     
     [Title("Set in inspector")]
     [SerializeField] private VideoEndBehavior m_videoEndBehavior;
+    [SerializeField] private InputActionReference m_pauseGameAction;
     
     private bool m_isPaused;
     private GameState m_gameState;
@@ -122,7 +123,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Pause menu
-        if ((m_gameState == GameState.Game || m_gameState == GameState.Paused) && Keyboard.current.escapeKey.wasPressedThisFrame)
+        if ((m_gameState == GameState.Game || m_gameState == GameState.Paused) && m_pauseGameAction.action.WasPerformedThisFrame())
         {
             PauseGame();
         }
