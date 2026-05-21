@@ -31,6 +31,7 @@ public class PauseManager : MonoBehaviour
         {
             ShowCanvasGroup(false, m_settingsPausePanel);
             ShowCanvasGroup(true, m_mainPausePanel);
+            SaveManager.Instance.Save();
         }
             
     }

@@ -47,7 +47,6 @@ public class SoundManager : MonoBehaviour
     
     public void PlayMenuMusic(bool doFade)
     {
-        Debug.Log("Playing Menu Music");
         PlayMusic(m_menuMusic, true, doFade);
     }
 

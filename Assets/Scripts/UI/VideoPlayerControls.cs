@@ -12,6 +12,7 @@ public class VideoPlayerControls : MonoBehaviour
     [Title("Parameters")]
     [SerializeField] private float m_autoHideDuration;
     [SerializeField] private float m_arrowSeekStep;
+    [SerializeField] private float m_holdSeekInterval = 0.1f;
     
     [Title("Set in Inspector")]
     [SerializeField] private VideoPlayer m_videoPlayer;
@@ -25,6 +26,8 @@ public class VideoPlayerControls : MonoBehaviour
     private bool m_isDraggingSlider;
     private bool m_isSeekingSlider;
     private double m_targetSeekTime;
+    private float m_nextSeekTimer;
+    private float m_previousSeekTimer;
     private float m_autoHideTimer;
     private Vector2 m_lastMousePosition;
     private bool m_enableControls;
@@ -136,6 +139,18 @@ public class VideoPlayerControls : MonoBehaviour
         }
     }
     
+    private void Seek(double delta)
+    {
+        double newTime = m_videoPlayer.time + delta;
+        newTime = Mathf.Clamp((float)newTime, 0f, (float)m_videoPlayer.length);
+
+        m_videoPlayer.time = newTime;
+        m_videoSlider.value = (float)(newTime / m_videoPlayer.length);
+
+        m_autoHideTimer = 0f;
+        ShowControls(true);
+    }
+    
     private void HandleKeyboardInputs()
     {
         // Space-bar (pause)
@@ -152,31 +167,35 @@ public class VideoPlayerControls : MonoBehaviour
         }
         
         // Left arrow
-        if (m_previousAction.action.WasPerformedThisFrame())
+        if (m_previousAction.action.IsPressed())
         {
-            double newTime = m_videoPlayer.time - m_arrowSeekStep;
-            newTime = Mathf.Max(0f, (float)newTime);
+            m_previousSeekTimer -= Time.deltaTime;
 
-            m_isSeekingSlider = true;
-            m_targetSeekTime = newTime;
-            m_videoPlayer.time = newTime;
-
-            m_autoHideTimer = 0f;
-            ShowControls(true);
+            if (m_previousSeekTimer <= 0f)
+            {
+                Seek(-m_arrowSeekStep);
+                m_previousSeekTimer = m_holdSeekInterval;
+            }
+        }
+        else
+        {
+            m_previousSeekTimer = 0f;
         }
 
         // Right arrow
-        if (m_nextAction.action.WasPerformedThisFrame())
+        if (m_nextAction.action.IsPressed())
         {
-            double newTime = m_videoPlayer.time + m_arrowSeekStep;
-            newTime = Mathf.Min((float)m_videoPlayer.length, (float)newTime);
+            m_nextSeekTimer -= Time.deltaTime;
 
-            m_isSeekingSlider = true;
-            m_targetSeekTime = newTime;
-            m_videoPlayer.time = newTime;
-
-            m_autoHideTimer = 0f;
-            ShowControls(true);
+            if (m_nextSeekTimer <= 0f)
+            {
+                Seek(m_arrowSeekStep);
+                m_nextSeekTimer = m_holdSeekInterval;
+            }
+        }
+        else
+        {
+            m_nextSeekTimer = 0f;
         }
     }
 

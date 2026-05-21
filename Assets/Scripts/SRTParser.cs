@@ -20,7 +20,7 @@ public static class SRTParser
             StringSplitOptions.RemoveEmptyEntries
         );
 
-        Debug.Log($"[SRTParser] {blocks.Length} blocs détectés.");
+        //Debug.Log($"[SRTParser] {blocks.Length} blocs détectés.");
 
         for (int i = 0; i < blocks.Length; i++)
         {
@@ -91,7 +91,7 @@ public static class SRTParser
             });
         }
 
-            Debug.Log($"[SRTParser] {subtitles.Count} sous-titres valides chargés.");
+            //Debug.Log($"[SRTParser] {subtitles.Count} sous-titres valides chargés.");
 
         return subtitles;
     }

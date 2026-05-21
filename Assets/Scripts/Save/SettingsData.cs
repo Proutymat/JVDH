@@ -1,3 +1,6 @@
+using System;
+
+[Serializable]
 public class SettingsData
 {
     public float masterVolume = 1f;

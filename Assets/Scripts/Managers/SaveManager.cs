@@ -25,10 +25,7 @@ public class SaveManager : MonoBehaviour
         }
 
         m_instance = this;
-    }
-
-    private void Start()
-    {
+        
         Load();
     }
     

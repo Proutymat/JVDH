@@ -133,7 +133,7 @@ MonoBehaviour:
   m_windowedModeText: {fileID: 8158128133398650622}
   m_videoPlayerControlsText: {fileID: 7992511943168645768}
   m_videoPlayerControlsScript: {fileID: 0}
-  m_globalVolumeSliderInGame: {fileID: 0}
+  m_masterVolumeSliderInGame: {fileID: 0}
   m_subtitlesTextInGame: {fileID: 0}
   m_languageTextInGame: {fileID: 0}
   m_windowedModeTextInGame: {fileID: 0}
