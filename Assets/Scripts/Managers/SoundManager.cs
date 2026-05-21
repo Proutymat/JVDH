@@ -56,7 +56,7 @@ public class SoundManager : MonoBehaviour
         PlayMusic(m_creditMusic, false, true);
     }
     
-    public void PlayMusic(AudioClip clip, bool loop, bool doFade)
+    public void PlayMusic(AudioClip clip, bool loop, bool doFade, float fadeOverride = -1)
     {
         if (clip == null) return;
 
@@ -66,15 +66,17 @@ public class SoundManager : MonoBehaviour
         
         if (doFade)
         {
+            float fadeTime = fadeOverride >= 0 ? fadeOverride : GameManager.Instance.FadeDuration;
+            
             // Fade out then fade in
-            m_musicSource.DOFade(0f, GameManager.Instance.FadeDuration).OnComplete(() =>
+            m_musicSource.DOFade(0f, fadeTime).OnComplete(() =>
             {
                 m_musicSource.DOKill();
                 m_musicSource.clip = clip;
                 m_musicSource.loop = loop;
                 m_musicSource.Play();
             
-                m_musicSource.DOFade(1f, GameManager.Instance.FadeDuration);
+                m_musicSource.DOFade(1f, fadeTime);
             });
         }
         else

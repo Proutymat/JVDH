@@ -83,8 +83,6 @@ public class PanelManager : MonoBehaviour
     {
         float fadeBlackDuration = overrideFadeBlackDuration < 0 ? m_fadeBlackDuration : overrideFadeBlackDuration;
         
-        Debug.Log("Fade Black Duration: " + fadeBlackDuration);
-        
         Sequence seq = DOTween.Sequence();
 
         switch (fadeStyle)
@@ -130,7 +128,6 @@ public class PanelManager : MonoBehaviour
                 seq.OnComplete(() => onFadeFinished?.Invoke());
                 break;
             case FadeStyle.FadeInAndOut:
-                Debug.Log("FadeInAndOut");
                 seq = DOTween.Sequence();
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = true);
                 seq.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration));

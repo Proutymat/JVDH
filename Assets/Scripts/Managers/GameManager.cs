@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     
     [Title("Parameters")]
     [SerializeField] private float m_fadeDuration = 0.5f;
+    
+    [Title("Set in inspector")]
+    [SerializeField] private VideoEndBehavior m_videoEndBehavior;
 
     private bool m_isPaused;
     private GameState m_gameState;
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
     
     public void StartGame()
     {
+        m_videoEndBehavior.Enable(true);
         PanelManager.Instance.SetPanel(PanelState.Game, FadeStyle.FadeIn, VideoTreePlayer.instance.StartVideoTree, null, VideoManager.Instance.UnPause);
         m_gameState = GameState.Game;
     }
@@ -70,6 +74,7 @@ public class GameManager : MonoBehaviour
     public void BackToMainMenu()
     {
         VideoManager.Instance.PlayMainMenuClip();
+        m_videoEndBehavior.Enable(false);
         PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.FadeInAndOut, null, BackToMainMenuEvents);
         m_gameState = GameState.MainMenu;
     }
