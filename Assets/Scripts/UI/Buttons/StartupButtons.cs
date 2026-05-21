@@ -10,5 +10,6 @@ public class StartupButtons : MonoBehaviour
     public void NoButton()
     {
         GameManager.Instance.StartGame();
+        SaveManager.Instance.Data.progression.currentVideo = 0;
     }
 }

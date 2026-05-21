@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ca930f305edc0458da545f3de36701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_globalVolumeSlider: {fileID: 1452410376329121018}
+  m_masterVolumeSlider: {fileID: 1452410376329121018}
   m_subtitlesText: {fileID: 5606135494403624707}
   m_languageText: {fileID: 751205231116589781}
   m_windowedModeText: {fileID: 8158128133398650622}

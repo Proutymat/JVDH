@@ -13,14 +13,14 @@ public class SettingsManager : MonoBehaviour
     
     [Title("Set in Inspector")]
     [Title("Main menu settings", horizontalLine: false)]
-    [SerializeField] private Slider m_globalVolumeSlider;
+    [SerializeField] private Slider m_masterVolumeSlider;
     [SerializeField] private TMP_Text m_subtitlesText;
     [SerializeField] private TMP_Text m_languageText;
     [SerializeField] private TMP_Text m_windowedModeText;
     [SerializeField] private TMP_Text m_videoPlayerControlsText;
     [SerializeField] private VideoPlayerControls m_videoPlayerControlsScript;
     [Title("Pause menu settings", horizontalLine: false)]
-    [SerializeField] private Slider m_globalVolumeSliderInGame;
+    [SerializeField] private Slider m_masterVolumeSliderInGame;
     [SerializeField] private TMP_Text m_subtitlesTextInGame;
     [SerializeField] private TMP_Text m_languageTextInGame;
     [SerializeField] private TMP_Text m_windowedModeTextInGame;
@@ -32,13 +32,12 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private LocalizedString  m_windowedModeTextKey;
     [SerializeField] private LocalizedString  m_videoPlayerControlsTextKey;
     
-    private float m_globalVolume;
-    private bool m_videoPlayerControls;
+    private float m_masterVolume;
+    private bool m_windowedMode;
     private bool m_subtitles;
     private int m_localID;
-    private bool m_windowedMode;
+    private bool m_videoPlayerControls;
 
-    public bool VideoPlayerControls { get => m_videoPlayerControls; }
     
     // --------------------------------------------
     //               INITIALIZATION
@@ -58,14 +57,34 @@ public class SettingsManager : MonoBehaviour
 
     public void Start()
     {
-        m_globalVolume =  m_globalVolumeSlider.value;
-        m_videoPlayerControls = true;
-        m_subtitles = false;
-        m_localID = 0;
-        m_windowedMode = true;
+        // SET VALUES FROM SAVE
+        m_masterVolume =  SaveManager.Instance.Data.settings.masterVolume;
+        SetMasterVolumeSlider();
+        m_windowedMode = SaveManager.Instance.Data.settings.windowed;
         SetWindowedModeButtonsText();
+        m_subtitles = SaveManager.Instance.Data.settings.subtitles;
         SetSubtitlesButtonsText();
+        m_localID = SaveManager.Instance.Data.settings.language;
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[m_localID];
+        m_videoPlayerControls = SaveManager.Instance.Data.settings.videoPlayerControls;
         SetVPCButtonsText();
+    }
+
+    private void SetMasterVolumeSlider()
+    {
+        m_masterVolumeSlider.value = m_masterVolume;
+        m_masterVolumeSliderInGame.value = m_masterVolume;
+    }
+    
+    private void SetWindowedModeButtonsText()
+    {
+        // Main menu
+        m_windowedModeText.text = m_windowedModeTextKey.GetLocalizedString();
+        m_windowedModeText.text += m_windowedMode ? m_enabledTextKey.GetLocalizedString() : m_disabledTextKey.GetLocalizedString();
+        
+        // Pause menu
+        m_windowedModeTextInGame.text = m_windowedModeTextKey.GetLocalizedString();
+        m_windowedModeTextInGame.text += m_windowedMode ? m_enabledTextKey.GetLocalizedString() : m_disabledTextKey.GetLocalizedString();
     }
 
     private void SetSubtitlesButtonsText()
@@ -103,17 +122,6 @@ public class SettingsManager : MonoBehaviour
         SetSubtitlesButtonsText();
     }
 
-    private void SetWindowedModeButtonsText()
-    {
-        // Main menu
-        m_windowedModeText.text = m_windowedModeTextKey.GetLocalizedString();
-        m_windowedModeText.text += m_windowedMode ? m_enabledTextKey.GetLocalizedString() : m_disabledTextKey.GetLocalizedString();
-        
-        // Pause menu
-        m_windowedModeTextInGame.text = m_windowedModeTextKey.GetLocalizedString();
-        m_windowedModeTextInGame.text += m_windowedMode ? m_enabledTextKey.GetLocalizedString() : m_disabledTextKey.GetLocalizedString();
-    }
-
     public void WindowedModeButton()
     {
         m_windowedMode = !m_windowedMode;
@@ -133,10 +141,5 @@ public class SettingsManager : MonoBehaviour
     public void DeleteDatasButton()
     {
         PanelManager.Instance.SetPanel(PanelState.Confirm, FadeStyle.FadeInAndOut, null, null, null, 0);
-    }
-
-    public void ConfirmDeleteDatasButton()
-    {
-        
     }
 }

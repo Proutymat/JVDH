@@ -4,7 +4,7 @@ public class ConfirmButtons : MonoBehaviour
 {
     public void YesButton()
     {
-        SettingsManager.Instance.ConfirmDeleteDatasButton();
+        SaveManager.DeleteSave();
         PanelManager.Instance.SetPanel(PanelState.Settings, FadeStyle.FadeInAndOut, null, null, null, 0);
     }
 

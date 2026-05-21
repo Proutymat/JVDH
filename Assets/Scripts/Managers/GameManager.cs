@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     
     [Title("Set in inspector")]
     [SerializeField] private VideoEndBehavior m_videoEndBehavior;
-
+    
     private bool m_isPaused;
     private GameState m_gameState;
 
