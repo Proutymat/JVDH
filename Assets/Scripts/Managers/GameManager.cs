@@ -108,6 +108,9 @@ public class GameManager : MonoBehaviour
 
         if (m_isPaused)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            
             VideoManager.Instance.Pause();
             m_gameState = GameState.Paused;
             PanelManager.Instance.SetPanel(PanelState.Pause);

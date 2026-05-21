@@ -107,13 +107,15 @@ public class SettingsManager : MonoBehaviour
         // Pause menu
         m_videoPlayerControlsTextInGame.text = m_videoPlayerControlsTextKey.GetLocalizedString();
         m_videoPlayerControlsTextInGame.text += m_videoPlayerControls ? m_enabledTextKey.GetLocalizedString() : m_disabledTextKey.GetLocalizedString();
+
+        m_videoPlayerControlsScript.ShowControls(false);
     }
 
     public void VideoPlayerControlsButton()
     {
         m_videoPlayerControls = !m_videoPlayerControls;
         SetVPCButtonsText();
-        m_videoPlayerControlsScript.EnableControls = m_videoPlayerControls;
+        SaveManager.Instance.Data.settings.videoPlayerControls = m_videoPlayerControls;
     }
 
     public void SubtitlesButton()

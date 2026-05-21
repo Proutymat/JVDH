@@ -30,14 +30,8 @@ public class VideoPlayerControls : MonoBehaviour
     private float m_previousSeekTimer;
     private float m_autoHideTimer;
     private Vector2 m_lastMousePosition;
-    private bool m_enableControls;
     private bool m_showControls;
 
-    public bool EnableControls
-    {
-        get => m_enableControls;
-        set => m_enableControls = value;
-    }
 
     // --------------------------------------------
     //               INITIALIZATION
@@ -46,7 +40,6 @@ public class VideoPlayerControls : MonoBehaviour
     private void Start()
     {
         m_autoHideTimer = 0;
-        m_enableControls = true;
         m_isDraggingSlider = false;
         m_isSeekingSlider = false;
         
@@ -95,14 +88,14 @@ public class VideoPlayerControls : MonoBehaviour
 
     public void ShowControls(bool show)
     {
-        if (!m_enableControls && show) return;
+        if (!SaveManager.Instance.Data.settings.videoPlayerControls && show) return;
 
         m_showControls = show;
         m_controlsCanvasGroup.alpha = show ? 1 : 0;
         m_controlsCanvasGroup.blocksRaycasts = show;
         m_controlsCanvasGroup.interactable = show;
         
-        m_subtitleText.alignment = TextAlignmentOptions.Bottom;
+        m_subtitleText.alignment = show ? TextAlignmentOptions.Top : TextAlignmentOptions.Bottom;
     }
     
     
@@ -117,13 +110,14 @@ public class VideoPlayerControls : MonoBehaviour
             m_autoHideTimer = 0f;
             
             ShowCursor(true);
-            if (m_enableControls)
+            if (SaveManager.Instance.Data.settings.videoPlayerControls)
             {
                 ShowControls(true);
 
             }
         }
 
+        // Currently moving slider
         if (m_isDraggingSlider) return;
 
         m_autoHideTimer += Time.deltaTime;
@@ -131,7 +125,7 @@ public class VideoPlayerControls : MonoBehaviour
         if (m_autoHideTimer >= m_autoHideDuration)
         {
             ShowCursor(false);
-            if (m_enableControls)
+            if (SaveManager.Instance.Data.settings.videoPlayerControls)
             {
                 ShowControls(false);
 
@@ -227,7 +221,7 @@ public class VideoPlayerControls : MonoBehaviour
         
         UpdateAutoHide();
 
-        if (!m_enableControls) return;
+        if (!SaveManager.Instance.Data.settings.videoPlayerControls) return;
         
         HandleKeyboardInputs();
         UpdateSlider();
