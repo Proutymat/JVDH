@@ -12,7 +12,8 @@ public class VideoPlayerControls : MonoBehaviour
     [Title("Parameters")]
     [SerializeField] private float m_autoHideDuration;
     [SerializeField] private float m_arrowSeekStep;
-    [SerializeField] private float m_holdSeekInterval = 0.1f;
+    [SerializeField] private float m_holdInitialDelay = 0.3f;
+    [SerializeField] private float m_holdRepeatRate = 0.05f;
     
     [Title("Set in Inspector")]
     [SerializeField] private VideoPlayer m_videoPlayer;
@@ -30,7 +31,8 @@ public class VideoPlayerControls : MonoBehaviour
     private float m_previousSeekTimer;
     private float m_autoHideTimer;
     private Vector2 m_lastMousePosition;
-    private bool m_showControls;
+    private float m_heldTime;
+    private float m_repeatTimer;
 
 
     // --------------------------------------------
@@ -90,7 +92,6 @@ public class VideoPlayerControls : MonoBehaviour
     {
         if (!SaveManager.Instance.Data.settings.videoPlayerControls && show) return;
 
-        m_showControls = show;
         m_controlsCanvasGroup.alpha = show ? 1 : 0;
         m_controlsCanvasGroup.blocksRaycasts = show;
         m_controlsCanvasGroup.interactable = show;
@@ -113,7 +114,6 @@ public class VideoPlayerControls : MonoBehaviour
             if (SaveManager.Instance.Data.settings.videoPlayerControls)
             {
                 ShowControls(true);
-
             }
         }
 
@@ -128,26 +128,12 @@ public class VideoPlayerControls : MonoBehaviour
             if (SaveManager.Instance.Data.settings.videoPlayerControls)
             {
                 ShowControls(false);
-
             }
         }
     }
-    
-    private void Seek(double delta)
-    {
-        double newTime = m_videoPlayer.time + delta;
-        newTime = Mathf.Clamp((float)newTime, 0f, (float)m_videoPlayer.length);
 
-        m_videoPlayer.time = newTime;
-        m_videoSlider.value = (float)(newTime / m_videoPlayer.length);
-
-        m_autoHideTimer = 0f;
-        ShowControls(true);
-    }
-    
-    private void HandleKeyboardInputs()
+    private void HandleSpacebarInput()
     {
-        // Space-bar (pause)
         if (m_pauseVideoAction.action.WasPerformedThisFrame())
         {
             if (m_videoPlayer.isPlaying)
@@ -159,44 +145,68 @@ public class VideoPlayerControls : MonoBehaviour
                 VideoManager.Instance.UnPause();
             }
         }
-        
-        // Left arrow
-        if (m_previousAction.action.IsPressed())
-        {
-            m_previousSeekTimer -= Time.deltaTime;
-
-            if (m_previousSeekTimer <= 0f)
-            {
-                Seek(-m_arrowSeekStep);
-                m_previousSeekTimer = m_holdSeekInterval;
-            }
-        }
-        else
-        {
-            m_previousSeekTimer = 0f;
-        }
-
-        // Right arrow
-        if (m_nextAction.action.IsPressed())
-        {
-            m_nextSeekTimer -= Time.deltaTime;
-
-            if (m_nextSeekTimer <= 0f)
-            {
-                Seek(m_arrowSeekStep);
-                m_nextSeekTimer = m_holdSeekInterval;
-            }
-        }
-        else
-        {
-            m_nextSeekTimer = 0f;
-        }
     }
+    
+    private void Seek(double delta)
+    {
+        Debug.Log("Cliqued");
+
+        double newTime = m_videoPlayer.time + delta;
+        newTime = Mathf.Clamp((float)newTime, 0f, (float)m_videoPlayer.length);
+
+        m_videoSlider.value = (float)(newTime / m_videoPlayer.length);
+
+        m_autoHideTimer = 0f;
+    }
+    
+    // DOES NOT WORK CORRECTLY
+    /*
+    private void HandleArrowInput(InputActionReference arrow, float seekStep)
+    {
+        // Key pressed, move once on video
+        if (arrow.action.WasPerformedThisFrame())
+        {
+            m_isSeekingSlider = true;
+            m_heldTime = 0f;
+            m_repeatTimer = 0f;
+            m_videoPlayer.time += seekStep;
+            Seek(seekStep);
+            ShowControls(true);
+        }
+        
+        // Key held down, move on video continuously
+        if (arrow.action.IsPressed())
+        {
+            m_isDraggingSlider = true;
+            m_heldTime += Time.deltaTime;
+
+            // After delay, move on video at a set rate 
+            if (m_heldTime > m_holdInitialDelay)
+            {
+                m_repeatTimer += Time.deltaTime;
+
+                if (m_repeatTimer >= m_holdRepeatRate)
+                {
+                    m_repeatTimer = 0f;
+                    Seek(seekStep);
+                }
+            }
+        }
+
+        // Key released
+        if (arrow.action.WasReleasedThisFrame())
+        {
+            m_heldTime = 0f;
+            m_repeatTimer = 0f;
+            m_isDraggingSlider = false;
+            m_targetSeekTime = m_videoSlider.value * m_videoPlayer.length;
+        }
+    }*/
 
     private void UpdateSlider()
     {
         if (m_isDraggingSlider) return;
-        
+
         // Do not update the slider if it's being dragged
         if (m_isSeekingSlider)
         {
@@ -223,7 +233,9 @@ public class VideoPlayerControls : MonoBehaviour
 
         if (!SaveManager.Instance.Data.settings.videoPlayerControls) return;
         
-        HandleKeyboardInputs();
+        HandleSpacebarInput();
+        //HandleArrowInput(m_previousAction, -m_arrowSeekStep);
+        //HandleArrowInput(m_nextAction, m_arrowSeekStep);
         UpdateSlider();
     }
 }
