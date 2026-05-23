@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadBonusMenu()
     {
-        
+        PanelManager.Instance.ShowBonusMenu();
     }
 
     public void LoadCreditsMenu()

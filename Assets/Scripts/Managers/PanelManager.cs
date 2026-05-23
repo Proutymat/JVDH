@@ -149,7 +149,7 @@ public class PanelManager : MonoBehaviour
 
     public void ShowBonusMenu()
     {
-        SetPanel(PanelState.Bonus);
+        SetPanel(PanelState.Bonus, FadeStyle.FadeInAndOut);
     }
 
     public void ShowCreditsMenu()
