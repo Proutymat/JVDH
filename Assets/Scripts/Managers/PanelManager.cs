@@ -147,11 +147,6 @@ public class PanelManager : MonoBehaviour
         SetPanel(PanelState.Settings);
     }
 
-    public void ShowBonusMenu()
-    {
-        SetPanel(PanelState.Bonus, FadeStyle.None);
-    }
-
     public void ShowCreditsMenu()
     {
         float canvasHalfHeight = ((RectTransform)m_canvas.transform).rect.height * 0.5f;

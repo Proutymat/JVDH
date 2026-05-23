@@ -5,19 +5,18 @@ using UnityEngine;
 
 public class BonusPanel : MonoBehaviour
 {
-    
     [Title("Set in Inspector")]
     [SerializeField] private CanvasGroup m_previousButton;
     [SerializeField] private CanvasGroup m_nextButton;
     [SerializeField] private List<GameObject> m_bonusMiniatures;
 
     private int m_currentPage;
-    public int CurrentPage { get; set; }
 
     private void Start()
     {
-        m_currentPage = 0;
+        ResetUI();
     }
+    
 
     public void ResetUI()
     {
@@ -25,10 +24,11 @@ public class BonusPanel : MonoBehaviour
         PanelManager.ShowCanvasGroup(false, m_previousButton);
         PanelManager.ShowCanvasGroup(true, m_nextButton);
         
-        // Disable every page
+        // Disable every page and set lock state
         for (int i = 0; i < m_bonusMiniatures.Count; i++)
         {
             m_bonusMiniatures[i].SetActive(false);
+            m_bonusMiniatures[i].transform.GetChild(0).gameObject.SetActive(!SaveManager.Instance.Data.progression.success[i]);
         }
         
         // Enable first page

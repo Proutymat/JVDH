@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         if (PanelManager.Instance.GetPanelState == PanelState.Bonus)
         {
-            PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.FadeInAndOut, m_bonusPanel.ResetUI);
+            PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.FadeInAndOut);
         }
         else
         {
@@ -98,11 +98,6 @@ public class GameManager : MonoBehaviour
     public void LoadOptionsMenu()
     {
         PanelManager.Instance.ShowOptionsMenu();
-    }
-
-    public void LoadBonusMenu()
-    {
-        PanelManager.Instance.ShowBonusMenu();
     }
 
     public void LoadCreditsMenu()
