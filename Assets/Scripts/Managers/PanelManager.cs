@@ -58,7 +58,7 @@ public class PanelManager : MonoBehaviour
     //                  FUNCTIONS
     // --------------------------------------------
 
-    private static void ShowCanvasGroup(bool show, CanvasGroup canvasGroup)
+    public static void ShowCanvasGroup(bool show, CanvasGroup canvasGroup)
     {
         canvasGroup.alpha = show ? 1 : 0;
         canvasGroup.blocksRaycasts = show;
@@ -149,7 +149,7 @@ public class PanelManager : MonoBehaviour
 
     public void ShowBonusMenu()
     {
-        SetPanel(PanelState.Bonus, FadeStyle.FadeInAndOut);
+        SetPanel(PanelState.Bonus, FadeStyle.None);
     }
 
     public void ShowCreditsMenu()
