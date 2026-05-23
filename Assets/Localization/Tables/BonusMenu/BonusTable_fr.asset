@@ -26,6 +26,14 @@ MonoBehaviour:
     m_Localized: "Regardez la premi\xE8re vid\xE9o et devenez le h\xE9ron de l'histoire."
     m_Metadata:
       m_Items: []
+  - m_Id: 58397776236544
+    m_Localized: VOYAGE TEMPOREL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58622603513856
+    m_Localized: Revenez dans le passer pour sauver le monde !
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

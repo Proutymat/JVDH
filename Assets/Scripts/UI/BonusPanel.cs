@@ -1,17 +1,26 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
+using UnityEngine.UI;
 
 public class BonusPanel : MonoBehaviour
 {
     [Title("Set in Inspector")]
+    [SerializeField] private CanvasGroup m_previewLockState;
     [SerializeField] private CanvasGroup m_previousButton;
     [SerializeField] private CanvasGroup m_nextButton;
     [SerializeField] private List<GameObject> m_bonusMiniatures;
-
+    [SerializeField] private TMP_Text m_titleText;
+    [SerializeField] private TMP_Text m_descriptionText;
+    [SerializeField] private Image m_previewImage;
+    [SerializeField] private Bonus m_firstBonus;
+    
     private int m_currentPage;
-
+    private Bonus m_currentBonus;
+    
     private void Start()
     {
         ResetUI();
@@ -36,6 +45,8 @@ public class BonusPanel : MonoBehaviour
         {
             m_bonusMiniatures[i].SetActive(true);
         }
+
+        UpdatePreview(m_firstBonus);
     }
 
     public void NextPage()
@@ -81,5 +92,17 @@ public class BonusPanel : MonoBehaviour
         {
             PanelManager.ShowCanvasGroup(false, m_previousButton);
         }
+    }
+
+    public void UpdatePreview(Bonus bonus)
+    {
+        m_currentBonus = bonus;
+        
+        //PanelManager.ShowCanvasGroup(transform.GetChild(0).gameObject.activeSelf, m_previewLockState);
+        
+        // Update preview
+        m_titleText.text = m_currentBonus.titleKey.GetLocalizedString();
+        m_descriptionText.text = m_currentBonus.descriptionKey.GetLocalizedString();
+        m_previewImage.sprite = m_currentBonus.previewMiniature;
     }
 }

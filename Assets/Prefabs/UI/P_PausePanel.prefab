@@ -925,6 +925,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3062916614341662285, guid: e0468e65652522843b7618821b176147, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3838774539593906032, guid: e0468e65652522843b7618821b176147, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

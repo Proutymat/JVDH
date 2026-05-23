@@ -16,11 +16,19 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 7aa64da7d44c0c74a8678ef2e2573030
   m_Entries:
   - m_Id: 9058996224
-    m_Key: 1_title
+    m_Key: bonus_title_1
     m_Metadata:
       m_Items: []
   - m_Id: 129188057088
-    m_Key: 1_description
+    m_Key: bonus_desc_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58397776236544
+    m_Key: bonus_title_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58622603513856
+    m_Key: bonus_desc_2
     m_Metadata:
       m_Items: []
   m_Metadata:

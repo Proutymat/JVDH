@@ -253,7 +253,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -324,8 +324,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Langue : Fran\xE7ais"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
-  m_sharedMaterial: {fileID: 136753960899224203, guid: 42e9f23da97f96b46b39212c8b71f70a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6dda27e4e5457bf4595fd09fd689718d, type: 2}
+  m_sharedMaterial: {fileID: 5379950349955104808, guid: 6dda27e4e5457bf4595fd09fd689718d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
