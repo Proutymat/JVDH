@@ -82,7 +82,15 @@ public class GameManager : MonoBehaviour
     
     public void LoadMainMenu()
     {
-        PanelManager.Instance.SetPanel(PanelState.Main);
+        if (PanelManager.Instance.GetPanelState == PanelState.Bonus)
+        {
+            PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.FadeInAndOut);
+        }
+        else
+        {
+            PanelManager.Instance.SetPanel(PanelState.Main);
+        }
+        
         m_gameState = GameState.MainMenu;
     }
 
