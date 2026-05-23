@@ -12,10 +12,30 @@ public class BonusPanel : MonoBehaviour
     [SerializeField] private List<GameObject> m_bonusMiniatures;
 
     private int m_currentPage;
+    public int CurrentPage { get; set; }
 
     private void Start()
     {
         m_currentPage = 0;
+    }
+
+    public void ResetUI()
+    {
+        m_currentPage = 0;
+        PanelManager.ShowCanvasGroup(false, m_previousButton);
+        PanelManager.ShowCanvasGroup(true, m_nextButton);
+        
+        // Disable every page
+        for (int i = 0; i < m_bonusMiniatures.Count; i++)
+        {
+            m_bonusMiniatures[i].SetActive(false);
+        }
+        
+        // Enable first page
+        for (int i = 0; i < 4; i++)
+        {
+            m_bonusMiniatures[i].SetActive(true);
+        }
     }
 
     public void NextPage()
@@ -24,16 +44,7 @@ public class BonusPanel : MonoBehaviour
         int i = 0;
         while (i < 8 && i + m_currentPage * 4 < m_bonusMiniatures.Count)
         {
-            Debug.Log(i + m_currentPage * 4);
-            if (i < 4)
-            {
-                m_bonusMiniatures[i + m_currentPage * 4].SetActive(false);
-            }
-            else
-            {
-                m_bonusMiniatures[i + m_currentPage * 4].SetActive(true);
-            }
-
+            m_bonusMiniatures[i + m_currentPage * 4].SetActive(i > 3);
             i++;
         }
         
@@ -49,9 +60,6 @@ public class BonusPanel : MonoBehaviour
 
     public void PreviousPage()
     {
-        
-        Debug.Log("RESTE = " + m_bonusMiniatures.Count % 4);
-        
         // Hide last page and show new page
         int i = 7;
         if (m_currentPage == Math.Ceiling(m_bonusMiniatures.Count / 4f) - 1)
@@ -59,22 +67,11 @@ public class BonusPanel : MonoBehaviour
             i = m_bonusMiniatures.Count % 4 == 0 ? 7 : (m_bonusMiniatures.Count % 4) + 3 ;
         }
         
-        Debug.Log("I = "+ i);
-        
         m_currentPage--;
         
         while (i >= 0)
         {
-            Debug.Log(i + m_currentPage * 4);
-            if (i > 3)
-            {
-                m_bonusMiniatures[i + m_currentPage * 4].SetActive(false);
-            }
-            else
-            {
-                m_bonusMiniatures[i + m_currentPage * 4].SetActive(true);
-            }
-
+            m_bonusMiniatures[i + m_currentPage * 4].SetActive(i < 4);
             i--;
         }
 
@@ -84,6 +81,5 @@ public class BonusPanel : MonoBehaviour
         {
             PanelManager.ShowCanvasGroup(false, m_previousButton);
         }
-
     }
 }

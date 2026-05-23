@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [Title("Set in inspector")]
     [SerializeField] private VideoEndBehavior m_videoEndBehavior;
     [SerializeField] private InputActionReference m_pauseGameAction;
+    [SerializeField] private BonusPanel m_bonusPanel;
     
     private bool m_isPaused;
     private GameState m_gameState;
@@ -84,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         if (PanelManager.Instance.GetPanelState == PanelState.Bonus)
         {
-            PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.FadeInAndOut);
+            PanelManager.Instance.SetPanel(PanelState.Main, FadeStyle.FadeInAndOut, m_bonusPanel.ResetUI);
         }
         else
         {
