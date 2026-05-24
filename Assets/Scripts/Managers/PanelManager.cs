@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PanelManager : MonoBehaviour
@@ -26,6 +27,7 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private CanvasGroup m_fadeImageCanvasGroup;
     [SerializeField] private RectTransform m_creditsContainer;
     [SerializeField] private float m_creditsSpeed;
+    [SerializeField] private GameObject boutonPlay;
 
 
     private PanelState m_panelState;
@@ -182,5 +184,12 @@ public class PanelManager : MonoBehaviour
                 SoundManager.Instance.PlayMenuMusic(true);
             }
         }
+    }
+    
+    void OnEnable()
+    {
+        // Forcer la désélection puis la resélection
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(boutonPlay);
     }
 }

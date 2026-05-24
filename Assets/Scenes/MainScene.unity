@@ -708,7 +708,7 @@ MonoBehaviour:
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
+  m_PointerBehavior: 2
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
 --- !u!114 &1756715689
@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2035208545}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1756715690
@@ -766,6 +766,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_ActionId: 17e2cfd0-c45a-4bd8-9629-01950bb97836
+--- !u!1 &2035208545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5372758652750239500, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+  m_PrefabInstance: {fileID: 7304251508492286187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2049452536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4029,6 +4034,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3203265391887218059, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+    - {fileID: 3082684629348299595, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
@@ -4199,6 +4205,10 @@ PrefabInstance:
       propertyPath: m_bonusPanel
       value: 
       objectReference: {fileID: 1911437437}
+    - target: {fileID: 752252648357002014, guid: 98a0dd3f326766a4fb7e0550740b4acc, type: 3}
+      propertyPath: m_playButton
+      value: 
+      objectReference: {fileID: 2035208545}
     - target: {fileID: 752252648357002014, guid: 98a0dd3f326766a4fb7e0550740b4acc, type: 3}
       propertyPath: m_pauseAction
       value: 

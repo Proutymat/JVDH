@@ -76,6 +76,7 @@ MonoBehaviour:
   m_fadeImageCanvasGroup: {fileID: 4020690174687300212}
   m_creditsContainer: {fileID: 2437734706102643603}
   m_creditsSpeed: 100
+  boutonPlay: {fileID: 5372758652750239500}
 --- !u!223 &567055882503385976
 Canvas:
   m_ObjectHideFlags: 0
@@ -3898,5 +3899,10 @@ RectTransform:
 --- !u!225 &5095266715539725447 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 1947872704347224428, guid: 774d4b2ccdcfd2e43b382b22a38c6874, type: 3}
+  m_PrefabInstance: {fileID: 6754904606965655019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5372758652750239500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1671365925192069863, guid: 774d4b2ccdcfd2e43b382b22a38c6874, type: 3}
   m_PrefabInstance: {fileID: 6754904606965655019}
   m_PrefabAsset: {fileID: 0}
