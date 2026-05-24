@@ -98,7 +98,7 @@ public class BonusPanel : MonoBehaviour
     {
         m_currentBonus = bonus;
         
-        //PanelManager.ShowCanvasGroup(transform.GetChild(0).gameObject.activeSelf, m_previewLockState);
+        PanelManager.ShowCanvasGroup(!SaveManager.Instance.Data.progression.success[bonus.bonusIndex], m_previewLockState);
         
         // Update preview
         m_titleText.text = m_currentBonus.titleKey.GetLocalizedString();
