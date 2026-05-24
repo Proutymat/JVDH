@@ -88,12 +88,6 @@ public class VideoPlayerControls : MonoBehaviour
 
         m_videoPlayer.time = value * m_videoPlayer.length;
     }
-    
-    private void ShowCursor(bool show)
-    {
-        Cursor.visible = show;
-        Cursor.lockState = show ? CursorLockMode.None : CursorLockMode.Confined;
-    }
 
     public void ShowControls(bool show)
     {
@@ -124,7 +118,7 @@ public class VideoPlayerControls : MonoBehaviour
             m_lastMousePosition = currentMousePos;
             m_autoHideTimer = 0f;
             
-            ShowCursor(true);
+            PanelManager.ShowCursor(true);
             if (SaveManager.Instance.Data.settings.videoPlayerControls)
             {
                 ShowControls(true);
@@ -138,7 +132,7 @@ public class VideoPlayerControls : MonoBehaviour
 
         if (m_show && m_autoHideTimer >= m_autoHideDuration)
         {
-            ShowCursor(false);
+            PanelManager.ShowCursor(false);
             ShowControls(false);
         }
     }

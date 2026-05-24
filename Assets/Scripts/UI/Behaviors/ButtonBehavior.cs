@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 
-public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
     [Title("Parameters")] 
     [SerializeField] private float m_hoverAnimDuration;
@@ -27,6 +27,27 @@ public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         m_text.color = m_normalColor.Color;
         m_hoverBackgroundRect.transform.DOScaleX(0f, 0f);
     }
+    
+    public void OnPointerEnter(PointerEventData e) => SetHighlight(true);
+    public void OnPointerExit(PointerEventData e)  => SetHighlight(false);
+    public void OnSelect(BaseEventData e)          => SetHighlight(true);
+    public void OnDeselect(BaseEventData e)        => SetHighlight(false);
+
+    void SetHighlight(bool hovered)
+    {
+        if (hovered)
+        {
+            SetState(ButtonState.Hovered);
+            m_audioSource.Play();
+            InputManager.Instance.SetSelected(gameObject);
+                
+        }
+        else
+        {
+            SetState(ButtonState.Normal);
+        }
+    }
+    
 
     private void SetState(ButtonState state)
     {
@@ -51,17 +72,6 @@ public class ButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         pos.y = m_buttonRect.position.y;
         m_hoverBackgroundRect.position = pos;
         m_hoverBackgroundRect.pivot = new Vector2(0f, 0.5f);
-    }
-    
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        SetState(ButtonState.Hovered);
-        m_audioSource.Play();
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        SetState(ButtonState.Normal);
     }
 
     public void ButtonClick()

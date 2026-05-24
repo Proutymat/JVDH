@@ -15,6 +15,7 @@ public class PanelManager : MonoBehaviour
     
     [Title("Set in Inspector")]
     [SerializeField] private Canvas m_canvas;
+    [Title("Canvas groups", horizontalLine: false)]
     [SerializeField] private CanvasGroup m_mainPanel;
     [SerializeField] private CanvasGroup m_settingsPanel;
     [SerializeField] private CanvasGroup m_confirmPanel;
@@ -23,6 +24,16 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private CanvasGroup m_startupPanel;
     [SerializeField] private CanvasGroup m_gamePanel;
     [SerializeField] private CanvasGroup m_pausePanel;
+    [Title("Default buttons", horizontalLine: false)]
+    [SerializeField] private GameObject m_emptyDefaultButton;
+    [SerializeField] private GameObject m_mainPanelDefaultButton;
+    [SerializeField] private GameObject m_settingsPanelDefaultButton;
+    [SerializeField] private GameObject m_confirmPanelDefaultButton;
+    [SerializeField] private GameObject m_bonusPanelDefaultButton;
+    [SerializeField] private GameObject m_creditsPanelDefaultButton;
+    [SerializeField] private GameObject m_startupPanelDefaultButton;
+    [SerializeField] private GameObject m_gamePanelDefaultButton;
+    [SerializeField] private GameObject m_pausePanelDefaultButton;
     [SerializeField] private VideoPlayerControls m_videoPlayerControls;
     [SerializeField] private CanvasGroup m_fadeImageCanvasGroup;
     [SerializeField] private RectTransform m_creditsContainer;
@@ -66,6 +77,43 @@ public class PanelManager : MonoBehaviour
         canvasGroup.blocksRaycasts = show;
         canvasGroup.interactable = show;
     }
+    
+    public static void ShowCursor(bool show)
+    {
+        Cursor.visible = show;
+        Cursor.lockState = show ? CursorLockMode.None : CursorLockMode.Confined;
+    }
+
+    private void SetDefaultButton(PanelState state)
+    {
+        switch (state)
+        {
+            case PanelState.Main:
+                InputManager.Instance.SetSelected(m_mainPanelDefaultButton);
+                break;
+            case PanelState.Settings:
+                InputManager.Instance.SetSelected(m_settingsPanelDefaultButton);
+                break;
+            case PanelState.Confirm:
+                InputManager.Instance.SetSelected(m_confirmPanelDefaultButton);
+                break;
+            case PanelState.Bonus:
+                InputManager.Instance.SetSelected(m_bonusPanelDefaultButton);
+                break;
+            case PanelState.Credits:
+                InputManager.Instance.SetSelected(m_emptyDefaultButton);
+                break;
+            case PanelState.Startup:
+                InputManager.Instance.SetSelected(m_startupPanelDefaultButton);
+                break;
+            case PanelState.Game:
+                InputManager.Instance.SetSelected(m_gamePanelDefaultButton);
+                break;
+            case PanelState.Pause:
+                InputManager.Instance.SetSelected(m_mainPanelDefaultButton);
+                break;
+        }
+    }
 
     private void SetPanelsState(PanelState state)
     {
@@ -99,6 +147,7 @@ public class PanelManager : MonoBehaviour
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = true);
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 1f);
                 seq.AppendCallback(() => SetPanelsState(state));
+                seq.AppendCallback(() => SetDefaultButton(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
                 seq.AppendInterval(fadeBlackDuration);
                 seq.AppendCallback(() => onMidFade2?.Invoke());
@@ -110,6 +159,7 @@ public class PanelManager : MonoBehaviour
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = true);
                 seq.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration));
                 seq.AppendCallback(() => SetPanelsState(state));
+                seq.AppendCallback(() => SetDefaultButton(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
                 seq.AppendInterval(fadeBlackDuration);
                 seq.AppendCallback(() => onMidFade2?.Invoke());
@@ -122,6 +172,7 @@ public class PanelManager : MonoBehaviour
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = true);
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.alpha = 1f);
                 seq.AppendCallback(() => SetPanelsState(state));
+                seq.AppendCallback(() => SetDefaultButton(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
                 seq.AppendInterval(fadeBlackDuration);
                 seq.AppendCallback(() => onMidFade2?.Invoke());
@@ -134,6 +185,7 @@ public class PanelManager : MonoBehaviour
                 seq.AppendCallback(() => m_fadeImageCanvasGroup.blocksRaycasts = true);
                 seq.Append(m_fadeImageCanvasGroup.DOFade(1f, GameManager.Instance.FadeDuration));
                 seq.AppendCallback(() => SetPanelsState(state));
+                seq.AppendCallback(() => SetDefaultButton(state));
                 seq.AppendCallback(() => onMidFade?.Invoke());
                 seq.AppendInterval(fadeBlackDuration);
                 seq.AppendCallback(() => onMidFade2?.Invoke());
