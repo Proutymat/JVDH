@@ -116,6 +116,7 @@ public class SettingsManager : MonoBehaviour
         m_videoPlayerControls = !m_videoPlayerControls;
         SetVPCButtonsText();
         SaveManager.Instance.Data.settings.videoPlayerControls = m_videoPlayerControls;
+        Debug.Log("VPC =  " + SaveManager.Instance.Data.settings.videoPlayerControls);
     }
 
     public void SubtitlesButton()

@@ -122,11 +122,12 @@ public class BonusPanel : MonoBehaviour
         VideoManager.Instance.Stop();
         VideoManager.Instance.PlayClip(m_currentBonus.videoClip);
         SoundManager.Instance.StopMusic();
-        GameManager.Instance.GameState = GameState.VideoPlayer;
+        GameManager.Instance.GetGameState = GameState.VideoPlayer;
         PanelManager.Instance.SetPanel(PanelState.Game, FadeStyle.FadeIn, null, null, VideoManager.Instance.UnPause);
         VideoManager.Instance.GetVideoPlayer.loopPointReached += CloseVideoPlayer;
         m_videoPlayerControls.ShowControls(false);
-        m_closeVideoButton.alpha = 1;
+        PanelManager.ShowCanvasGroup(true, m_closeVideoButton);
+
     }
 
     public void CloseVideoPlayer(VideoPlayer _)
@@ -138,9 +139,10 @@ public class BonusPanel : MonoBehaviour
         SoundManager.Instance.PlayMenuMusic(true);
         VideoManager.Instance.PlayMainMenuClip();
         VideoManager.Instance.UnPause();
-        GameManager.Instance.GameState = GameState.MainMenu;
+        GameManager.Instance.GetGameState = GameState.MainMenu;
         VideoManager.Instance.GetVideoPlayer.loopPointReached -= CloseVideoPlayer;
-        m_closeVideoButton.alpha = 0;
+        PanelManager.ShowCanvasGroup(false, m_closeVideoButton);
+        Debug.Log("CloseVideoPlayer");
     }
 
     private void Update()
