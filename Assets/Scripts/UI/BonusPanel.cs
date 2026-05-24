@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor.ActionResolvers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 using UnityEngine.Video;
 

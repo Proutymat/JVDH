@@ -1339,6 +1339,7 @@ MonoBehaviour:
   m_firstBonus: {fileID: 11400000, guid: 166199ba257a940449e88faa38216b64, type: 2}
   m_escapeVideoAction: {fileID: 0}
   m_closeVideoButton: {fileID: 0}
+  m_videoPlayerControls: {fileID: 0}
 --- !u!1 &8248008285645668722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,14 +1398,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6e2f1af6bce1d72488e837751ab229bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

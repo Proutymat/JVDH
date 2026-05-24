@@ -75,7 +75,7 @@ MonoBehaviour:
   m_videoPlayerControls: {fileID: 0}
   m_fadeImageCanvasGroup: {fileID: 4020690174687300212}
   m_creditsContainer: {fileID: 2437734706102643603}
-  m_creditsSpeed: 60
+  m_creditsSpeed: 100
 --- !u!223 &567055882503385976
 Canvas:
   m_ObjectHideFlags: 0
