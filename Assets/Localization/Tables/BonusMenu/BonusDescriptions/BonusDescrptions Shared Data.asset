@@ -10,59 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: BonusTable Shared Data
+  m_Name: BonusDescrptions Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: BonusTable
-  m_TableCollectionNameGuidString: 7aa64da7d44c0c74a8678ef2e2573030
+  m_TableCollectionName: BonusDescrptions
+  m_TableCollectionNameGuidString: 291635add1e996e4d9f206430d2cd7c1
   m_Entries:
-  - m_Id: 9058996224
-    m_Key: bonus_title_1
-    m_Metadata:
-      m_Items: []
-  - m_Id: 129188057088
+  - m_Id: 1244965195776
     m_Key: bonus_desc_1
     m_Metadata:
       m_Items: []
-  - m_Id: 58397776236544
-    m_Key: bonus_title_2
-    m_Metadata:
-      m_Items: []
-  - m_Id: 58622603513856
+  - m_Id: 1246869409792
     m_Key: bonus_desc_2
     m_Metadata:
       m_Items: []
-  - m_Id: 385635675623424
-    m_Key: bonus_title_3
-    m_Metadata:
-      m_Items: []
-  - m_Id: 387632558592000
+  - m_Id: 1248802983936
     m_Key: bonus_desc_3
     m_Metadata:
       m_Items: []
-  - m_Id: 388379253755904
-    m_Key: bonus_title_4
-    m_Metadata:
-      m_Items: []
-  - m_Id: 388402385342464
+  - m_Id: 1251109851136
     m_Key: bonus_desc_4
     m_Metadata:
       m_Items: []
-  - m_Id: 388797786574848
-    m_Key: bonus_title_placeholder
-    m_Metadata:
-      m_Items: []
-  - m_Id: 388830279847936
+  - m_Id: 1290989293568
     m_Key: bonus_desc_placeholder
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 4558032565996617794
+    rid: 4558032605168533571
   references:
     version: 2
     RefIds:
-    - rid: 4558032565996617794
+    - rid: 4558032605168533571
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1779521440715
+        m_CustomEpoch: 1779626005831

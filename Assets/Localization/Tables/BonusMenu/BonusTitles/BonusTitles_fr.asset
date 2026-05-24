@@ -10,53 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: BonusTable_en
+  m_Name: BonusTitles_fr
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: en
+    m_Code: fr
   m_SharedData: {fileID: 11400000, guid: 7aa64da7d44c0c74a8678ef2e2573030, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
   - m_Id: 9058996224
-    m_Localized: BECOME A HERON
-    m_Metadata:
-      m_Items: []
-  - m_Id: 129188057088
-    m_Localized: Watch the first video and become the heron of the story.
+    m_Localized: "DEVENEZ UN H\xC9RON"
     m_Metadata:
       m_Items: []
   - m_Id: 58397776236544
-    m_Localized: HERON FOREVER
-    m_Metadata:
-      m_Items: []
-  - m_Id: 58622603513856
-    m_Localized: Watch all the videos and find all the endings.
+    m_Localized: "H\xC9RON POWER"
     m_Metadata:
       m_Items: []
   - m_Id: 385635675623424
-    m_Localized: TIME TRAVEL
-    m_Metadata:
-      m_Items: []
-  - m_Id: 387632558592000
-    m_Localized: Go back in time and fund VDVH according to your means.
+    m_Localized: VOYAGE TEMPOREL
     m_Metadata:
       m_Items: []
   - m_Id: 388379253755904
-    m_Localized: CHOULQUE SERIE 2
-    m_Metadata:
-      m_Items: []
-  - m_Id: 388402385342464
-    m_Localized: Complete the adventure once and return to the first video.
+    m_Localized: CHOULQUE SAISON 2
     m_Metadata:
       m_Items: []
   - m_Id: 388797786574848
     m_Localized: PLACEHOLDER PLACE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 388830279847936
-    m_Localized: Placeholder placeholder placeholder placeholder placeholder placeholder
-      placeholder placeholder.
     m_Metadata:
       m_Items: []
   references:

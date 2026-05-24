@@ -22,7 +22,19 @@ MonoBehaviour:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3cb69dbe97d267b418164dcb7d6eb0f0
-    m_Address: BonusTable_en
+    m_Address: BonusTitles_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f74c1458e701434babe101b8ab79bf9
+    m_Address: BonusDescrptions_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 545c7a159e65a3e43b940bb7b85c24da
+    m_Address: BonusNames_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

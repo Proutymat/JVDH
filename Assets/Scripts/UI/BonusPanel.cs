@@ -17,6 +17,7 @@ public class BonusPanel : MonoBehaviour
     [SerializeField] private List<GameObject> m_bonusMiniatures;
     [SerializeField] private TMP_Text m_titleText;
     [SerializeField] private TMP_Text m_descriptionText;
+    [SerializeField] private TMP_Text m_nameText;
     [SerializeField] private Image m_previewImage;
     [SerializeField] private Bonus m_firstBonus;
     [SerializeField] private InputActionReference m_escapeVideoAction;
@@ -111,6 +112,7 @@ public class BonusPanel : MonoBehaviour
         // Update preview
         m_titleText.text = m_currentBonus.titleKey.GetLocalizedString();
         m_descriptionText.text = m_currentBonus.descriptionKey.GetLocalizedString();
+        m_nameText.text = m_currentBonus.nameKey.GetLocalizedString();
         m_previewImage.sprite = m_currentBonus.previewMiniature;
     }
 

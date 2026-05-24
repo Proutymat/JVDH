@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d080a7faea06d4f93ebe688fa842e6, type: 3}
   m_Name: "0_LaVid\xE9oCommentaire"
   m_EditorClassIdentifier: 
+  bonusIndex: 0
   previewMiniature: {fileID: 21300000, guid: e8f921ea9a3854b4782490282f7e9df8, type: 3}
   videoClip: {fileID: 32900000, guid: d6ddd1b61b93f1a45b51a1d9762e8138, type: 3}
   titleKey:
@@ -25,9 +26,18 @@ MonoBehaviour:
     m_LocalVariables: []
   descriptionKey:
     m_TableReference:
-      m_TableCollectionName: GUID:7aa64da7d44c0c74a8678ef2e2573030
+      m_TableCollectionName: GUID:291635add1e996e4d9f206430d2cd7c1
     m_TableEntryReference:
-      m_KeyId: 129188057088
+      m_KeyId: 1244965195776
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:e3af68be3bf84fc4cad4d5591e01f812
+    m_TableEntryReference:
+      m_KeyId: 14947799040
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

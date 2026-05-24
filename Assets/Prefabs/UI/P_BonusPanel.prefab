@@ -1335,6 +1335,7 @@ MonoBehaviour:
   - {fileID: 4845021851223825689}
   m_titleText: {fileID: 4255250156890729038}
   m_descriptionText: {fileID: 3736457583647970752}
+  m_nameText: {fileID: 4131152693135574321}
   m_previewImage: {fileID: 620214722068859181}
   m_firstBonus: {fileID: 11400000, guid: 166199ba257a940449e88faa38216b64, type: 2}
   m_escapeVideoAction: {fileID: 0}

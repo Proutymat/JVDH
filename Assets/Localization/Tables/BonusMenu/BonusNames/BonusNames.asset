@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
-  m_Name: BonusTable
+  m_Name: BonusNames
   m_EditorClassIdentifier: 
-  m_SharedTableData: {fileID: 11400000, guid: 7aa64da7d44c0c74a8678ef2e2573030, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: e3af68be3bf84fc4cad4d5591e01f812, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: 543701b21f47e774b9cd41ef44b2fcb3, type: 2}
-  - {fileID: 11400000, guid: 3cb69dbe97d267b418164dcb7d6eb0f0, type: 2}
+  - {fileID: 11400000, guid: cf44f4a15bc15354791ff233f9699c96, type: 2}
+  - {fileID: 11400000, guid: 545c7a159e65a3e43b940bb7b85c24da, type: 2}
   m_Extensions: []
   m_Group: String Table
   references:

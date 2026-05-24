@@ -10,52 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: BonusTable_fr
+  m_Name: BonusDescrptions_fr
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: fr
-  m_SharedData: {fileID: 11400000, guid: 7aa64da7d44c0c74a8678ef2e2573030, type: 2}
+  m_SharedData: {fileID: 11400000, guid: 291635add1e996e4d9f206430d2cd7c1, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 9058996224
-    m_Localized: "DEVENEZ UN H\xC9RON"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 129188057088
+  - m_Id: 1244965195776
     m_Localized: "Regardez la premi\xE8re vid\xE9o et devenez le h\xE9ron de l'histoire."
     m_Metadata:
       m_Items: []
-  - m_Id: 58397776236544
-    m_Localized: "H\xC9RON POWER"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 58622603513856
+  - m_Id: 1246869409792
     m_Localized: "Regardez toutes les vid\xE9os et d\xE9couvrez toutes les fins."
     m_Metadata:
       m_Items: []
-  - m_Id: 385635675623424
-    m_Localized: VOYAGE TEMPOREL
+  - m_Id: 1248802983936
+    m_Localized: Watch all the videos and find all the endings.
     m_Metadata:
       m_Items: []
-  - m_Id: 387632558592000
-    m_Localized: "Remontez dans le temps et financez VDVH \xE0 hauteur de vos moyens."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 388379253755904
-    m_Localized: CHOULQUE SAISON 2
-    m_Metadata:
-      m_Items: []
-  - m_Id: 388402385342464
+  - m_Id: 1251109851136
     m_Localized: "Finissez une premi\xE8re fois l'aventure et revenez \xE0 la premi\xE8re
       vid\xE9o."
     m_Metadata:
       m_Items: []
-  - m_Id: 388797786574848
-    m_Localized: PLACEHOLDER PLACE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 388830279847936
+  - m_Id: 1290989293568
     m_Localized: Placeholder placeholder placeholder placeholder placeholder placeholder
       placeholder placeholder.
     m_Metadata:

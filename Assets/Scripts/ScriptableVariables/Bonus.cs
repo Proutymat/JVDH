@@ -10,5 +10,6 @@ public class Bonus : ScriptableObject
     public VideoClip videoClip;
     public LocalizedString  titleKey;
     public LocalizedString  descriptionKey;
+    public LocalizedString  nameKey;
     
 }

@@ -26,9 +26,18 @@ MonoBehaviour:
     m_LocalVariables: []
   descriptionKey:
     m_TableReference:
-      m_TableCollectionName: GUID:7aa64da7d44c0c74a8678ef2e2573030
+      m_TableCollectionName: GUID:291635add1e996e4d9f206430d2cd7c1
     m_TableEntryReference:
-      m_KeyId: 388402385342464
+      m_KeyId: 1251109851136
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  nameKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:e3af68be3bf84fc4cad4d5591e01f812
+    m_TableEntryReference:
+      m_KeyId: 71629623296
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

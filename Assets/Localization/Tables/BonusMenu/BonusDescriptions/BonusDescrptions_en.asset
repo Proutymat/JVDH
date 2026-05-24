@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: BonusDescrptions_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 291635add1e996e4d9f206430d2cd7c1, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1244965195776
+    m_Localized: Watch the first video and become the heron of the story.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1246869409792
+    m_Localized: Watch all the videos and find all the endings.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1248802983936
+    m_Localized: 'Go back in time and fund VDVH according to your means.
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1251109851136
+    m_Localized: Complete the adventure once and return to the first video.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1290989293568
+    m_Localized: Placeholder placeholder placeholder placeholder placeholder placeholder
+      placeholder placeholder.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
