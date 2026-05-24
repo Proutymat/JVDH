@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d080a7faea06d4f93ebe688fa842e6, type: 3}
+  m_Name: 1_MakingOf
+  m_EditorClassIdentifier: 
+  bonusIndex: 1
+  previewMiniature: {fileID: 21300000, guid: 11bfff4838a32f14caab873346a1dbb6, type: 3}
+  videoClip: {fileID: 32900000, guid: d6ddd1b61b93f1a45b51a1d9762e8138, type: 3}
+  titleKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:7aa64da7d44c0c74a8678ef2e2573030
+    m_TableEntryReference:
+      m_KeyId: 58397776236544
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  descriptionKey:
+    m_TableReference:
+      m_TableCollectionName: GUID:7aa64da7d44c0c74a8678ef2e2573030
+    m_TableEntryReference:
+      m_KeyId: 58622603513856
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

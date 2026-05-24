@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87d080a7faea06d4f93ebe688fa842e6, type: 3}
-  m_Name: "30 jours pour \xEAtre un h\xE9ron"
+  m_Name: Placeholder
   m_EditorClassIdentifier: 
-  bonusIndex: 2
-  previewMiniature: {fileID: 21300000, guid: 9e6bde498186ff843ab927fdaa8b4c3e, type: 3}
-  videoClip: {fileID: 32900000, guid: 3ef2991576893664da7d5e2bc87e755d, type: 3}
+  bonusIndex: 4
+  previewMiniature: {fileID: 21300000, guid: 64741ed16b31b854f8713e003f87c1ed, type: 3}
+  videoClip: {fileID: 32900000, guid: 408b262add9dcab4f8ad714dcaf3b368, type: 3}
   titleKey:
     m_TableReference:
       m_TableCollectionName: GUID:7aa64da7d44c0c74a8678ef2e2573030
     m_TableEntryReference:
-      m_KeyId: 58397776236544
+      m_KeyId: 388797786574848
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:7aa64da7d44c0c74a8678ef2e2573030
     m_TableEntryReference:
-      m_KeyId: 58622603513856
+      m_KeyId: 388830279847936
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

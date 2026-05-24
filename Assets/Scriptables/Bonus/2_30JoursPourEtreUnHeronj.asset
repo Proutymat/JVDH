@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87d080a7faea06d4f93ebe688fa842e6, type: 3}
-  m_Name: "La vid\xE9o commentaire"
+  m_Name: 2_30JoursPourEtreUnHeronj
   m_EditorClassIdentifier: 
-  previewMiniature: {fileID: 21300000, guid: e8f921ea9a3854b4782490282f7e9df8, type: 3}
-  videoClip: {fileID: 32900000, guid: d6ddd1b61b93f1a45b51a1d9762e8138, type: 3}
+  bonusIndex: 2
+  previewMiniature: {fileID: 21300000, guid: 9e6bde498186ff843ab927fdaa8b4c3e, type: 3}
+  videoClip: {fileID: 32900000, guid: 3ef2991576893664da7d5e2bc87e755d, type: 3}
   titleKey:
     m_TableReference:
       m_TableCollectionName: GUID:7aa64da7d44c0c74a8678ef2e2573030
     m_TableEntryReference:
-      m_KeyId: 9058996224
+      m_KeyId: 385635675623424
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -27,7 +28,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:7aa64da7d44c0c74a8678ef2e2573030
     m_TableEntryReference:
-      m_KeyId: 129188057088
+      m_KeyId: 387632558592000
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

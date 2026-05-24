@@ -1,15 +1,19 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Editor.ActionResolvers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class BonusPanel : MonoBehaviour
 {
     [Title("Set in Inspector")]
     [SerializeField] private CanvasGroup m_previewLockState;
+    [SerializeField] private CanvasGroup m_previewPlayState;
     [SerializeField] private CanvasGroup m_previousButton;
     [SerializeField] private CanvasGroup m_nextButton;
     [SerializeField] private List<GameObject> m_bonusMiniatures;
@@ -17,12 +21,16 @@ public class BonusPanel : MonoBehaviour
     [SerializeField] private TMP_Text m_descriptionText;
     [SerializeField] private Image m_previewImage;
     [SerializeField] private Bonus m_firstBonus;
+    [SerializeField] private InputActionReference m_escapeVideoAction;
+    [SerializeField] private CanvasGroup m_closeVideoButton;
     
     private int m_currentPage;
     private Bonus m_currentBonus;
+    private bool m_isPlayingVideo;
     
     private void Start()
     {
+        m_isPlayingVideo = false;
         ResetUI();
     }
     
@@ -99,10 +107,43 @@ public class BonusPanel : MonoBehaviour
         m_currentBonus = bonus;
         
         PanelManager.ShowCanvasGroup(!SaveManager.Instance.Data.progression.success[bonus.bonusIndex], m_previewLockState);
+        m_previewPlayState.alpha = SaveManager.Instance.Data.progression.success[bonus.bonusIndex] ? 1 : 0;
         
         // Update preview
         m_titleText.text = m_currentBonus.titleKey.GetLocalizedString();
         m_descriptionText.text = m_currentBonus.descriptionKey.GetLocalizedString();
         m_previewImage.sprite = m_currentBonus.previewMiniature;
+    }
+
+    public void OpenVideoPlayer()
+    {
+        m_isPlayingVideo = true;
+        VideoManager.Instance.Stop();
+        VideoManager.Instance.PlayClip(m_currentBonus.videoClip);
+        SoundManager.Instance.StopMusic();
+        GameManager.Instance.GameState = GameState.VideoPlayer;
+        PanelManager.Instance.SetPanel(PanelState.Game, FadeStyle.FadeIn, null, null, VideoManager.Instance.UnPause);
+        VideoManager.Instance.GetVideoPlayer.loopPointReached += CloseVideoPlayer;
+    }
+
+    private void CloseVideoPlayer(VideoPlayer vp)
+    {
+        m_isPlayingVideo = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        PanelManager.Instance.SetPanel(PanelState.Bonus);
+        SoundManager.Instance.PlayMenuMusic(true);
+        VideoManager.Instance.PlayMainMenuClip();
+        VideoManager.Instance.UnPause();
+        GameManager.Instance.GameState = GameState.MainMenu;
+        VideoManager.Instance.GetVideoPlayer.loopPointReached -= CloseVideoPlayer;
+    }
+
+    private void Update()
+    {
+        if (m_isPlayingVideo && m_escapeVideoAction.action.WasPerformedThisFrame())
+        {
+            CloseVideoPlayer(VideoManager.Instance.GetVideoPlayer);
+        }
     }
 }

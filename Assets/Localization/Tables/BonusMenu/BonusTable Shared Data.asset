@@ -31,6 +31,30 @@ MonoBehaviour:
     m_Key: bonus_desc_2
     m_Metadata:
       m_Items: []
+  - m_Id: 385635675623424
+    m_Key: bonus_title_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387632558592000
+    m_Key: bonus_desc_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388379253755904
+    m_Key: bonus_title_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388402385342464
+    m_Key: bonus_desc_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388797786574848
+    m_Key: bonus_title_placeholder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388830279847936
+    m_Key: bonus_desc_placeholder
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

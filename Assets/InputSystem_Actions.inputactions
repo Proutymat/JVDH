@@ -587,6 +587,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Bonus_EscapeVideo",
+                    "type": "Button",
+                    "id": "4112f7c3-4beb-4c29-82a6-2a7238be06fa",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1049,6 +1058,28 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "PauseVideo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c6b64e39-7ce0-4179-a4b4-18c20436cdc1",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Bonus_EscapeVideo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a5b6c71-6e6d-4151-a12f-9376a84e4e26",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Bonus_EscapeVideo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

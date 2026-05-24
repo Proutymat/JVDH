@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private bool m_isPaused;
     private GameState m_gameState;
 
-    public GameState GetGameState { get => m_gameState; }
+    public GameState GameState { get; set; }
 
     public float FadeDuration { get => m_fadeDuration; }
     
