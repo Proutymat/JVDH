@@ -23,6 +23,7 @@ public class BonusPanel : MonoBehaviour
     [SerializeField] private Bonus m_firstBonus;
     [SerializeField] private InputActionReference m_escapeVideoAction;
     [SerializeField] private CanvasGroup m_closeVideoButton;
+    [SerializeField] private VideoPlayerControls m_videoPlayerControls;
     
     private int m_currentPage;
     private Bonus m_currentBonus;
@@ -124,9 +125,11 @@ public class BonusPanel : MonoBehaviour
         GameManager.Instance.GameState = GameState.VideoPlayer;
         PanelManager.Instance.SetPanel(PanelState.Game, FadeStyle.FadeIn, null, null, VideoManager.Instance.UnPause);
         VideoManager.Instance.GetVideoPlayer.loopPointReached += CloseVideoPlayer;
+        m_videoPlayerControls.ShowControls(false);
+        m_closeVideoButton.alpha = 1;
     }
 
-    private void CloseVideoPlayer(VideoPlayer vp)
+    public void CloseVideoPlayer(VideoPlayer _)
     {
         m_isPlayingVideo = false;
         Cursor.visible = true;
@@ -137,6 +140,7 @@ public class BonusPanel : MonoBehaviour
         VideoManager.Instance.UnPause();
         GameManager.Instance.GameState = GameState.MainMenu;
         VideoManager.Instance.GetVideoPlayer.loopPointReached -= CloseVideoPlayer;
+        m_closeVideoButton.alpha = 0;
     }
 
     private void Update()

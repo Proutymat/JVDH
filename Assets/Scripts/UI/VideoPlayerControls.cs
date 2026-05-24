@@ -20,9 +20,14 @@ public class VideoPlayerControls : MonoBehaviour
     [SerializeField] private CanvasGroup m_controlsCanvasGroup;
     [SerializeField] private Slider m_videoSlider;
     [SerializeField] private TMP_Text m_subtitleText;
+    [Title("Input Actions", horizontalLine: false)]
     [SerializeField] private InputActionReference m_previousAction;
     [SerializeField] private InputActionReference m_nextAction;
     [SerializeField] private InputActionReference m_pauseVideoAction;
+    [Title("Pause/Play", horizontalLine: false)]
+    [SerializeField] private Sprite m_pauseSprite;
+    [SerializeField] private Sprite m_playSprite;
+    [SerializeField] private Image m_image;
     
     private bool m_isDraggingSlider;
     private bool m_isSeekingSlider;
@@ -33,6 +38,7 @@ public class VideoPlayerControls : MonoBehaviour
     private Vector2 m_lastMousePosition;
     private float m_heldTime;
     private float m_repeatTimer;
+    private bool m_show;
 
 
     // --------------------------------------------
@@ -44,6 +50,7 @@ public class VideoPlayerControls : MonoBehaviour
         m_autoHideTimer = 0;
         m_isDraggingSlider = false;
         m_isSeekingSlider = false;
+        m_show = false;
         
         ShowControls(false);
     }
@@ -90,13 +97,20 @@ public class VideoPlayerControls : MonoBehaviour
 
     public void ShowControls(bool show)
     {
-        if (!SaveManager.Instance.Data.settings.videoPlayerControls && show) return;
-
+        if (!SaveManager.Instance.Data.settings.videoPlayerControls) return;
+        
+        if (!show)
+            m_lastMousePosition =  Mouse.current.position.ReadValue();
+        else
+            m_autoHideTimer = 0;
+        
         m_controlsCanvasGroup.alpha = show ? 1 : 0;
         m_controlsCanvasGroup.blocksRaycasts = show;
         m_controlsCanvasGroup.interactable = show;
         
         m_subtitleText.alignment = show ? TextAlignmentOptions.Top : TextAlignmentOptions.Bottom;
+        
+        m_show = show;
     }
     
     
@@ -105,7 +119,7 @@ public class VideoPlayerControls : MonoBehaviour
         Vector2 currentMousePos = Mouse.current.position.ReadValue();
 
         // Has cursor moved
-        if (currentMousePos != m_lastMousePosition)
+        if (!m_show && currentMousePos != m_lastMousePosition)
         {
             m_lastMousePosition = currentMousePos;
             m_autoHideTimer = 0f;
@@ -122,13 +136,10 @@ public class VideoPlayerControls : MonoBehaviour
 
         m_autoHideTimer += Time.deltaTime;
 
-        if (m_autoHideTimer >= m_autoHideDuration)
+        if (m_show && m_autoHideTimer >= m_autoHideDuration)
         {
             ShowCursor(false);
-            if (SaveManager.Instance.Data.settings.videoPlayerControls)
-            {
-                ShowControls(false);
-            }
+            ShowControls(false);
         }
     }
 
@@ -222,6 +233,24 @@ public class VideoPlayerControls : MonoBehaviour
         {
             m_videoSlider.value = (float)(m_videoPlayer.time / m_videoPlayer.length);
         }
+    }
+    
+    public void VideoClick()
+    {
+        if (!SaveManager.Instance.Data.settings.videoPlayerControls || GameManager.Instance.GameState == GameState.MainMenu) return;
+        
+        if (VideoManager.Instance.GetVideoPlayer.isPlaying)
+        {
+            VideoManager.Instance.Pause();
+            m_image.sprite = m_pauseSprite;
+        }
+        else
+        {
+            VideoManager.Instance.UnPause();
+            m_image.sprite = m_playSprite;
+        }
+        
+        ShowControls(true);
     }
     
     private void Update()
