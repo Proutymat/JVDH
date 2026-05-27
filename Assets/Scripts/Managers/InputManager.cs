@@ -47,11 +47,13 @@ public class InputManager : MonoBehaviour
             m_isGamepad = false;
         }
         
-        // Gamepad check
+        // Gamepad and keyboard check
         if (Gamepad.current != null && (
                 Gamepad.current.leftStick.ReadValue() != Vector2.zero ||
                 Gamepad.current.dpad.ReadValue() != Vector2.zero ||
-                Gamepad.current.buttonSouth.wasPressedThisFrame))
+                Gamepad.current.buttonSouth.wasPressedThisFrame) 
+            || Keyboard.current != null &&
+                Keyboard.current.anyKey.wasPressedThisFrame)
         {
             PanelManager.ShowCursor(false);
             m_isGamepad = true;

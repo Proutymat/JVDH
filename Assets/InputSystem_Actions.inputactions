@@ -1135,6 +1135,17 @@
                     "action": "SkipCredits",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0ecf3bb9-0434-4f08-b01e-63986d2038bb",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "SkipCredits",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

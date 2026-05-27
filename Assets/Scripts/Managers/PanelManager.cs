@@ -64,6 +64,7 @@ public class PanelManager : MonoBehaviour
     public void Start()
     {
         m_panelState = PanelState.Main;
+        Canvas.ForceUpdateCanvases();
     }
     
     // --------------------------------------------
@@ -88,7 +89,7 @@ public class PanelManager : MonoBehaviour
         switch (state)
         {
             case PanelState.Main:
-                //InputManager.Instance.SetSelected(m_mainPanelDefaultButton);
+                InputManager.Instance.SetSelected(m_mainPanelDefaultButton);
                 break;
             case PanelState.Settings:
                 InputManager.Instance.SetSelected(m_settingsPanelDefaultButton);
@@ -236,12 +237,5 @@ public class PanelManager : MonoBehaviour
                 SoundManager.Instance.PlayMenuMusic(true);
             }
         }
-    }
-    
-    void OnEnable()
-    {
-        // Forcer la désélection puis la resélection
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(m_mainPanelDefaultButton);
     }
 }
