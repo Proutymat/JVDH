@@ -43,6 +43,7 @@ public class InputManager : MonoBehaviour
             (Mouse.current.delta.ReadValue() != Vector2.zero ||
              Mouse.current.leftButton.wasPressedThisFrame))
         {
+            PanelManager.ShowCursor(true);
             m_isGamepad = false;
         }
         
@@ -52,6 +53,7 @@ public class InputManager : MonoBehaviour
                 Gamepad.current.dpad.ReadValue() != Vector2.zero ||
                 Gamepad.current.buttonSouth.wasPressedThisFrame))
         {
+            PanelManager.ShowCursor(false);
             m_isGamepad = true;
         }
 

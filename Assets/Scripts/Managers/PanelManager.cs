@@ -30,7 +30,6 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private GameObject m_settingsPanelDefaultButton;
     [SerializeField] private GameObject m_confirmPanelDefaultButton;
     [SerializeField] private GameObject m_bonusPanelDefaultButton;
-    [SerializeField] private GameObject m_creditsPanelDefaultButton;
     [SerializeField] private GameObject m_startupPanelDefaultButton;
     [SerializeField] private GameObject m_gamePanelDefaultButton;
     [SerializeField] private GameObject m_pausePanelDefaultButton;
@@ -38,7 +37,7 @@ public class PanelManager : MonoBehaviour
     [SerializeField] private CanvasGroup m_fadeImageCanvasGroup;
     [SerializeField] private RectTransform m_creditsContainer;
     [SerializeField] private float m_creditsSpeed;
-    [SerializeField] private GameObject boutonPlay;
+    [SerializeField] private InputActionReference m_skipCreditAction;
 
 
     private PanelState m_panelState;
@@ -89,7 +88,7 @@ public class PanelManager : MonoBehaviour
         switch (state)
         {
             case PanelState.Main:
-                InputManager.Instance.SetSelected(m_mainPanelDefaultButton);
+                //InputManager.Instance.SetSelected(m_mainPanelDefaultButton);
                 break;
             case PanelState.Settings:
                 InputManager.Instance.SetSelected(m_settingsPanelDefaultButton);
@@ -139,6 +138,7 @@ public class PanelManager : MonoBehaviour
         {
             case FadeStyle.None:
                 SetPanelsState(state);
+                SetDefaultButton(state);
                 seq.AppendCallback(() => onMidFade?.Invoke());
                 seq.AppendCallback(() => onMidFade2?.Invoke());
                 seq.OnComplete(() => onFadeFinished?.Invoke());
@@ -225,7 +225,7 @@ public class PanelManager : MonoBehaviour
         // Credits roll
         if (m_panelState == PanelState.Credits)
         {
-            float speed = Mouse.current.leftButton.isPressed ? m_creditsSpeed * 30 : m_creditsSpeed;
+            float speed = m_skipCreditAction.action.IsPressed() ? m_creditsSpeed * 30 : m_creditsSpeed;
             m_creditsContainer.transform.position += Time.deltaTime * speed * Vector3.up;
             
             // Back to main menu if ended
@@ -242,6 +242,6 @@ public class PanelManager : MonoBehaviour
     {
         // Forcer la désélection puis la resélection
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(boutonPlay);
+        EventSystem.current.SetSelectedGameObject(m_mainPanelDefaultButton);
     }
 }
