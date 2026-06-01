@@ -9,6 +9,6 @@ public class BonusButton : MonoBehaviour
     public void ClickButton()
     {
         SoundManager.Instance.PlayClicSound();
-        PanelManager.Instance.SetPanel(PanelState.Bonus, FadeStyle.None, m_bonusPanel.ResetUI);
+        PanelManager.Instance.SetPanel(PanelState.Bonus, FadeStyle.FadeInAndOut, m_bonusPanel.ResetUI);
     }
 }

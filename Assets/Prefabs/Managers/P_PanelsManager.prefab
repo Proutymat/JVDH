@@ -76,7 +76,7 @@ MonoBehaviour:
   m_mainPanelDefaultButton: {fileID: 5372758652750239500}
   m_settingsPanelDefaultButton: {fileID: 5118084273230406917}
   m_confirmPanelDefaultButton: {fileID: 8399762483972345279}
-  m_bonusPanelDefaultButton: {fileID: 0}
+  m_bonusPanelDefaultButton: {fileID: 3068751302884554542}
   m_startupPanelDefaultButton: {fileID: 3259278420794892400}
   m_gamePanelDefaultButton: {fileID: 3347912296262018563}
   m_pausePanelDefaultButton: {fileID: 4860350383385024782}
@@ -3489,6 +3489,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1031a0c034df0c4e982a00a9cd8e643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3068751302884554542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7770519332678298934, guid: 5e2ad7d6e89cee34abbd806c164e3f2a, type: 3}
+  m_PrefabInstance: {fileID: 4701770263726594584}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4489043440260187763 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9154764836048641131, guid: 5e2ad7d6e89cee34abbd806c164e3f2a, type: 3}

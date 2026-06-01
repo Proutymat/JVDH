@@ -12,8 +12,6 @@ public class BonusPanel : MonoBehaviour
     [Title("Set in Inspector")]
     [SerializeField] private CanvasGroup m_previewLockState;
     [SerializeField] private CanvasGroup m_previewPlayState;
-    [SerializeField] private CanvasGroup m_previousButton;
-    [SerializeField] private CanvasGroup m_nextButton;
     [SerializeField] private List<GameObject> m_bonusMiniatures;
     [SerializeField] private TMP_Text m_titleText;
     [SerializeField] private TMP_Text m_descriptionText;
@@ -23,10 +21,16 @@ public class BonusPanel : MonoBehaviour
     [SerializeField] private InputActionReference m_escapeVideoAction;
     [SerializeField] private CanvasGroup m_closeVideoButton;
     [SerializeField] private VideoPlayerControls m_videoPlayerControls;
+    [Title("Previous and Next buttons", horizontalLine: false)]
+    [SerializeField] private CanvasGroup m_previousCanvas;
+    [SerializeField] private CanvasGroup m_nextCanvas;
+    [SerializeField] private Button m_previousButton;
+    [SerializeField] private Button m_nextButton;
     
     private int m_currentPage;
     private Bonus m_currentBonus;
     private bool m_isPlayingVideo;
+
     
     private void Start()
     {
@@ -38,8 +42,8 @@ public class BonusPanel : MonoBehaviour
     public void ResetUI()
     {
         m_currentPage = 0;
-        PanelManager.ShowCanvasGroup(false, m_previousButton);
-        PanelManager.ShowCanvasGroup(true, m_nextButton);
+        PanelManager.ShowCanvasGroup(false, m_previousCanvas);
+        PanelManager.ShowCanvasGroup(true, m_nextCanvas);
         
         // Disable every page and set lock state
         for (int i = 0; i < m_bonusMiniatures.Count; i++)
@@ -55,6 +59,17 @@ public class BonusPanel : MonoBehaviour
         }
 
         UpdatePreview(m_firstBonus);
+
+        
+        // Previous button navigation
+        Navigation previous = m_previousButton.navigation;
+        previous.selectOnRight = m_bonusMiniatures[4].GetComponent<Button>();
+        m_previousButton.navigation = previous;
+        
+        // Next button navigation
+        Navigation next = m_nextButton.navigation;
+        next.selectOnLeft = m_bonusMiniatures[3].GetComponent<Button>();
+        m_nextButton.navigation = next;
     }
 
     public void NextPage()
@@ -70,11 +85,23 @@ public class BonusPanel : MonoBehaviour
         m_currentPage++;
         
         // Show/hide arrow buttons
-        PanelManager.ShowCanvasGroup(true, m_previousButton);
+        PanelManager.ShowCanvasGroup(true, m_previousCanvas);
         if (m_currentPage == Math.Ceiling(m_bonusMiniatures.Count / 4f) - 1)
         {
-            PanelManager.ShowCanvasGroup(false, m_nextButton);
+            PanelManager.ShowCanvasGroup(false, m_nextCanvas);
         }
+        else
+        {
+            // Next button navigation
+            Navigation next = m_nextButton.navigation;
+            next.selectOnLeft = m_bonusMiniatures[3 + m_currentPage * 4].GetComponent<Button>();
+            m_nextButton.navigation = next;
+        }
+        
+        // Previous button navigation
+        Navigation previous = m_previousButton.navigation;
+        previous.selectOnRight = m_bonusMiniatures[0 + m_currentPage * 4].GetComponent<Button>();
+        m_previousButton.navigation = previous;
     }
 
     public void PreviousPage()
@@ -95,10 +122,10 @@ public class BonusPanel : MonoBehaviour
         }
 
         // Show/hide arrow buttons
-        PanelManager.ShowCanvasGroup(true, m_nextButton);
+        PanelManager.ShowCanvasGroup(true, m_nextCanvas);
         if (m_currentPage == 0)
         {
-            PanelManager.ShowCanvasGroup(false, m_previousButton);
+            PanelManager.ShowCanvasGroup(false, m_previousCanvas);
         }
     }
 
