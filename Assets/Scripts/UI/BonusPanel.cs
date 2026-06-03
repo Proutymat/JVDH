@@ -74,7 +74,7 @@ public class BonusPanel : MonoBehaviour
 
     public void NextPage()
     {
-        // Hide last page and show new page
+        // Hide last bonuses page and show new bonuses page
         int i = 0;
         while (i < 8 && i + m_currentPage * 4 < m_bonusMiniatures.Count)
         {
@@ -102,6 +102,8 @@ public class BonusPanel : MonoBehaviour
         Navigation previous = m_previousButton.navigation;
         previous.selectOnRight = m_bonusMiniatures[0 + m_currentPage * 4].GetComponent<Button>();
         m_previousButton.navigation = previous;
+        
+        InputManager.Instance.SetSelected(m_bonusMiniatures[m_currentPage * 4]);
     }
 
     public void PreviousPage()
@@ -127,6 +129,20 @@ public class BonusPanel : MonoBehaviour
         {
             PanelManager.ShowCanvasGroup(false, m_previousCanvas);
         }
+        else
+        {
+            // Previous button navigation
+            Navigation previous = m_previousButton.navigation;
+            previous.selectOnRight = m_bonusMiniatures[0 + m_currentPage * 4].GetComponent<Button>();
+            m_previousButton.navigation = previous;
+        }
+        
+        // Next button navigation
+        Navigation next = m_nextButton.navigation;
+        next.selectOnLeft = m_bonusMiniatures[3 + m_currentPage * 4].GetComponent<Button>();
+        m_nextButton.navigation = next;
+        
+        InputManager.Instance.SetSelected(m_bonusMiniatures[3 + m_currentPage * 4]);
     }
 
     public void UpdatePreview(Bonus bonus)
