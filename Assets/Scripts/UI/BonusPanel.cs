@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -10,17 +11,21 @@ using UnityEngine.Video;
 public class BonusPanel : MonoBehaviour
 {
     [Title("Set in Inspector")]
-    [SerializeField] private CanvasGroup m_previewLockState;
-    [SerializeField] private CanvasGroup m_previewPlayState;
     [SerializeField] private List<GameObject> m_bonusMiniatures;
     [SerializeField] private TMP_Text m_titleText;
     [SerializeField] private TMP_Text m_descriptionText;
     [SerializeField] private TMP_Text m_nameText;
-    [SerializeField] private Image m_previewImage;
     [SerializeField] private Bonus m_firstBonus;
     [SerializeField] private InputActionReference m_escapeVideoAction;
     [SerializeField] private CanvasGroup m_closeVideoButton;
     [SerializeField] private VideoPlayerControls m_videoPlayerControls;
+    [Title("Preview minia", horizontalLine: false)]
+    [SerializeField] private Image m_previewImage;
+    [SerializeField] private CanvasGroup m_previewLockState;
+    [SerializeField] private CanvasGroup m_previewPlayState;
+    [SerializeField] private Button m_previewPlayButton;
+    [SerializeField] private PreviewShake m_previewShake;
+    [SerializeField] private InputActionReference m_upAction;
     [Title("Previous and Next buttons", horizontalLine: false)]
     [SerializeField] private CanvasGroup m_previousCanvas;
     [SerializeField] private CanvasGroup m_nextCanvas;
@@ -157,6 +162,25 @@ public class BonusPanel : MonoBehaviour
         m_descriptionText.text = m_currentBonus.descriptionKey.GetLocalizedString();
         m_nameText.text = m_currentBonus.nameKey.GetLocalizedString();
         m_previewImage.sprite = m_currentBonus.previewMiniature;
+
+        // Update bonuses up navigation
+        for (int i = 0; i < m_bonusMiniatures.Count; i++)
+        {
+            Button button = m_bonusMiniatures[i].GetComponent<Button>();
+            Navigation nav = button.navigation;
+            nav.selectOnUp = m_previewPlayState.alpha == 1 ? m_previewPlayButton : null;
+            button.navigation = nav;
+        }
+        
+        // Update next arrow up-navigation
+        Navigation nextNav = m_nextButton.navigation;
+        nextNav.selectOnUp = m_previewPlayState.alpha == 1 ? m_previewPlayButton : null;
+        m_nextButton.navigation = nextNav;
+        
+        // Update previous arrow up-navigation
+        Navigation previousNav = m_previousButton.navigation;
+        previousNav.selectOnUp = m_previewPlayState.alpha == 1 ? m_previewPlayButton : null;
+        m_previousButton.navigation = previousNav;
     }
 
     public void OpenVideoPlayer()

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ArrowButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
+public class PlayArrowButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
 {
     [Title("Set in inspector")]
     [SerializeField] private AudioSource m_audioSource;
@@ -12,8 +12,6 @@ public class ArrowButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointer
     [SerializeField] private ColorVariable m_hoveredColor;
     [SerializeField] private RectTransform m_container;
     [SerializeField] private Image m_image;
-    [SerializeField] private Button m_backButton;
-    [SerializeField] private Button m_previewButton;
     
     private ButtonState m_state;
     
@@ -44,18 +42,6 @@ public class ArrowButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointer
     {
         if (hovered)
         {
-            Button currentSelected = gameObject.GetComponent<Button>();
-            
-            // Update back button nav
-            Navigation back = m_backButton.navigation;
-            back.selectOnUp = currentSelected;
-            m_backButton.navigation = back;
-            
-            // Update preview button nav
-            Navigation preview = m_previewButton.navigation;
-            preview.selectOnDown = currentSelected;
-            m_previewButton.navigation = preview;
-            
             SetState(ButtonState.Hovered);
             m_audioSource.Play();
         }

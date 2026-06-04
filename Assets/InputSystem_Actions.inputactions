@@ -589,6 +589,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Bonus_Up",
+                    "type": "Button",
+                    "id": "47d34828-b222-401d-8f3b-d49b4b5c683c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Bonus_EscapeVideo",
                     "type": "Button",
                     "id": "4112f7c3-4beb-4c29-82a6-2a7238be06fa",
@@ -1144,6 +1153,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "SkipCredits",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7588fe2d-d58b-4482-a61d-0d6a498a7669",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Bonus_Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "393c0ce7-53c8-4f2e-8102-c4b301804a1a",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Bonus_Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

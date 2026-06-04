@@ -263,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6000089682871255208}
   - component: {fileID: 6593400194632871331}
-  - component: {fileID: 1453441643585783844}
+  - component: {fileID: 4627008520122880646}
   - component: {fileID: 620214722068859181}
   - component: {fileID: 8334105028648948384}
   - component: {fileID: 4106146282273959900}
@@ -303,7 +303,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420890075853498390}
   m_CullTransparentMesh: 1
---- !u!114 &1453441643585783844
+--- !u!114 &4627008520122880646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1420890075853498390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e39ed9176d853b43b9e0f512ff88f4c, type: 3}
+  m_Script: {fileID: 11500000, guid: f46d966aeec07324c8ba203418c3acf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_audioSource: {fileID: 4106146282273959900}
@@ -363,10 +363,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 6656122843401257042}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1319,8 +1319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1031a0c034df0c4e982a00a9cd8e643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_previewLockState: {fileID: 2854005638961548351}
-  m_previewPlayState: {fileID: 5040064592530323595}
   m_bonusMiniatures:
   - {fileID: 7770519332678298934}
   - {fileID: 7382692004581175101}
@@ -1334,11 +1332,16 @@ MonoBehaviour:
   m_titleText: {fileID: 4255250156890729038}
   m_descriptionText: {fileID: 3736457583647970752}
   m_nameText: {fileID: 4131152693135574321}
-  m_previewImage: {fileID: 620214722068859181}
   m_firstBonus: {fileID: 11400000, guid: 166199ba257a940449e88faa38216b64, type: 2}
   m_escapeVideoAction: {fileID: 0}
   m_closeVideoButton: {fileID: 0}
   m_videoPlayerControls: {fileID: 0}
+  m_previewImage: {fileID: 620214722068859181}
+  m_previewLockState: {fileID: 2854005638961548351}
+  m_previewPlayState: {fileID: 5040064592530323595}
+  m_previewPlayButton: {fileID: 8334105028648948384}
+  m_previewShake: {fileID: 619389401813303581}
+  m_upAction: {fileID: 0}
   m_previousCanvas: {fileID: 7695474705122230486}
   m_nextCanvas: {fileID: 2740334555800427447}
   m_previousButton: {fileID: 3948810041668678003}
@@ -1650,6 +1653,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Bonus, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 7445064484959684415, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_Name
       value: Bonus6
@@ -1824,6 +1835,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Bonus, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 7445064484959684415, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_Name
       value: Bonus2
@@ -2002,6 +2021,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Bonus, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 7445064484959684415, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_Name
       value: Bonus5
@@ -2095,6 +2122,18 @@ PrefabInstance:
     - target: {fileID: 5352800383123153013, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352800383123153013, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352800383123153013, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352800383123153013, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5352800383123153013, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2200,6 +2239,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Bonus, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 7445064484959684415, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_Name
       value: Bonus1
@@ -2238,6 +2285,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3343185486021544634}
     m_Modifications:
+    - target: {fileID: 2929555634657248602, guid: c3295dc7170fab74c96b890f76e7bfce, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 2929555634657248602, guid: c3295dc7170fab74c96b890f76e7bfce, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 3083892218991057048, guid: c3295dc7170fab74c96b890f76e7bfce, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2532,6 +2587,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Bonus, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 7445064484959684415, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_Name
       value: Bonus8
@@ -2702,6 +2765,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Bonus, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 7445064484959684415, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_Name
       value: Bonus9
@@ -2881,6 +2952,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Bonus, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 7445064484959684415, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_Name
       value: Bonus3
@@ -2931,6 +3010,14 @@ PrefabInstance:
       propertyPath: m_BlocksRaycasts
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2929555634657248602, guid: c3295dc7170fab74c96b890f76e7bfce, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 2929555634657248602, guid: c3295dc7170fab74c96b890f76e7bfce, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 3083892218991057048, guid: c3295dc7170fab74c96b890f76e7bfce, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3189,6 +3276,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Back
       objectReference: {fileID: 0}
+    - target: {fileID: 7509535480591868229, guid: 0797b9f90c169654dbc331f28a9b74fa, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509535480591868229, guid: 0797b9f90c169654dbc331f28a9b74fa, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 6656122843401257042}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3350,6 +3445,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Bonus, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 7445064484959684415, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_Name
       value: Bonus7
@@ -3524,6 +3627,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Bonus, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_backButton
+      value: 
+      objectReference: {fileID: 2665854938590960639}
+    - target: {fileID: 6864006558989213007, guid: 7063c6372bdfc51428473b1278971578, type: 3}
+      propertyPath: m_previewButton
+      value: 
+      objectReference: {fileID: 8334105028648948384}
     - target: {fileID: 7445064484959684415, guid: 7063c6372bdfc51428473b1278971578, type: 3}
       propertyPath: m_Name
       value: Bonus4
