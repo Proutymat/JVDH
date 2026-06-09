@@ -47,15 +47,19 @@ public class BonusPanel : MonoBehaviour
     public void ResetUI()
     {
         m_currentPage = 0;
+        m_currentBonus = m_firstBonus;
         PanelManager.ShowCanvasGroup(false, m_previousCanvas);
         PanelManager.ShowCanvasGroup(true, m_nextCanvas);
         
         // Disable every page and set lock state
         for (int i = 0; i < m_bonusMiniatures.Count; i++)
         {
-            m_bonusMiniatures[i].SetActive(false);
-            m_bonusMiniatures[i].transform.GetChild(0).gameObject.SetActive(!SaveManager.Instance.Data.progression.success[i]);
+            m_bonusMiniatures[i].SetActive(false); // Disable bonuses
+            m_bonusMiniatures[i].transform.GetChild(0).gameObject.SetActive(!SaveManager.Instance.Data.progression.success[i]); // Set lock state
+            m_bonusMiniatures[i].transform.GetChild(1).gameObject.SetActive(false); // Disable  selected border
         }
+        
+        m_bonusMiniatures[0].transform.GetChild(1).gameObject.SetActive(true); // Enable first bonus selected border
         
         // Enable first page
         for (int i = 0; i < 4; i++)
@@ -152,7 +156,11 @@ public class BonusPanel : MonoBehaviour
 
     public void UpdatePreview(Bonus bonus)
     {
+        m_bonusMiniatures[m_currentBonus.bonusIndex].transform.GetChild(1).gameObject.SetActive(false); // Disable old selected border
+        
         m_currentBonus = bonus;
+        
+        m_bonusMiniatures[m_currentBonus.bonusIndex].transform.GetChild(1).gameObject.SetActive(true); // Enable current selected border
         
         PanelManager.ShowCanvasGroup(!SaveManager.Instance.Data.progression.success[bonus.bonusIndex], m_previewLockState);
         m_previewPlayState.alpha = SaveManager.Instance.Data.progression.success[bonus.bonusIndex] ? 1 : 0;
