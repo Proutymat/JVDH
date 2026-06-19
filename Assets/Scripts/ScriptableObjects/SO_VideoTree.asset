@@ -16,6 +16,6 @@ MonoBehaviour:
   description: "Premiere vid\xE9o du projet "
   choices:
   - {fileID: 11400000, guid: 811f99f5a61ac73489634eadc33d5ea6, type: 2}
-  - {fileID: 11400000, guid: 116e070051fd5a943b929914c1a4a9ff, type: 2}
+  timeButtonChoice: 0
   isEndNode: 0
   graphPosition: {x: 0, y: 0}

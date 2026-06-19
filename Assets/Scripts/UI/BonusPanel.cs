@@ -55,7 +55,7 @@ public class BonusPanel : MonoBehaviour
         for (int i = 0; i < m_bonusMiniatures.Count; i++)
         {
             m_bonusMiniatures[i].SetActive(false); // Disable bonuses
-            m_bonusMiniatures[i].transform.GetChild(0).gameObject.SetActive(!SaveManager.Instance.Data.progression.success[i]); // Set lock state
+            m_bonusMiniatures[i].transform.GetChild(0).gameObject.SetActive(!SaveManager.Instance.Data.progression.successUnlocked[i]); // Set lock state
             m_bonusMiniatures[i].transform.GetChild(1).gameObject.SetActive(false); // Disable  selected border
         }
         
@@ -162,8 +162,8 @@ public class BonusPanel : MonoBehaviour
         
         m_bonusMiniatures[m_currentBonus.bonusIndex].transform.GetChild(1).gameObject.SetActive(true); // Enable current selected border
         
-        PanelManager.ShowCanvasGroup(!SaveManager.Instance.Data.progression.success[bonus.bonusIndex], m_previewLockState);
-        m_previewPlayState.alpha = SaveManager.Instance.Data.progression.success[bonus.bonusIndex] ? 1 : 0;
+        PanelManager.ShowCanvasGroup(!SaveManager.Instance.Data.progression.successUnlocked[bonus.bonusIndex], m_previewLockState);
+        m_previewPlayState.alpha = SaveManager.Instance.Data.progression.successUnlocked[bonus.bonusIndex] ? 1 : 0;
         
         // Update preview
         m_titleText.text = m_currentBonus.titleKey.GetLocalizedString();

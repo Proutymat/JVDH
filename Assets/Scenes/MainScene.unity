@@ -4223,6 +4223,10 @@ PrefabInstance:
       propertyPath: m_controlsCanvasGroup
       value: 
       objectReference: {fileID: 1097294193}
+    - target: {fileID: 6936812836082590181, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
+      propertyPath: startVideoNode
+      value: 
+      objectReference: {fileID: 11400000, guid: 273ef169cae6e7b44bfbad073a511729, type: 2}
     - target: {fileID: 8520574492385206548, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
       propertyPath: m_image
       value: 

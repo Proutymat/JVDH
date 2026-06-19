@@ -62,6 +62,8 @@ public class VideoManager : MonoBehaviour
         bWaitingButtonChoice = true;
         
         PlayClip(node.videoClip);
+
+        m_videoPlayer.playbackSpeed = 10f;
     }
     
     
