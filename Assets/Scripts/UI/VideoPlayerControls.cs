@@ -91,7 +91,7 @@ public class VideoPlayerControls : MonoBehaviour
 
     public void ShowControls(bool show)
     {
-        if (!SaveManager.Instance.Data.settings.videoPlayerControls) return;
+        if (!SaveManager.Instance.Data.settings.videoPlayerControls && show) return;
         
         if (!show)
             m_lastMousePosition =  Mouse.current.position.ReadValue();
@@ -130,7 +130,7 @@ public class VideoPlayerControls : MonoBehaviour
 
         m_autoHideTimer += Time.deltaTime;
 
-        if (m_show && m_autoHideTimer >= m_autoHideDuration)
+        if (m_autoHideTimer >= m_autoHideDuration)
         {
             PanelManager.ShowCursor(false);
             ShowControls(false);
