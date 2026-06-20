@@ -201,6 +201,7 @@ public class BonusPanel : MonoBehaviour
         PanelManager.Instance.SetPanel(PanelState.Game, FadeStyle.FadeIn, null, null, VideoManager.Instance.UnPause);
         VideoManager.Instance.GetVideoPlayer.loopPointReached += CloseVideoPlayer;
         m_videoPlayerControls.ShowControls(false);
+        m_videoPlayerControls.EnableScrollbar(true);
         PanelManager.ShowCanvasGroup(true, m_closeVideoButton);
 
     }
@@ -217,6 +218,8 @@ public class BonusPanel : MonoBehaviour
         GameManager.Instance.GetGameState = GameState.MainMenu;
         VideoManager.Instance.GetVideoPlayer.loopPointReached -= CloseVideoPlayer;
         PanelManager.ShowCanvasGroup(false, m_closeVideoButton);
+        m_videoPlayerControls.EnableScrollbar(false);
+
         Debug.Log("CloseVideoPlayer");
     }
 

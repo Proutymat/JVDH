@@ -24,6 +24,8 @@ public class VideoPlayerControls : MonoBehaviour
     [SerializeField] private InputActionReference m_previousAction;
     [SerializeField] private InputActionReference m_nextAction;
     [SerializeField] private InputActionReference m_pauseVideoAction;
+    [SerializeField] private InputActionReference m_playBackwardAction;
+    [SerializeField] private InputActionReference m_playForwardAction;
     [Title("Pause/Play", horizontalLine: false)]
     [SerializeField] private Sprite m_pauseSprite;
     [SerializeField] private Sprite m_playSprite;
@@ -38,6 +40,7 @@ public class VideoPlayerControls : MonoBehaviour
     private Vector2 m_lastMousePosition;
     private float m_heldTime;
     private float m_repeatTimer;
+    private bool m_enableScrollbar;
     private bool m_show;
 
 
@@ -51,6 +54,7 @@ public class VideoPlayerControls : MonoBehaviour
         m_isDraggingSlider = false;
         m_isSeekingSlider = false;
         m_show = false;
+        m_enableScrollbar = false;
         
         ShowControls(false);
     }
@@ -88,10 +92,16 @@ public class VideoPlayerControls : MonoBehaviour
 
         m_videoPlayer.time = value * m_videoPlayer.length;
     }
+    
+    public void EnableScrollbar(bool enable)
+    {
+        m_enableScrollbar = enable;
+        m_videoSlider.gameObject.SetActive(enable);
+    }
 
     public void ShowControls(bool show)
     {
-        if (!SaveManager.Instance.Data.settings.videoPlayerControls && show) return;
+        if ((!SaveManager.Instance.Data.settings.videoPlayerControls || !m_enableScrollbar) && show) return;
         
         if (!show)
             m_lastMousePosition =  Mouse.current.position.ReadValue();
@@ -152,61 +162,20 @@ public class VideoPlayerControls : MonoBehaviour
         }
     }
     
-    private void Seek(double delta)
+    private void HandleArrowInput()
     {
-        Debug.Log("Cliqued");
 
-        double newTime = m_videoPlayer.time + delta;
-        newTime = Mathf.Clamp((float)newTime, 0f, (float)m_videoPlayer.length);
-
-        m_videoSlider.value = (float)(newTime / m_videoPlayer.length);
-
-        m_autoHideTimer = 0f;
-    }
-    
-    // DOES NOT WORK CORRECTLY
-    /*
-    private void HandleArrowInput(InputActionReference arrow, float seekStep)
-    {
-        // Key pressed, move once on video
-        if (arrow.action.WasPerformedThisFrame())
+        if (m_playBackwardAction.action.WasPerformedThisFrame())
         {
-            m_isSeekingSlider = true;
-            m_heldTime = 0f;
-            m_repeatTimer = 0f;
-            m_videoPlayer.time += seekStep;
-            Seek(seekStep);
-            ShowControls(true);
+            // hh
+        }
+        else if (m_playForwardAction.action.WasPerformedThisFrame())
+        {
+            //
         }
         
-        // Key held down, move on video continuously
-        if (arrow.action.IsPressed())
-        {
-            m_isDraggingSlider = true;
-            m_heldTime += Time.deltaTime;
-
-            // After delay, move on video at a set rate 
-            if (m_heldTime > m_holdInitialDelay)
-            {
-                m_repeatTimer += Time.deltaTime;
-
-                if (m_repeatTimer >= m_holdRepeatRate)
-                {
-                    m_repeatTimer = 0f;
-                    Seek(seekStep);
-                }
-            }
-        }
-
-        // Key released
-        if (arrow.action.WasReleasedThisFrame())
-        {
-            m_heldTime = 0f;
-            m_repeatTimer = 0f;
-            m_isDraggingSlider = false;
-            m_targetSeekTime = m_videoSlider.value * m_videoPlayer.length;
-        }
-    }*/
+        Debug.Log("Playback speed =  " + m_videoPlayer.playbackSpeed);
+    }
 
     private void UpdateSlider()
     {
@@ -257,8 +226,7 @@ public class VideoPlayerControls : MonoBehaviour
         if (!SaveManager.Instance.Data.settings.videoPlayerControls) return;
         
         HandleSpacebarInput();
-        //HandleArrowInput(m_previousAction, -m_arrowSeekStep);
-        //HandleArrowInput(m_nextAction, m_arrowSeekStep);
+        HandleArrowInput();
         UpdateSlider();
     }
 }
