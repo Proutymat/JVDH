@@ -16,7 +16,10 @@ public class VideoPlayerControls : MonoBehaviour
     [SerializeField] private float m_holdRepeatRate = 0.05f;
     
     [Title("Set in Inspector")]
-    [SerializeField] private VideoPlayer m_videoPlayer;
+    [SerializeField] private VideoPlayer m_forwardVideoPlayer;
+    [SerializeField] private VideoPlayer m_backwardVideoPlayer;
+    [SerializeField] private CanvasGroup m_backwardVideoPlayerCP;
+    [SerializeField] private CanvasGroup m_forwardVideoPlayerCP;
     [SerializeField] private CanvasGroup m_controlsCanvasGroup;
     [SerializeField] private Slider m_videoSlider;
     [SerializeField] private TMP_Text m_subtitleText;
@@ -42,6 +45,7 @@ public class VideoPlayerControls : MonoBehaviour
     private float m_repeatTimer;
     private bool m_enableScrollbar;
     private bool m_show;
+    private int m_speedLevel; // 0 : normal
 
 
     // --------------------------------------------
@@ -73,15 +77,15 @@ public class VideoPlayerControls : MonoBehaviour
     
     public void OnSliderPointerUp()
     {
-        if (m_videoPlayer.clip == null) return;
+        if (m_forwardVideoPlayer.clip == null) return;
 
-        double targetTime = m_videoSlider.value * m_videoPlayer.length;
+        double targetTime = m_videoSlider.value * m_forwardVideoPlayer.length;
 
         m_isDraggingSlider = false;
         m_isSeekingSlider = true;
         
         m_targetSeekTime = targetTime;
-        m_videoPlayer.time = targetTime;
+        m_forwardVideoPlayer.time = targetTime;
         
         m_autoHideTimer = 0f;
     }
@@ -90,7 +94,7 @@ public class VideoPlayerControls : MonoBehaviour
     {
         if (!m_isDraggingSlider) return;
 
-        m_videoPlayer.time = value * m_videoPlayer.length;
+        m_forwardVideoPlayer.time = value * m_forwardVideoPlayer.length;
     }
     
     public void EnableScrollbar(bool enable)
@@ -151,7 +155,7 @@ public class VideoPlayerControls : MonoBehaviour
     {
         if (m_pauseVideoAction.action.WasPerformedThisFrame())
         {
-            if (m_videoPlayer.isPlaying)
+            if (m_forwardVideoPlayer.isPlaying)
             {
                 VideoManager.Instance.Pause();
             }
@@ -161,20 +165,75 @@ public class VideoPlayerControls : MonoBehaviour
             }
         }
     }
+
+    private bool active = true;
     
     private void HandleArrowInput()
     {
-
+        bool toDelete = false;
         if (m_playBackwardAction.action.WasPerformedThisFrame())
         {
-            // hh
+            m_speedLevel--;
+            if (m_speedLevel < -3) m_speedLevel = -3;
+            toDelete = true;
         }
         else if (m_playForwardAction.action.WasPerformedThisFrame())
         {
-            //
+            m_speedLevel++;
+            if (m_speedLevel > 3) m_speedLevel = 3;
+            toDelete = true;
         }
         
-        Debug.Log("Playback speed =  " + m_videoPlayer.playbackSpeed);
+        Debug.Log("Speed Level: " + m_speedLevel);
+        Debug.Log("Playback speed =  " + m_forwardVideoPlayer.playbackSpeed);
+
+        if (!toDelete) return;
+        switch (m_speedLevel)
+        {
+            case -3:
+                m_backwardVideoPlayer.playbackSpeed = 25f;
+                break;
+            case -2:
+                m_backwardVideoPlayer.playbackSpeed = 10f;
+                break;
+            case -1:
+                m_backwardVideoPlayer.playbackSpeed = 4f;
+                m_forwardVideoPlayer.SetDirectAudioVolume(0, 0f);
+                m_backwardVideoPlayer.SetDirectAudioVolume(0, 1f);
+                PanelManager.ShowCanvasGroup(true, m_backwardVideoPlayerCP);
+                PanelManager.ShowCanvasGroup(false, m_forwardVideoPlayerCP);
+                double t = m_forwardVideoPlayer.time;
+                double length = m_forwardVideoPlayer.length;
+                m_backwardVideoPlayer.time = length - t;
+                active = true;
+                break;
+            case 0:
+                m_forwardVideoPlayer.playbackSpeed = 1f;
+                m_forwardVideoPlayer.SetDirectAudioVolume(0, 1f);
+                m_backwardVideoPlayer.SetDirectAudioVolume(0, 0f);
+                PanelManager.ShowCanvasGroup(false, m_backwardVideoPlayerCP);   
+                PanelManager.ShowCanvasGroup(true, m_forwardVideoPlayerCP);
+
+                if (active)
+                {
+                    double t2 = m_backwardVideoPlayer.time;
+                    double length2 = m_forwardVideoPlayer.length;
+                    m_forwardVideoPlayer.time = length2 - t2;
+                    active = false;
+                }
+                
+                break;
+            case 1:
+                m_forwardVideoPlayer.playbackSpeed = 4f;
+                break;
+            case 2:
+                m_forwardVideoPlayer.playbackSpeed = 10f;
+                break;
+            case 3:
+                m_forwardVideoPlayer.playbackSpeed = 25f;
+                break;
+            
+        }
     }
 
     private void UpdateSlider()
@@ -184,7 +243,7 @@ public class VideoPlayerControls : MonoBehaviour
         // Do not update the slider if it's being dragged
         if (m_isSeekingSlider)
         {
-            if (Mathf.Abs((float)(m_videoPlayer.time - m_targetSeekTime)) < 0.1f)
+            if (Mathf.Abs((float)(m_forwardVideoPlayer.time - m_targetSeekTime)) < 0.1f)
             {
                 m_isSeekingSlider = false;
             }
@@ -192,9 +251,9 @@ public class VideoPlayerControls : MonoBehaviour
         }
 
         // Update slider
-        if (m_videoPlayer.length > 0)
+        if (m_forwardVideoPlayer.length > 0)
         {
-            m_videoSlider.value = (float)(m_videoPlayer.time / m_videoPlayer.length);
+            m_videoSlider.value = (float)(m_forwardVideoPlayer.time / m_forwardVideoPlayer.length);
         }
     }
     

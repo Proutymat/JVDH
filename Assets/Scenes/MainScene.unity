@@ -2670,7 +2670,7 @@ PrefabInstance:
     - target: {fileID: 4839027723524293424, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 7887985687102521452}
+      objectReference: {fileID: 0}
     - target: {fileID: 4839027723524293424, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Video.VideoPlayer, UnityEngine
@@ -4223,6 +4223,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &7304251508492286189 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 142661481462999007, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+  m_PrefabInstance: {fileID: 7304251508492286187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &7304251508492286190 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1766858276828958919, guid: c86b7df135fa573458b2a353ee93405e, type: 3}
+  m_PrefabInstance: {fileID: 7304251508492286187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7887985687102521448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4251,10 +4261,6 @@ PrefabInstance:
       propertyPath: m_controlsCanvasGroup
       value: 
       objectReference: {fileID: 1097294193}
-    - target: {fileID: 6936812836082590181, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
-      propertyPath: startVideoNode
-      value: 
-      objectReference: {fileID: 11400000, guid: 273ef169cae6e7b44bfbad073a511729, type: 2}
     - target: {fileID: 8520574492385206548, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
       propertyPath: m_image
       value: 
@@ -4299,6 +4305,14 @@ PrefabInstance:
       propertyPath: m_controlsCanvasGroup
       value: 
       objectReference: {fileID: 1097294193}
+    - target: {fileID: 8520574492385206548, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
+      propertyPath: m_forwardVideoPlayerCP
+      value: 
+      objectReference: {fileID: 7304251508492286189}
+    - target: {fileID: 8520574492385206548, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
+      propertyPath: m_backwardVideoPlayerCP
+      value: 
+      objectReference: {fileID: 7304251508492286190}
     - target: {fileID: 9000072453049203636, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
       propertyPath: m_Name
       value: VideoManager
@@ -4370,11 +4384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f992048d7a9e5ba4da15e4b27cd437a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!328 &7887985687102521452 stripped
-VideoPlayer:
-  m_CorrespondingSourceObject: {fileID: 8928349392774480292, guid: d03775dd643dc724e9833a53fb4f5bb9, type: 3}
-  m_PrefabInstance: {fileID: 7887985687102521448}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8343540667669532798
 PrefabInstance:
   m_ObjectHideFlags: 0

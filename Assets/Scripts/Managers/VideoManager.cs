@@ -10,6 +10,7 @@ public class VideoManager : MonoBehaviour
     [Title("Set in Inspector")]
     [SerializeField] private RenderTexture m_renderTexture;
     [SerializeField] private VideoPlayer m_videoPlayer;
+    [SerializeField] private VideoPlayer m_backwardVideoPlayer;
     [SerializeField] private VideoClip m_menuClip;
     
 
@@ -62,6 +63,7 @@ public class VideoManager : MonoBehaviour
         bWaitingButtonChoice = true;
         
         PlayClip(node.videoClip);
+        SetBackwardClip(node.videoClipReversed);
     }
     
     
@@ -82,6 +84,16 @@ public class VideoManager : MonoBehaviour
         m_videoPlayer.clip = clip;
         m_videoPlayer.isLooping = loop;
         m_videoPlayer.Prepare();
+    }
+
+    public void SetBackwardClip(VideoClip clip)
+    {
+        if (clip == null) return;
+        
+        m_backwardVideoPlayer.Stop();
+        m_backwardVideoPlayer.clip = clip;
+        m_backwardVideoPlayer.isLooping = false;
+        m_backwardVideoPlayer.Prepare();
     }
     
     /*
@@ -117,6 +129,7 @@ public class VideoManager : MonoBehaviour
     {
         bPause = false;
         m_videoPlayer.Play();
+        m_backwardVideoPlayer.Play();
     }
     
     // --------------------------------------------

@@ -7,6 +7,7 @@ public class VideoNodeSO : ScriptableObject
 {
     [Header("Content")]
     public VideoClip videoClip;
+    public VideoClip videoClipReversed;
     [TextArea(2, 4)]
     public string description;
 
