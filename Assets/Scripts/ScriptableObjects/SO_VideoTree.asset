@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9ba2a213708cb4fb14ed4b490c1f45, type: 3}
   m_Name: SO_VideoTree
   m_EditorClassIdentifier: 
-  videoClip: {fileID: 32900000, guid: f80396a2ae283844aad8c144c3d1c710, type: 3}
-  videoClipReversed: {fileID: 32900000, guid: 257e8813a20691d4db757a95df8b1950, type: 3}
+  videoClip: {fileID: 32900000, guid: 2fbe9083ae574c14a849960dcae91fda, type: 3}
+  videoClipReversed: {fileID: 32900000, guid: 90fe82c930c1d1a4bb0edcaf94a839c6, type: 3}
   description: "Premiere vid\xE9o du projet "
   choices:
   - {fileID: 11400000, guid: 811f99f5a61ac73489634eadc33d5ea6, type: 2}

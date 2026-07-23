@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -8,7 +9,6 @@ using UnityEngine.Video;
 
 public class VideoPlayerControls : MonoBehaviour
 {
-    
     [Title("Parameters")]
     [SerializeField] private float m_autoHideDuration;
     [SerializeField] private float m_arrowSeekStep;
@@ -46,6 +46,10 @@ public class VideoPlayerControls : MonoBehaviour
     private bool m_enableScrollbar;
     private bool m_show;
     private int m_speedLevel; // 0 : normal
+    private List<int> m_speeds = new List<int> {1, 4, 10, 20};
+    private bool m_wasForward;
+    private bool m_backwardSeekPending;
+    private bool m_forwardSeekPending;
 
 
     // --------------------------------------------
@@ -59,6 +63,7 @@ public class VideoPlayerControls : MonoBehaviour
         m_isSeekingSlider = false;
         m_show = false;
         m_enableScrollbar = false;
+        m_wasForward = true;
         
         ShowControls(false);
     }
@@ -166,73 +171,144 @@ public class VideoPlayerControls : MonoBehaviour
         }
     }
 
-    private bool active = true;
+    private bool m_audioResetPending;
+
+    private void ForceAudioReset(VideoPlayer vp, float volume)
+    {
+        if (m_audioResetPending) return;
+
+        long targetFrame = vp.frame;
+        m_audioResetPending = true;
+
+        void OnPrepared(VideoPlayer p)
+        {
+            p.prepareCompleted -= OnPrepared;
+            p.frame = targetFrame;
+            p.Play();
+            p.SetDirectAudioVolume(0, volume);
+            m_audioResetPending = false;
+        }
+
+        vp.prepareCompleted += OnPrepared;
+        vp.Stop();
+        vp.Prepare();
+    }
+    
+    private void SwitchToBackward()
+    {
+        if (m_backwardSeekPending || !m_forwardVideoPlayer.isPrepared || !m_backwardVideoPlayer.isPrepared)
+            return;
+
+        m_forwardVideoPlayer.Pause();
+
+        long totalFrames = (long)m_forwardVideoPlayer.frameCount;
+        long targetFrame = System.Math.Clamp(totalFrames - 1 - m_forwardVideoPlayer.frame, 0, totalFrames - 1);
+
+        m_backwardSeekPending = true;
+        m_backwardVideoPlayer.seekCompleted += OnBackwardSeekCompleted;
+        m_backwardVideoPlayer.frame = targetFrame;
+    }
+    
+    private void SwitchToForward()
+    {
+        if (m_forwardSeekPending || !m_forwardVideoPlayer.isPrepared || !m_backwardVideoPlayer.isPrepared)
+            return;
+
+        m_backwardVideoPlayer.Pause();
+
+        long totalFrames = (long)m_forwardVideoPlayer.frameCount;
+        long targetFrame = System.Math.Clamp(totalFrames - 1 - m_backwardVideoPlayer.frame, 0, totalFrames - 1);
+
+        m_forwardSeekPending = true;
+        m_forwardVideoPlayer.seekCompleted += OnForwardSeekCompleted;
+        m_forwardVideoPlayer.frame = targetFrame;
+    }
+
+    private void OnBackwardSeekCompleted(VideoPlayer vp)
+    {
+        vp.seekCompleted -= OnBackwardSeekCompleted;
+        m_backwardSeekPending = false;
+
+        PanelManager.ShowCanvasGroup(false, m_forwardVideoPlayerCP);
+        PanelManager.ShowCanvasGroup(true, m_backwardVideoPlayerCP);
+        vp.Play();
+        vp.SetDirectAudioVolume(0, 0f);
+
+        m_wasForward = false;
+    }
+
+    private void OnForwardSeekCompleted(VideoPlayer vp)
+    {
+        vp.seekCompleted -= OnForwardSeekCompleted;
+        m_forwardSeekPending = false;
+
+        PanelManager.ShowCanvasGroup(false, m_backwardVideoPlayerCP);
+        PanelManager.ShowCanvasGroup(true, m_forwardVideoPlayerCP);
+
+        vp.EnableAudioTrack(0, false);
+        vp.EnableAudioTrack(0, true);
+        vp.Play();
+        vp.SetDirectAudioVolume(0, 1f);
+
+        m_wasForward = true;
+    }
     
     private void HandleArrowInput()
     {
-        bool toDelete = false;
+        bool arrowPressed = false;
         if (m_playBackwardAction.action.WasPerformedThisFrame())
         {
             m_speedLevel--;
             if (m_speedLevel < -3) m_speedLevel = -3;
-            toDelete = true;
+            arrowPressed = true;
         }
         else if (m_playForwardAction.action.WasPerformedThisFrame())
         {
             m_speedLevel++;
             if (m_speedLevel > 3) m_speedLevel = 3;
-            toDelete = true;
+            arrowPressed = true;
         }
+
+        if (!arrowPressed) return;
         
         Debug.Log("Speed Level: " + m_speedLevel);
         Debug.Log("Playback speed =  " + m_forwardVideoPlayer.playbackSpeed);
-
-        if (!toDelete) return;
+        
         switch (m_speedLevel)
         {
             case -3:
-                m_backwardVideoPlayer.playbackSpeed = 25f;
+                m_backwardVideoPlayer.playbackSpeed = m_speeds[3];
                 break;
             case -2:
-                m_backwardVideoPlayer.playbackSpeed = 10f;
+                m_backwardVideoPlayer.playbackSpeed = m_speeds[2];
                 break;
             case -1:
-                m_backwardVideoPlayer.playbackSpeed = 4f;
                 m_forwardVideoPlayer.SetDirectAudioVolume(0, 0f);
-                m_backwardVideoPlayer.SetDirectAudioVolume(0, 1f);
-                PanelManager.ShowCanvasGroup(true, m_backwardVideoPlayerCP);
-                PanelManager.ShowCanvasGroup(false, m_forwardVideoPlayerCP);
-                double t = m_forwardVideoPlayer.time;
-                double length = m_forwardVideoPlayer.length;
-                m_backwardVideoPlayer.time = length - t;
-                active = true;
+                m_backwardVideoPlayer.playbackSpeed = m_speeds[1];
+                if (m_wasForward) SwitchToBackward();
                 break;
             case 0:
-                m_forwardVideoPlayer.playbackSpeed = 1f;
+                m_forwardVideoPlayer.playbackSpeed = m_speeds[0];
                 m_forwardVideoPlayer.SetDirectAudioVolume(0, 1f);
-                m_backwardVideoPlayer.SetDirectAudioVolume(0, 0f);
-                PanelManager.ShowCanvasGroup(false, m_backwardVideoPlayerCP);   
-                PanelManager.ShowCanvasGroup(true, m_forwardVideoPlayerCP);
-
-                if (active)
+                if (!m_wasForward)
                 {
-                    double t2 = m_backwardVideoPlayer.time;
-                    double length2 = m_forwardVideoPlayer.length;
-                    m_forwardVideoPlayer.time = length2 - t2;
-                    active = false;
+                    SwitchToForward();
                 }
-                
+                else
+                {
+                    ForceAudioReset(m_forwardVideoPlayer, 1f);
+                }
                 break;
             case 1:
-                m_forwardVideoPlayer.playbackSpeed = 4f;
+                m_forwardVideoPlayer.SetDirectAudioVolume(0, 0f);
+                m_forwardVideoPlayer.playbackSpeed = m_speeds[1];
                 break;
             case 2:
-                m_forwardVideoPlayer.playbackSpeed = 10f;
+                m_forwardVideoPlayer.playbackSpeed = m_speeds[2];
                 break;
             case 3:
-                m_forwardVideoPlayer.playbackSpeed = 25f;
+                m_forwardVideoPlayer.playbackSpeed = m_speeds[3];
                 break;
-            
         }
     }
 

@@ -93,6 +93,7 @@ public class VideoManager : MonoBehaviour
         m_backwardVideoPlayer.Stop();
         m_backwardVideoPlayer.clip = clip;
         m_backwardVideoPlayer.isLooping = false;
+        m_backwardVideoPlayer.SetDirectAudioVolume(0, 0f);
         m_backwardVideoPlayer.Prepare();
     }
     
