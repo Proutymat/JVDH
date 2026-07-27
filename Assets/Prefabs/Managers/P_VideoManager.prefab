@@ -234,6 +234,13 @@ MonoBehaviour:
   m_pauseSprite: {fileID: 0}
   m_playSprite: {fileID: 0}
   m_image: {fileID: 0}
+  m_backwardImage: {fileID: 0}
+  m_forwardImage: {fileID: 0}
+  m_forwardSprites:
+  - {fileID: 21300000, guid: d186733b8b351fd44992453238b15424, type: 3}
+  - {fileID: 21300000, guid: 6d8a6ce3d26f66c499c4b80700c05082, type: 3}
+  - {fileID: 21300000, guid: ecbf0fb68a184a44aabeeb65c1f9b815, type: 3}
+  - {fileID: 21300000, guid: 46df00f41b68d774ea5eaf42c882b618, type: 3}
 --- !u!114 &817123177709458168
 MonoBehaviour:
   m_ObjectHideFlags: 0

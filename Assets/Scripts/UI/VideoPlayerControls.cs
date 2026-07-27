@@ -33,6 +33,11 @@ public class VideoPlayerControls : MonoBehaviour
     [SerializeField] private Sprite m_pauseSprite;
     [SerializeField] private Sprite m_playSprite;
     [SerializeField] private Image m_image;
+    [Title("Forward/backward", horizontalLine: false)]
+    [SerializeField] private Image m_backwardImage;
+    [SerializeField] private Image m_forwardImage;
+    [SerializeField] private List<Sprite> m_forwardSprites;
+
     
     private bool m_isDraggingSlider;
     private bool m_isSeekingSlider;
@@ -160,9 +165,17 @@ public class VideoPlayerControls : MonoBehaviour
     {
         if (m_pauseVideoAction.action.WasPerformedThisFrame())
         {
-            if (m_forwardVideoPlayer.isPlaying)
+            if (m_forwardVideoPlayer.isPlaying || m_backwardVideoPlayer.isPlaying)
             {
-                VideoManager.Instance.Pause();
+                if (m_speedLevel == 0)
+                {
+                    VideoManager.Instance.Pause();
+                }
+                else
+                {
+                    m_speedLevel = 0;
+                    SetNormalPlaybackspeed();
+                }
             }
             else
             {
@@ -252,6 +265,22 @@ public class VideoPlayerControls : MonoBehaviour
 
         m_wasForward = true;
     }
+
+    private void SetNormalPlaybackspeed()
+    {
+        m_forwardVideoPlayer.playbackSpeed = m_speeds[0];
+        m_backwardImage.sprite = m_forwardSprites[0];
+        m_forwardImage.sprite = m_forwardSprites[0];
+        m_forwardVideoPlayer.SetDirectAudioVolume(0, 1f);
+        if (!m_wasForward)
+        {
+            SwitchToForward();
+        }
+        else
+        {
+            ForceAudioReset(m_forwardVideoPlayer, 1f);
+        }
+    }
     
     private void HandleArrowInput()
     {
@@ -278,36 +307,33 @@ public class VideoPlayerControls : MonoBehaviour
         {
             case -3:
                 m_backwardVideoPlayer.playbackSpeed = m_speeds[3];
+                m_backwardImage.sprite = m_forwardSprites[3];
                 break;
             case -2:
                 m_backwardVideoPlayer.playbackSpeed = m_speeds[2];
+                m_backwardImage.sprite = m_forwardSprites[2];
                 break;
             case -1:
                 m_forwardVideoPlayer.SetDirectAudioVolume(0, 0f);
                 m_backwardVideoPlayer.playbackSpeed = m_speeds[1];
+                m_backwardImage.sprite = m_forwardSprites[1];
                 if (m_wasForward) SwitchToBackward();
                 break;
             case 0:
-                m_forwardVideoPlayer.playbackSpeed = m_speeds[0];
-                m_forwardVideoPlayer.SetDirectAudioVolume(0, 1f);
-                if (!m_wasForward)
-                {
-                    SwitchToForward();
-                }
-                else
-                {
-                    ForceAudioReset(m_forwardVideoPlayer, 1f);
-                }
+                SetNormalPlaybackspeed();
                 break;
             case 1:
                 m_forwardVideoPlayer.SetDirectAudioVolume(0, 0f);
                 m_forwardVideoPlayer.playbackSpeed = m_speeds[1];
+                m_forwardImage.sprite = m_forwardSprites[1];
                 break;
             case 2:
                 m_forwardVideoPlayer.playbackSpeed = m_speeds[2];
+                m_forwardImage.sprite = m_forwardSprites[2];
                 break;
             case 3:
                 m_forwardVideoPlayer.playbackSpeed = m_speeds[3];
+                m_forwardImage.sprite = m_forwardSprites[3];
                 break;
         }
     }
