@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -14,6 +15,7 @@ public class VideoPlayerControls : MonoBehaviour
     [SerializeField] private float m_arrowSeekStep;
     [SerializeField] private float m_holdInitialDelay = 0.3f;
     [SerializeField] private float m_holdRepeatRate = 0.05f;
+    [SerializeField] private float m_directionSwitchCooldown = 1f;
     
     [Title("Set in Inspector")]
     [SerializeField] private VideoPlayer m_forwardVideoPlayer;
@@ -55,6 +57,7 @@ public class VideoPlayerControls : MonoBehaviour
     private bool m_wasForward;
     private bool m_backwardSeekPending;
     private bool m_forwardSeekPending;
+    private float m_switchLockedUntil = -Mathf.Infinity;
 
 
     // --------------------------------------------
@@ -272,6 +275,8 @@ public class VideoPlayerControls : MonoBehaviour
         m_backwardImage.sprite = m_forwardSprites[0];
         m_forwardImage.sprite = m_forwardSprites[0];
         m_forwardVideoPlayer.SetDirectAudioVolume(0, 1f);
+        m_switchLockedUntil = Time.time + m_directionSwitchCooldown;
+        
         if (!m_wasForward)
         {
             SwitchToForward();
@@ -300,8 +305,8 @@ public class VideoPlayerControls : MonoBehaviour
 
         if (!arrowPressed) return;
         
-        Debug.Log("Speed Level: " + m_speedLevel);
-        Debug.Log("Playback speed =  " + m_forwardVideoPlayer.playbackSpeed);
+        //Debug.Log("Speed Level: " + m_speedLevel);
+        //Debug.Log("Playback speed =  " + m_forwardVideoPlayer.playbackSpeed);
         
         switch (m_speedLevel)
         {
@@ -363,6 +368,7 @@ public class VideoPlayerControls : MonoBehaviour
     {
         if (!SaveManager.Instance.Data.settings.videoPlayerControls || GameManager.Instance.GetGameState == GameState.MainMenu) return;
         
+        /* DISABLED THIS BEHAVIOR FOR NOW (because I think it's unuseful)
         if (VideoManager.Instance.GetVideoPlayer.isPlaying)
         {
             VideoManager.Instance.Pause();
@@ -372,7 +378,7 @@ public class VideoPlayerControls : MonoBehaviour
         {
             VideoManager.Instance.UnPause();
             m_image.sprite = m_playSprite;
-        }
+        }*/
         
         ShowControls(true);
     }
@@ -387,7 +393,8 @@ public class VideoPlayerControls : MonoBehaviour
         if (!SaveManager.Instance.Data.settings.videoPlayerControls) return;
         
         HandleSpacebarInput();
-        HandleArrowInput();
+        Debug.Log(Time.time > m_switchLockedUntil);
+        if (Time.time > m_switchLockedUntil) HandleArrowInput();
         UpdateSlider();
     }
 }
