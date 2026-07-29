@@ -12,7 +12,7 @@ public class VideoManager : MonoBehaviour
     [SerializeField] private VideoPlayer m_forwardVideoPlayer;
     [SerializeField] private VideoPlayer m_backwardVideoPlayer;
     [SerializeField] private VideoClip m_menuClip;
-    
+    [SerializeField] private VideoEndBehavior m_videoEndBehavior;
 
     public VideoPlayer GetVideoPlayer { get => m_forwardVideoPlayer; }
 
@@ -64,6 +64,7 @@ public class VideoManager : MonoBehaviour
         
         PlayClip(node.videoClip);
         SetBackwardClip(node.videoClipReversed);
+        m_videoEndBehavior.ResetEndedState();
     }
     
     

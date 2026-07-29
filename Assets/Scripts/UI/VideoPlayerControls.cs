@@ -39,6 +39,7 @@ public class VideoPlayerControls : MonoBehaviour
     [SerializeField] private Image m_backwardImage;
     [SerializeField] private Image m_forwardImage;
     [SerializeField] private List<Sprite> m_forwardSprites;
+    [SerializeField] private VideoEndBehavior m_videoEndBehavior;
 
     
     private bool m_isDraggingSlider;
@@ -166,6 +167,8 @@ public class VideoPlayerControls : MonoBehaviour
 
     private void HandleSpacebarInput()
     {
+        if (m_videoEndBehavior.IsEnded) return;
+
         if (m_pauseVideoAction.action.WasPerformedThisFrame())
         {
             if (m_forwardVideoPlayer.isPlaying || m_backwardVideoPlayer.isPlaying)
@@ -223,6 +226,9 @@ public class VideoPlayerControls : MonoBehaviour
         m_backwardSeekPending = true;
         m_backwardVideoPlayer.seekCompleted += OnBackwardSeekCompleted;
         m_backwardVideoPlayer.frame = targetFrame;
+        
+        m_videoEndBehavior.IsForward = false;
+        m_videoEndBehavior.ResetEndedState();
     }
     
     private void SwitchToForward()
@@ -269,13 +275,21 @@ public class VideoPlayerControls : MonoBehaviour
         m_wasForward = true;
     }
 
-    private void SetNormalPlaybackspeed()
+    public void StopForwardSpeed()
     {
+        m_speedLevel = 0;
         m_forwardVideoPlayer.playbackSpeed = m_speeds[0];
         m_backwardImage.sprite = m_forwardSprites[0];
         m_forwardImage.sprite = m_forwardSprites[0];
         m_forwardVideoPlayer.SetDirectAudioVolume(0, 1f);
         m_switchLockedUntil = Time.time + m_directionSwitchCooldown;
+        m_videoEndBehavior.IsForward = true;
+    }
+
+    public void SetNormalPlaybackspeed()
+    {
+        StopForwardSpeed();
+        m_videoEndBehavior.ResetEndedState();
         
         if (!m_wasForward)
         {
@@ -393,8 +407,10 @@ public class VideoPlayerControls : MonoBehaviour
         if (!SaveManager.Instance.Data.settings.videoPlayerControls) return;
         
         HandleSpacebarInput();
-        Debug.Log(Time.time > m_switchLockedUntil);
-        if (Time.time > m_switchLockedUntil) HandleArrowInput();
+        if (Time.time > m_switchLockedUntil)
+        {
+            HandleArrowInput();
+        }
         UpdateSlider();
     }
 }

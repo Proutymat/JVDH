@@ -189,6 +189,7 @@ MonoBehaviour:
   m_forwardVideoPlayer: {fileID: 6272258857319132454}
   m_backwardVideoPlayer: {fileID: 8744645792463152685}
   m_menuClip: {fileID: 32900000, guid: 93eb068b4b92eb447b35371e858406a4, type: 3}
+  m_videoEndBehavior: {fileID: 817123177709458168}
 --- !u!114 &6936812836082590181
 MonoBehaviour:
   m_ObjectHideFlags: 0
