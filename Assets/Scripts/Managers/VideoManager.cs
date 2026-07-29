@@ -9,12 +9,12 @@ public class VideoManager : MonoBehaviour
 
     [Title("Set in Inspector")]
     [SerializeField] private RenderTexture m_renderTexture;
-    [SerializeField] private VideoPlayer m_videoPlayer;
+    [SerializeField] private VideoPlayer m_forwardVideoPlayer;
     [SerializeField] private VideoPlayer m_backwardVideoPlayer;
     [SerializeField] private VideoClip m_menuClip;
     
 
-    public VideoPlayer GetVideoPlayer { get => m_videoPlayer; }
+    public VideoPlayer GetVideoPlayer { get => m_forwardVideoPlayer; }
 
     private bool bWaitingButtonChoice = false;
     private bool bPause = false;
@@ -80,10 +80,10 @@ public class VideoManager : MonoBehaviour
 
         SubtitleManager.Instance.SetSRTFile();
         
-        m_videoPlayer.Stop();
-        m_videoPlayer.clip = clip;
-        m_videoPlayer.isLooping = loop;
-        m_videoPlayer.Prepare();
+        m_forwardVideoPlayer.Stop();
+        m_forwardVideoPlayer.clip = clip;
+        m_forwardVideoPlayer.isLooping = loop;
+        m_forwardVideoPlayer.Prepare();
     }
 
     public void SetBackwardClip(VideoClip clip)
@@ -102,8 +102,8 @@ public class VideoManager : MonoBehaviour
      */
     public void Stop()
     {
-        m_videoPlayer.Stop();
-        m_videoPlayer.clip = null;
+        m_forwardVideoPlayer.Stop();
+        m_forwardVideoPlayer.clip = null;
 
         if (m_renderTexture != null)
         {
@@ -120,7 +120,8 @@ public class VideoManager : MonoBehaviour
     public void Pause()
     {
         bPause = true;
-        m_videoPlayer.Pause();
+        m_forwardVideoPlayer.Pause();
+        m_backwardVideoPlayer.Pause();
     }
     
     /*
@@ -129,7 +130,7 @@ public class VideoManager : MonoBehaviour
     public void UnPause()
     {
         bPause = false;
-        m_videoPlayer.Play();
+        m_forwardVideoPlayer.Play();
         m_backwardVideoPlayer.Play();
     }
     

@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_renderTexture: {fileID: 8400000, guid: 19615c0e8d1e1024da271a50992f2e28, type: 2}
-  m_videoPlayer: {fileID: 6272258857319132454}
+  m_forwardVideoPlayer: {fileID: 6272258857319132454}
   m_backwardVideoPlayer: {fileID: 8744645792463152685}
   m_menuClip: {fileID: 32900000, guid: 93eb068b4b92eb447b35371e858406a4, type: 3}
 --- !u!114 &6936812836082590181
@@ -219,6 +219,7 @@ MonoBehaviour:
   m_arrowSeekStep: 10
   m_holdInitialDelay: 0.3
   m_holdRepeatRate: 0.05
+  m_directionSwitchCooldown: 1
   m_forwardVideoPlayer: {fileID: 6272258857319132454}
   m_backwardVideoPlayer: {fileID: 8744645792463152685}
   m_backwardVideoPlayerCP: {fileID: 0}
@@ -241,6 +242,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6d8a6ce3d26f66c499c4b80700c05082, type: 3}
   - {fileID: 21300000, guid: ecbf0fb68a184a44aabeeb65c1f9b815, type: 3}
   - {fileID: 21300000, guid: 46df00f41b68d774ea5eaf42c882b618, type: 3}
+  m_videoEndBehavior: {fileID: 817123177709458168}
 --- !u!114 &817123177709458168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +256,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fadeDuration: 1
-  m_videoPlayer: {fileID: 6272258857319132454}
+  m_forwardVideoPlayer: {fileID: 6272258857319132454}
+  m_backwardVideoPlayer: {fileID: 8744645792463152685}
   m_videoMaterial: {fileID: 2100000, guid: af293c6ef853e9d47894a9c04665bed6, type: 2}
   m_soundManager: {fileID: 0}
   m_videoEndClip: {fileID: 8300000, guid: 72766300768f7e9429a94bd8c1cb2dff, type: 3}
+  m_videoPlayerControls: {fileID: 8520574492385206548}
